@@ -1,0 +1,57 @@
+{
+  "name": "@ocupop/ocubits",
+  "version": "0.0.3",
+  "type": "module",
+  "main": "./dist/ocubits.umd.cjs",
+  "module": "./dist/ocubits.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/ocubits.js",
+      "require": "./dist/ocubits.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "description": "Bits of reusable code for Ocupop projects",
+  "author": "Ocupop",
+  "license": "MIT",
+  "homepage": "https://ocupop.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ocupop/ocubits.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ocupop/ocubits/issues"
+  },
+  "keywords": [
+    "ocupop",
+    "design-system",
+    "react-components"
+  ],
+  "scripts": {
+    "dev": "storybook dev -p 4000",
+    "build": "storybook build"
+  },
+  "dependencies": {
+    "formik": "^2.2.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.2",
+    "@storybook/addon-interactions": "^7.0.2",
+    "@storybook/addon-links": "^7.0.2",
+    "@storybook/blocks": "^7.0.2",
+    "@storybook/react": "^7.0.2",
+    "@storybook/react-vite": "^7.0.2",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "prop-types": "^15.8.1",
+    "rollup": "^3.20.2",
+    "storybook": "^7.0.2",
+    "tailwindcss": "^3.3.1"
+  }
+}
