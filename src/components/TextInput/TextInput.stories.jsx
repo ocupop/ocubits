@@ -1,14 +1,26 @@
 import React from 'react'
-import Test from './Test'
+import { Field } from 'formik'
+
+import TextInput from './TextInput'
+import { FormikWrapper } from '@lib'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Test',
-  component: Test
+  title: 'TextInput',
+  component: TextInput
 }
 
-const Template = (args) => <Test {...args} />
+const Template = (args) => (
+  <FormikWrapper>
+    <Field {...args} component={TextInput} />
+  </FormikWrapper>
+)
 
 export const Basic = Template.bind({})
 
-Basic.args = {}
+Basic.args = {
+  name: 'textInput',
+  label: 'Text Input',
+  hint: 'This is a hint',
+  placeholder: 'Placeholder',
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Label from './label'
+import Label from '../Label/Label'
 import { getIn } from 'formik'
 import './TextInput.css'
 // ----------------------------------------------------------------------
