@@ -6,7 +6,7 @@ Test.propTypes = {
   children: PropTypes.node
 }
 
-export default function Test({ children }) {
+export default function Test ({ children }) {
   return (
     <>
       <h1>Test</h1>
