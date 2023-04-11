@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Hint from './Hint'
+import Tooltip from '../Tooltip/Tooltip'
 // ----------------------------------------------------------------------
 
 Label.propTypes = {
@@ -17,7 +17,7 @@ export default function Label({ hint, label, children, className }) {
         <span className="whitespace-nowrap">{label}</span>
         {children}
       </label>
-      {hint && <Hint message={hint}/>}
+      {hint && <Tooltip>{hint}</Tooltip>}
     </div>
   )
 }
