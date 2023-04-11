@@ -1,0 +1,27 @@
+.ocutooltip:not([data-unstyled]){
+  @apply absolute inline-block items-center;
+
+  button{
+    @apply flex justify-center w-0 p-2 mx-2 text-sm font-medium text-center text-white bg-gray-600 rounded-full focus:bg-primary hover:bg-primary hover:text-white;
+  }
+
+  .tooltip{
+    @apply text-sm max-w-xs font-normal inline-block absolute z-50 py-2 px-3 text-dark bg-white border border-light shadow-xl transition-all duration-500 rounded-lg;
+    @apply top-0 pointer-events-none;
+    &.top{
+      transform:translateY(-100%);
+    }
+    &.bottom{
+      @apply top-auto bottom-0 translate-y-full;
+    }
+    &.left{
+      @apply top-1/2 left-0 -translate-x-full -translate-y-1/2;
+    }
+    &.right{
+      @apply top-1/2 right-0 translate-x-full -translate-y-1/2;
+    }
+    .tooltip-arrow{
+      @apply absolute;
+    }
+  }
+}
