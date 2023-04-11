@@ -13,7 +13,7 @@ const FormikDebug = () => {
           e.preventDefault()
           setOpen(!open)
         }}
-        className="bg-transparent text-primary">
+        className="formikdebug bg-transparent text-primary">
         <span>{open ? '-' : '+'}</span> debug
       </button>
       {open && (

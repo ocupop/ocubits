@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}'
+  ],
+  safelist: [
+    'border',
+    'border-solid',
+    'border-primary'
   ],
   theme: {
     extend: {
@@ -11,7 +16,7 @@ module.exports = {
         light: '#eaeaea',
         dark: '#333333'
       }
-    },
+    }
   },
-  plugins: [],
+  plugins: []
 }

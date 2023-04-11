@@ -1,15 +1,15 @@
-/*
-This css is not specific to this component.
-We may need to add some class names to each component so they can be targeted.
-*/
 .ocutextinput:not([data-unstyled]){
   &.form-group{
-    @apply inline-block;
+    @apply max-w-xs;
     .form-input{
-      @apply border border-gray-300 bg-gray-100 p-1;
+      width: calc(100% - 0.25rem - 0.25rem - 1px - 1px ); /* need to subtract padding and border from max-width */
+      @apply border border-solid border-gray-300 bg-gray-100 p-1;
+      &.invalid{
+        @apply border-red-600;
+      }
     }
     .form-validation-error{
-      @apply block bg-red-300 text-dark p-1 mt-2;
+      @apply block bg-red-300 text-dark p-1;
     }
   }
 }

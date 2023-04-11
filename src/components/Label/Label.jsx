@@ -10,7 +10,7 @@ Label.propTypes = {
   children: PropTypes.node
 }
 
-export default function Label({ hint, label, children, className }) {
+export default function Label ({ hint, label, children, className }) {
   return (
     <div className={`flex relative ${className}`}>
       <label>
@@ -21,3 +21,5 @@ export default function Label({ hint, label, children, className }) {
     </div>
   )
 }
+
+// {hint && <Tooltip className='' placement='bottom' triggerType='hover' unstyled={false}>{hint}</Tooltip>}

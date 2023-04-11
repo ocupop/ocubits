@@ -22,7 +22,7 @@ TextInput.defaultProps = {
   type: 'text'
 }
 
-export default function TextInput({
+export default function TextInput ({
   className,
   innerRef,
   hint,
@@ -34,10 +34,9 @@ export default function TextInput({
   form,
   form: { errors, touched }
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? `invalid` : ``
-
+  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`form-group ${className}`}>
+    <div className={`ocutextinput form-group ${className}`}>
       <Label label={label} hint={hint}></Label>
       <input
         className={`form-input ${status}`}
