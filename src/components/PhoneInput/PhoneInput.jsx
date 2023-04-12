@@ -1,13 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Label from '../Label/Label'
 import { getIn } from 'formik'
-import './TextInput.css'
+import MaskedInput from 'react-text-mask'
+import Label from '../Label/Label'
+import './PhoneInput.css'
 // ----------------------------------------------------------------------
 
-TextInput.propTypes = {
+const phoneMask = [
+  '(',
+  /[1-9]/,
+  /\d/,
+  /\d/,
+  ')',
+  ' ',
+  /\d/,
+  /\d/,
+  /\d/,
+  '-',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/
+]
+
+PhoneInput.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.func,
   hint: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.string,
@@ -17,35 +34,34 @@ TextInput.propTypes = {
   form: PropTypes.instanceOf(Object)
 }
 
-TextInput.defaultProps = {
+PhoneInput.defaultProps = {
   className: '',
   type: 'text'
 }
 
-export default function TextInput ({
+export default function PhoneInput ({
   className,
-  innerRef,
   hint,
   type,
   label,
-  placeholder = '',
-  required = false,
+  placeholder,
+  required,
   field,
   form: { errors, touched }
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
+  const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
+
   return (
-    <div className={`ocu-textinput form-group ${className}`}>
+    <div className={`ocu-phoneinput form-group ${className}`}>
       <Label label={label} hint={hint} >{required && <span className='required'>*</span>}</Label>
-      <input
+      <MaskedInput
+        mask={phoneMask}
         className={`form-input ${status}`}
         {...field}
         placeholder={placeholder}
         type={type}
         required={required}
-        ref={innerRef}
       />
-
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

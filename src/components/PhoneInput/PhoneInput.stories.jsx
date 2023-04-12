@@ -4,21 +4,21 @@ import { FormikWrapper } from '@lib'
 import * as Yup from 'yup'
 import PropTypes from 'prop-types'
 
-import TextInput from './TextInput'
+import PhoneInput from './PhoneInput'
 import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/TextInput',
-  component: TextInput,
+  title: 'Components/PhoneInput',
+  component: PhoneInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { exclude: ['className', 'validationSchema', 'innerRef', 'type', 'form', 'field'] }
+    controls: { exclude: ['className', 'validationSchema', 'type', 'form', 'field'] }
   },
   args: {
     // passed into <Field ...>
-    name: 'fieldName',
-    label: 'Field Label',
+    name: 'phone',
+    label: 'Phone Number',
     hint: null,
     placeholder: null,
     className: '',
@@ -38,7 +38,7 @@ const Template = ({ name, label, hint, placeholder, className, initialValues, va
   const field = { name, label, hint, placeholder, className, required }
   return (
     <FormikWrapper {...formik}>
-      <Field {...field} component={TextInput} className={className} />
+      <Field {...field} component={PhoneInput} className={className} />
     </FormikWrapper>
   )
 }
@@ -58,20 +58,14 @@ export const Basic = Template.bind({})
 
 // export const WithOverrides = Template.bind({})
 // WithOverrides.args = {
-//   name: 'yourName',
-//   label: 'Your Name',
+//   name: 'phone',
+//   label: 'Your Phone Number',
 //   hint: 'Hint: Must be between 5-12 characters.',
-//   placeholder: 'Enter Your name',
+//   placeholder: '(###) ###-####',
 //   className: 'shazam',
 //   required: true,
 //   initialValues: {
-//     yourName: 'John Doe'
+//     phone: '5555555555'
 //   },
-//   validationSchema: Yup.object().shape({
-//     yourName: Yup.string()
-//       .min(5, 'Too Short!')
-//       .max(12, 'Too Long!')
-//       .required('Required')
-//   }),
 //   debug: true
 // }

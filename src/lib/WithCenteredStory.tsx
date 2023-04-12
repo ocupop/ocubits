@@ -10,6 +10,7 @@ const CenteredStory = ({ horizontal, vertical, children }: CenteredStoryProps) =
   return (
     <div
       style={{
+        marginTop: '3rem',
         minHeight: '100%',
         width: '100%',
         display: 'flex',

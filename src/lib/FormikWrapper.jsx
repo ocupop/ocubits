@@ -7,34 +7,25 @@ FormikWrapper.propTypes = {
   children: PropTypes.node,
   initialValues: PropTypes.instanceOf(Object),
   validationSchema: PropTypes.instanceOf(Object),
-  onSubmit: PropTypes.func,
-  includeSubmitButton: PropTypes.bool
+  debug: PropTypes.bool
 }
 FormikWrapper.defaultProps = {
   children: null,
   initialValues: {},
-  validationSchema: {},
-  onSubmit: () => null,
-  includeSubmitButton: false
+  validationSchema: false,
+  debug: false
 }
 
-export default function FormikWrapper ({ children, initialValues, validationSchema, onSubmit, includeSubmitButton }) {
+export default function FormikWrapper ({ children, debug, initialValues, validationSchema }) {
   return (
-    <div className="border border-solid border-primary">
-    <Formik
-      enableReinitialize
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
+    <Formik enableReinitialize initialValues={initialValues} validationSchema={validationSchema}>
       {() => (
         <Form>
           {children}
-          {includeSubmitButton && <input type="submit" name="submit" value="Submit"/> }
-          <FormikDebug />
+          {debug && <input type="submit" name="submit" value="Submit"/> }
+          {debug && <FormikDebug /> }
         </Form>
       )}
     </Formik>
-    </div>
   )
 }

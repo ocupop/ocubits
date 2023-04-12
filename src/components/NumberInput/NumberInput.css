@@ -1,4 +1,4 @@
-.ocu-textinput:not([data-unstyled]){
+.ocu-numberinput:not([data-unstyled]){
   &.form-group{
     @apply max-w-xs;
     .form-input{

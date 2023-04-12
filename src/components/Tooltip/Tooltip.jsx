@@ -1,31 +1,31 @@
 import React, { useState, FC } from 'react'
-import './Tooltip.css';
+import PropTypes, { bool } from 'prop-types'
+import './Tooltip.css'
 
 // ----------------------------------------------------------------------
 
 const ToolTip = ({
   children,
-  className = '',
-  placement = 'top',
-  triggerType: hover,
-  unstyled = false,
+  className,
+  placement,
+  triggerType,
+  unstyled,
   ...props
 }) => {
   const [show, setShow] = useState(false)
 
   return (
-    <div {...props} className={`ocutooltip ${className}`}  data-unstyled={unstyled ? true : null}>
+    <div {...props} className={`ocu-tooltip ${className}`} data-unstyled={unstyled ? true : null}>
       {show && (
         <div
           id="tooltip-default"
           role="tooltip"
-          style={{ minWidth: '300px' }}
+          style={{ minWidth: '200px', textAlign: 'center' }}
           className={`tooltip ${placement}  `}>
           {children}
           <div
             className="tooltip-arrow"
-            data-popper-arrow
-            style={{ width: '12px', height: '12px' }}></div>
+            data-popper-arrow></div>
         </div>
       )}
       <button
@@ -38,6 +38,21 @@ const ToolTip = ({
       </button>
     </div>
   )
+}
+ToolTip.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  placement: PropTypes.string,
+  triggerType: PropTypes.string,
+  unstyled: PropTypes.bool
+}
+
+ToolTip.defaultProps = {
+  children: PropTypes.node,
+  className: '',
+  placement: 'top',
+  // triggerType: hover,
+  unstyled: false
 }
 
 export default ToolTip
