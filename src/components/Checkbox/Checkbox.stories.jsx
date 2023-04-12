@@ -46,7 +46,10 @@ Template.propTypes = {
   className: PropTypes.string,
   required: PropTypes.bool,
   initialValues: PropTypes.object,
-  validationSchema: PropTypes.object,
+  validationSchema: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
   debug: PropTypes.bool
 }
 
@@ -63,44 +66,5 @@ WithOverrides.args = {
   validationSchema: Yup.object().shape({
     likeCake: Yup.boolean().oneOf([true], 'You must check this box')
   }),
-  debug: true
-}
-
-const TemplateMultiple = ({ fields, initialValues, validationSchema, debug }) => {
-  const formik = { initialValues, validationSchema, debug }
-  return (
-    <FormikWrapper {...formik}>
-      {fields.map((field, i) => (
-          <Field {...field} key={i} component={CheckboxInput} className={field.className} />
-      ))}
-    </FormikWrapper>
-  )
-}
-TemplateMultiple.propTypes = {
-  fields: PropTypes.object,
-  initialValues: PropTypes.object,
-  validationSchema: PropTypes.object,
-  debug: PropTypes.bool
-}
-export const Multiple = TemplateMultiple.bind({})
-Multiple.args = {
-  fields: [
-    {
-      name: 'option1',
-      label: 'Option 1',
-      className: 'opt1'
-    },
-    {
-      name: 'option2',
-      label: 'Option 2',
-      className: 'opt2'
-    },
-    {
-      name: 'option3',
-      label: 'Option 3',
-      className: 'opt3'
-    }
-  ],
-  initialValues: { option1: true },
   debug: true
 }

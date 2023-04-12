@@ -49,7 +49,10 @@ Template.propTypes = {
   placeholder: PropTypes.string,
   className: PropTypes.string,
   initialValues: PropTypes.object,
-  validationSchema: PropTypes.object,
+  validationSchema: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
   required: PropTypes.bool,
   debug: PropTypes.bool
 }

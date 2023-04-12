@@ -52,7 +52,10 @@ Template.propTypes = {
   required: PropTypes.bool,
   maskOptions: PropTypes.object,
   initialValues: PropTypes.object,
-  validationSchema: PropTypes.object,
+  validationSchema: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
   debug: PropTypes.bool
 }
 

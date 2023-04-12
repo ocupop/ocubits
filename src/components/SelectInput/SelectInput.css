@@ -1,0 +1,25 @@
+.ocu-select:not([data-unstyled]){
+  &.form-group{
+    .required{
+      @apply text-warning;
+    }
+    .form-input{
+      @apply mb-1 border border-dark bg-light p-1;
+      &.invalid{
+        @apply border-warning;
+      }
+    }
+    .form-validation-error{
+      @apply mb-1 block bg-warning text-dark p-1;
+    }
+  }
+  .select-group{
+    @apply flex items-center justify-between;
+    .label{}
+    .badges{
+      @apply bg-light rounded-2xl text-dark inline-block text-xs font-normal py-1 px-2 text-center;
+    }
+  }
+}
+
+

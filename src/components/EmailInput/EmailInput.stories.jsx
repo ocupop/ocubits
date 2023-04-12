@@ -1,32 +1,31 @@
 import React from 'react'
 import { Field } from 'formik'
 import { FormikWrapper } from '@lib'
-import PropTypes from 'prop-types'
 import * as Yup from 'yup'
+import PropTypes from 'prop-types'
 
-import TextArea from './TextArea'
+import EmailInput from './EmailInput'
 import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/TextArea',
-  component: TextArea,
+  title: 'Components/EmailInput',
+  component: EmailInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { exclude: ['className', 'validationSchema', 'innerRef', 'form', 'field'] }
+    controls: { exclude: ['className', 'validationSchema', 'type', 'form', 'field'] }
   },
   args: {
     // passed into <Field ...>
-    name: 'fieldName',
-    label: 'Field Label',
+    name: 'email',
+    label: 'Email Address',
     hint: null,
-    placeholder: null,
+    placeholder: '',
     className: '',
-    rows: 4,
     required: false,
 
     // passed into <Formik ...>
-    initialValues: { fieldName: '' },
+    initialValues: { email: '' },
     validationSchema: false,
 
     // Passed into <FormikWrapper...>
@@ -34,12 +33,12 @@ export default {
   }
 }
 
-const Template = ({ name, label, hint, placeholder, className, rows, required, initialValues, validationSchema, debug }) => {
+const Template = ({ name, label, hint, placeholder, className, initialValues, validationSchema, required, debug }) => {
   const formik = { initialValues, validationSchema, debug }
-  const field = { name, label, hint, placeholder, className, rows, required }
+  const field = { name, label, hint, placeholder, className, required }
   return (
     <FormikWrapper {...formik}>
-      <Field {...field} component={TextArea} className={className} />
+      <Field {...field} component={EmailInput} className={className} />
     </FormikWrapper>
   )
 }
@@ -49,13 +48,12 @@ Template.propTypes = {
   hint: PropTypes.string,
   placeholder: PropTypes.string,
   className: PropTypes.string,
-  rows: PropTypes.number,
-  required: PropTypes.bool,
   initialValues: PropTypes.object,
   validationSchema: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.object
   ]),
+  required: PropTypes.bool,
   debug: PropTypes.bool
 }
 

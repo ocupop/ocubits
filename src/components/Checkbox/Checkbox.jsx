@@ -12,7 +12,6 @@ CheckboxInput.propTypes = {
   hint: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.string,
-  placeholder: PropTypes.string,
   required: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
