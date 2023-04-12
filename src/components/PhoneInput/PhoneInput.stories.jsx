@@ -20,7 +20,7 @@ export default {
     name: 'phone',
     label: 'Phone Number',
     hint: null,
-    placeholder: null,
+    placeholder: '(___) ___-____',
     className: '',
     required: false,
 

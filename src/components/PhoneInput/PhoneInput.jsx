@@ -36,7 +36,7 @@ PhoneInput.propTypes = {
 
 PhoneInput.defaultProps = {
   className: '',
-  type: 'text'
+  type: 'phone'
 }
 
 export default function PhoneInput ({

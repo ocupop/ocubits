@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Label from '../Label/Label'
+import MaskedInput from 'react-text-mask'
 import { getIn } from 'formik'
+import Label from '../Label/Label'
 import './TextInput.css'
 // ----------------------------------------------------------------------
 
@@ -13,13 +14,20 @@ TextInput.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  maskOptions: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
 
 TextInput.defaultProps = {
   className: '',
-  type: 'text'
+  type: 'text',
+  maskOptions: false,
+  required: false,
+  placeholder: ''
 }
 
 export default function TextInput ({
@@ -28,8 +36,9 @@ export default function TextInput ({
   hint,
   type,
   label,
-  placeholder = '',
-  required = false,
+  placeholder,
+  required,
+  maskOptions,
   field,
   form: { errors, touched }
 }) {
@@ -37,7 +46,8 @@ export default function TextInput ({
   return (
     <div className={`ocu-textinput form-group ${className}`}>
       <Label label={label} hint={hint} >{required && <span className='required'>*</span>}</Label>
-      <input
+      <MaskedInput
+        mask={maskOptions}
         className={`form-input ${status}`}
         {...field}
         placeholder={placeholder}
@@ -45,7 +55,6 @@ export default function TextInput ({
         required={required}
         ref={innerRef}
       />
-
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}
