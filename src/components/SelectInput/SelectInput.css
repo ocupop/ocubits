@@ -1,18 +1,18 @@
 .ocu-select:not([data-unstyled]){
   &.form-group{
-    .required:after{
-      @apply content-['*'];
-      @apply text-warning ml-2;
-    }
+    @apply max-w-xs;
     .form-input{
       @apply mb-1 border border-dark bg-light p-1;
       &.invalid{
         @apply border-warning;
       }
     }
-    .form-validation-error{
-      @apply mb-1 block bg-warning text-dark p-1;
-    }
+  }
+  .required::after{
+    @apply content-['*'] text-warning ml-2;
+  }
+  .form-validation-error{
+    @apply block mb-1 bg-warning text-dark p-1;
   }
   .select-group{
     @apply flex items-center justify-between;

@@ -16,9 +16,7 @@ module.exports = {
         light: '#eaeaea',
         dark: '#333333',
         info: '#0044ff',
-        warning: 'red',
-        danger: 'orange',
-        success: 'green'
+        warning: '#ff7777'
       }
     }
   },

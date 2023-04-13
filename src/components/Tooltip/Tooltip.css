@@ -2,9 +2,9 @@
   @apply inline-block relative items-center;
 
   button{
-    @apply flex justify-center w-0 p-2 mx-2 text-xs font-medium text-white border-none bg-info rounded-full ;
-    @apply focus:bg-primary;
-    @apply hover:bg-primary;
+    @apply flex justify-center w-0 p-2 mx-2 text-xs font-medium text-white border-none bg-dark bg-opacity-30 rounded-full ;
+    @apply focus:bg-opacity-100;
+    @apply hover:bg-opacity-100;
   }
 
   .tooltip{

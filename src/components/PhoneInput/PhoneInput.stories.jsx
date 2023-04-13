@@ -15,14 +15,18 @@ export default {
   parameters: {
     controls: { exclude: ['className', 'validationSchema', 'type', 'form', 'field'] }
   },
+  argTypes: {
+    format: { control: 'select', options: ['usParens', 'usNoAreaCode', 'international'] }
+  },
   args: {
     // passed into <Field ...>
     name: 'phone',
     label: 'Phone Number',
     hint: null,
-    placeholder: '(___) ___-____',
+    placeholder: 'Enter your Phone',
     className: '',
     required: false,
+    format: 'usParens',
 
     // passed into <Formik ...>
     initialValues: { phone: '' },
@@ -33,12 +37,12 @@ export default {
   }
 }
 
-const Template = ({ name, label, hint, placeholder, className, initialValues, validationSchema, required, debug }) => {
+const Template = ({ name, label, hint, placeholder, className, initialValues, validationSchema, required, format, debug }) => {
   const formik = { initialValues, validationSchema, debug }
-  const field = { name, label, hint, placeholder, className, required }
+  const field = { name, label, hint, placeholder, className, required, format }
   return (
     <FormikWrapper {...formik}>
-      <Field {...field} component={PhoneInput} className={className} />
+      <Field {...field} component={PhoneInput} />
     </FormikWrapper>
   )
 }
@@ -54,6 +58,7 @@ Template.propTypes = {
     PropTypes.object
   ]),
   required: PropTypes.bool,
+  format: PropTypes.string,
   debug: PropTypes.bool
 }
 
