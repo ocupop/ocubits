@@ -52,7 +52,7 @@ export default function SelectInput ({
   }
   return (
     <div className={`form-group ocu-select ${className}`}>
-      <Label label={label} hint={hint}>{required && <span className='required'>*</span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
       <Select
         {...field}
         required={required}

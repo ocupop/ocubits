@@ -53,7 +53,7 @@ export default function PhoneInput ({
 
   return (
     <div className={`ocu-phoneinput form-group ${className}`}>
-      <Label label={label} hint={hint} >{required && <span className='required'>*</span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
       <MaskedInput
         mask={phoneMask}
         className={`form-input ${status}`}

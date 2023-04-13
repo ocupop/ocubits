@@ -1,18 +1,19 @@
 .ocu-checkbox:not([data-unstyled]){
   &.form-group{
-    @apply flex flex-col;
-    .label-and-checkbox{
-      @apply flex;
-      .checkbox-wrapper{
-        @apply mr-2;
-      }
-      label{}
+    @apply flex flex-wrap;
+    input[type=checkbox]{
+      @apply mr-2;
+      @apply order-1;
     }
-    .required{
-      @apply text-warning;
+    .label-wrap{
+      @apply order-2;
     }
     .form-validation-error{
-      @apply mb-1 block bg-warning text-dark p-1;
+      @apply order-3;
+      @apply w-full mb-1 block bg-warning text-dark p-1;
+    }
+    .required:after{
+      @apply content-['*'] text-warning ml-2;
     }
   }
 }

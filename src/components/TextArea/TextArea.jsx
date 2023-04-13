@@ -34,7 +34,7 @@ export default function TextArea ({
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
     <div className={`form-group ocu-textarea ${className}`}>
-      <Label label={label} hint={hint}>{required && <span className='required'>*</span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
       <textarea
         className={`form-input ${status}`}
         {...field}

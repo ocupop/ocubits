@@ -1,0 +1,8 @@
+.label-wrap{
+  @apply flex relative;
+  label{
+    > span{
+      @apply whitespace-nowrap;
+    }
+  }
+}

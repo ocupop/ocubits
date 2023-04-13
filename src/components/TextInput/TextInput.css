@@ -8,13 +8,12 @@
         @apply border-warning;
       }
     }
-    .required{
-      @apply text-warning;
+    .required::before{
+      content:'*';
+      @apply text-warning ml-2;
     }
     .form-validation-error{
       @apply mb-1 block bg-warning text-dark p-1;
     }
   }
 }
-
-

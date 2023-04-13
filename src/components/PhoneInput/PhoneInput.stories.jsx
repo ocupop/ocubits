@@ -25,7 +25,7 @@ export default {
     required: false,
 
     // passed into <Formik ...>
-    initialValues: { fieldName: '' },
+    initialValues: { phone: '' },
     validationSchema: false,
 
     // Passed into <FormikWrapper...>

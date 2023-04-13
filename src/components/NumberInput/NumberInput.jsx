@@ -57,7 +57,7 @@ export default function NumberInput ({
 
   return (
     <div className={`ocu-numberinput form-group ${className}`}>
-      <Label label={label} hint={hint} >{required && <span className='required'>*</span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
       <MaskedInput
         mask={numberMask}
         className={`form-input ${status}`}

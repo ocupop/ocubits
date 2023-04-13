@@ -45,7 +45,7 @@ export default function TextInput ({
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
     <div className={`ocu-textinput form-group ${className}`}>
-      <Label label={label} hint={hint} >{required && <span className='required'>*</span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
       <MaskedInput
         mask={maskOptions}
         className={`form-input ${status}`}

@@ -8,8 +8,9 @@
         @apply border-warning;
       }
     }
-    .required{
-      @apply text-warning;
+    .required:after{
+      @apply content-['*'];
+      @apply text-warning ml-2;
     }
     .form-validation-error{
       @apply mb-1 block bg-warning text-dark p-1;

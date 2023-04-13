@@ -37,7 +37,7 @@ export default function EmailInput ({
 
   return (
     <div className={`ocu-emailinput form-group ${className}`}>
-      <Label label={label} hint={hint} >{required && <span className='required'>*</span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
       <MaskedInput
         mask={emailMask}
         className={`form-input ${status}`}
