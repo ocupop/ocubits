@@ -8,7 +8,7 @@ import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/SelectInput',
+  title: 'Fields/SelectInput',
   component: SelectInput,
   decorators: [withCenteredStory],
   parameters: {

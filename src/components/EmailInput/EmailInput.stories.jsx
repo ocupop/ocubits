@@ -9,7 +9,7 @@ import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/EmailInput',
+  title: 'Fields/EmailInput',
   component: EmailInput,
   decorators: [withCenteredStory],
   parameters: {

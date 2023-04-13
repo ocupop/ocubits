@@ -8,7 +8,7 @@ import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'Fields/Checkbox',
   component: CheckboxInput,
   decorators: [withCenteredStory],
   parameters: {

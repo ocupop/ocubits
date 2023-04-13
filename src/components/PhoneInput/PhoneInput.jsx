@@ -24,6 +24,6 @@ export default function PhoneInput ({ format, ...props }) {
             ? international
             : false
   return (
-    <TextInput {...props} maskOptions={mask} />
+    <TextInput {...props} type='phone' maskOptions={mask} />
   )
 }

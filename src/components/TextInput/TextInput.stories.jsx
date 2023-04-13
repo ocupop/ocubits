@@ -11,7 +11,7 @@ import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/TextInput',
+  title: 'Fields/TextInput',
   component: TextInput,
   decorators: [withCenteredStory],
   parameters: {

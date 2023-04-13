@@ -9,7 +9,7 @@ import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/TextArea',
+  title: 'Fields/TextArea',
   component: TextArea,
   decorators: [withCenteredStory],
   parameters: {

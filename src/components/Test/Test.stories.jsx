@@ -4,7 +4,7 @@ import Test from './Test'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/Test',
+  title: 'Fields/Test',
   component: Test,
   args: {
     title: 'Default Title'

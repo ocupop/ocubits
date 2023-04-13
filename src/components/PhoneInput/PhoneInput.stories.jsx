@@ -9,7 +9,7 @@ import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Components/PhoneInput',
+  title: 'Fields/PhoneInput',
   component: PhoneInput,
   decorators: [withCenteredStory],
   parameters: {
