@@ -1,75 +1,54 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
-import MaskedInput from 'react-text-mask'
-import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 
-import Label from '../Label/Label'
-import './NumberInput.css'
+import MaskedInput from '../MaskedInput/MaskedInput'
+import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 // ----------------------------------------------------------------------
+
+NumberInput.propTypes = {
+  maskOptions: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.bool
+  ])
+}
+
+NumberInput.defaultProps = {
+  maskOptions: null
+}
 
 const defaultMaskOptions = {
   prefix: '',
   suffix: '',
-  includeThousandsSeparator: true,
+  includeThousandsSeparator: false,
   thousandsSeparatorSymbol: ',',
   allowDecimal: true,
   decimalSymbol: '.',
   decimalLimit: 2, // how many digits allowed after the decimal
-  integerLimit: 3, // limit length of integer numbers
+  integerLimit: 20, // limit length of integer numbers
   requireDecimal: false,
-  allowNegative: false,
+  allowNegative: true,
   allowLeadingZeroes: false
 }
 
-NumberInput.propTypes = {
-  className: PropTypes.string,
-  hint: PropTypes.string,
-  type: PropTypes.string,
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
-  maskOptions: PropTypes.instanceOf(Object),
-  field: PropTypes.instanceOf(Object),
-  form: PropTypes.instanceOf(Object)
-}
-
-NumberInput.defaultProps = {
-  className: '',
-  type: 'text'
-}
-
-export default function NumberInput ({
-  className,
-  hint,
-  type,
-  label,
-  placeholder,
-  required,
-  field,
-  maskOptions,
-  form: { errors, touched }
-}) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
-  const numberMask = createNumberMask({
+export default function NumberInput ({ maskOptions, ...props }) {
+  const allMaskOptions = {
     ...defaultMaskOptions,
     ...maskOptions
-  })
-
+  }
+  const type = (
+    !allMaskOptions.allowLeadingZeroes &&
+    (!allMaskOptions.includeThousandsSeparator || allMaskOptions.thousandsSeparatorSymbol === '') &&
+    allMaskOptions.prefix === '' &&
+    allMaskOptions.suffix === ''
+  )
+    ? 'number'
+    : 'text'
   return (
-    <div className={`ocu-numberinput form-group ${className}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
-      <MaskedInput
-        mask={numberMask}
-        className={`form-input ${status}`}
-        {...field}
-        placeholder={placeholder}
-        type={type}
-        required={required}
-      />
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
-    </div>
+    <MaskedInput
+      {...props}
+      type={type}
+      maskOptions={createNumberMask(allMaskOptions)}
+    />
   )
 }

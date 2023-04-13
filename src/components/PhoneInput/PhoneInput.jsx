@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import TextInput from '../TextInput/TextInput'
+import MaskedInput from '../MaskedInput/MaskedInput'
 // ----------------------------------------------------------------------
 
 const usParens = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-
 const usNoAreaCode = [/\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-
 const international = ['+', /\d/, /\d/, ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/] // TESTING: NOT an actual mask
 
 PhoneInput.propTypes = {
@@ -17,7 +15,7 @@ PhoneInput.defaultProps = {
   format: 'usParens'
 }
 export default function PhoneInput ({ format, ...props }) {
-  const mask = (format === 'usParens')
+  const maskOptions = (format === 'usParens')
     ? usParens
     : (format === 'usNoAreaCode')
         ? usNoAreaCode
@@ -25,6 +23,6 @@ export default function PhoneInput ({ format, ...props }) {
             ? international
             : false
   return (
-    <TextInput {...props} type='phone' maskOptions={mask} />
+    <MaskedInput {...props} type='tel' maskOptions={maskOptions} />
   )
 }

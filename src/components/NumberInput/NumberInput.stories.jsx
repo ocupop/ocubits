@@ -20,13 +20,13 @@ export default {
     placeholder: '',
     className: '',
     required: false,
-    maskOptions: {},
     initialValues: { nbr: '' },
-    debug: false
+    debug: false,
+    maskOptions: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, required, maskOptions, initialValues, debug }) {
+function Template ({ name, label, hint, placeholder, className, required, initialValues, debug, maskOptions }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -39,11 +39,30 @@ function Template ({ name, label, hint, placeholder, className, required, maskOp
         hint={hint}
         placeholder={placeholder}
         required={required}
-        maskOptions={maskOptions}
         className={className}
+        maskOptions={maskOptions}
       />
     </FormikWrapper>
   )
 }
 
 export const Basic = Template.bind({})
+
+export const WithCommas = Template.bind({})
+WithCommas.args = {
+  label: 'Enter any large number',
+  maskOptions: {
+    includeThousandsSeparator: true
+  }
+}
+
+export const Currency = Template.bind({})
+Currency.args = {
+  label: 'Enter an Amount',
+  maskOptions: {
+    prefix: '$',
+    includeThousandsSeparator: true,
+    decimalLimit: 2,
+    integerLimit: 5
+  }
+}

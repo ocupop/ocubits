@@ -11,10 +11,10 @@ export default {
   component: PhoneInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'format'] }
   },
   argTypes: {
-    format: { control: 'select', options: ['usParens', 'usNoAreaCode', 'international'] }
+    format: { control: 'select', options: ['usParens', 'usNoAreaCode', 'international', null] }
   },
   args: {
     name: 'phone',

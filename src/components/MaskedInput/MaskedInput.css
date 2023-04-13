@@ -1,4 +1,4 @@
-.ocu-emailinput{
+.ocu-maskedinput{
   &.form-group{
     @apply max-w-xs;
     .form-input{
@@ -12,5 +12,3 @@
     @apply block mb-1 bg-warning text-dark p-1;
   }
 }
-
-
