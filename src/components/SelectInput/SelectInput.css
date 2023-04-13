@@ -1,4 +1,4 @@
-.ocu-select:not([data-unstyled]){
+.ocu-select{
   &.form-group{
     @apply max-w-xs;
     .form-input{
@@ -7,9 +7,6 @@
         @apply border-warning;
       }
     }
-  }
-  .required::after{
-    @apply content-['*'] text-warning ml-2;
   }
   .form-validation-error{
     @apply block mb-1 bg-warning text-dark p-1;

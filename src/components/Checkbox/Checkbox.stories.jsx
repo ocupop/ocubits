@@ -1,10 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Field } from 'formik'
-import { FormikWrapper } from '@lib'
-import PropTypes from 'prop-types'
-import * as Yup from 'yup'
+
+import { FormikWrapper, withCenteredStory } from '@lib'
 import CheckboxInput from './Checkbox'
-import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
@@ -12,59 +11,35 @@ export default {
   component: CheckboxInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { exclude: ['className', 'validationSchema', 'innerRef', 'type', 'form', 'field'] }
+    controls: { include: ['name', 'label', 'hint', 'required', 'debug'] }
   },
   args: {
-    // passed into <Field ...>
     name: 'checkFieldName',
     label: 'Field Label',
-    hint: null,
+    hint: '',
     className: '',
-
-    // passed into <Formik ...>
-    initialValues: { checkFieldName: true },
-    validationSchema: false,
-
-    // Passed into <FormikWrapper...>
-    debug: false
+    initialValues: { },
+    debug: false,
+    required: false
   }
 }
 
-const Template = ({ name, label, hint, className, required, initialValues, validationSchema, debug }) => {
-  const formik = { initialValues, validationSchema, debug }
-  const field = { name, label, hint, className, required }
+function Template ({ name, label, hint, className, required, initialValues, debug }) {
   return (
-    <FormikWrapper {...formik}>
-      <Field {...field} component={CheckboxInput} className={className} />
+    <FormikWrapper
+      initialValues={initialValues}
+      debug={debug}
+    >
+      <Field
+        component={CheckboxInput}
+        className={className}
+        name={name}
+        label={label}
+        hint={hint}
+        required={required}
+      />
     </FormikWrapper>
   )
 }
-Template.propTypes = {
-  name: PropTypes.string,
-  label: PropTypes.string,
-  hint: PropTypes.string,
-  className: PropTypes.string,
-  required: PropTypes.bool,
-  initialValues: PropTypes.object,
-  validationSchema: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
-  debug: PropTypes.bool
-}
 
 export const Basic = Template.bind({})
-
-export const WithOverrides = Template.bind({})
-WithOverrides.args = {
-  name: 'likeCake',
-  label: 'Do you like cake?',
-  hint: 'Check here if you do.',
-  className: 'blammo',
-  required: false,
-  initialValues: { likeCake: true },
-  validationSchema: Yup.object().shape({
-    likeCake: Yup.boolean().oneOf([true], 'You must check this box')
-  }),
-  debug: true
-}

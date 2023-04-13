@@ -1,11 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Field } from 'formik'
-import { FormikWrapper } from '@lib'
-import * as Yup from 'yup'
-import PropTypes from 'prop-types'
 
+import { FormikWrapper, withCenteredStory } from '@lib'
 import EmailInput from './EmailInput'
-import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
@@ -13,48 +11,37 @@ export default {
   component: EmailInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { exclude: ['className', 'validationSchema', 'type', 'form', 'field'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
   },
   args: {
-    // passed into <Field ...>
     name: 'email',
     label: 'Email Address',
-    hint: null,
+    hint: '',
     placeholder: '',
-    className: '',
     required: false,
-
-    // passed into <Formik ...>
+    className: '',
     initialValues: { email: '' },
-    validationSchema: false,
-
-    // Passed into <FormikWrapper...>
     debug: false
   }
 }
 
-const Template = ({ name, label, hint, placeholder, className, initialValues, validationSchema, required, debug }) => {
-  const formik = { initialValues, validationSchema, debug }
-  const field = { name, label, hint, placeholder, className, required }
+function Template ({ name, label, hint, placeholder, required, className, initialValues, debug }) {
   return (
-    <FormikWrapper {...formik}>
-      <Field {...field} component={EmailInput} className={className} />
+    <FormikWrapper
+      initialValues={initialValues}
+      debug={debug}
+    >
+      <Field
+        component={EmailInput}
+        name={name}
+        label={label}
+        hint={hint}
+        placeholder={placeholder}
+        required={required}
+        className={className}
+      />
     </FormikWrapper>
   )
-}
-Template.propTypes = {
-  name: PropTypes.string,
-  label: PropTypes.string,
-  hint: PropTypes.string,
-  placeholder: PropTypes.string,
-  className: PropTypes.string,
-  initialValues: PropTypes.object,
-  validationSchema: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
-  required: PropTypes.bool,
-  debug: PropTypes.bool
 }
 
 export const Basic = Template.bind({})

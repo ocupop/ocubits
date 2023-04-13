@@ -1,11 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Field } from 'formik'
-import { FormikWrapper } from '@lib'
-import PropTypes from 'prop-types'
-import * as Yup from 'yup'
 
+import { FormikWrapper, withCenteredStory } from '@lib'
 import TextArea from './TextArea'
-import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
@@ -13,50 +11,39 @@ export default {
   component: TextArea,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { exclude: ['className', 'validationSchema', 'innerRef', 'form', 'field'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'rows', 'required', 'initialValues', 'debug'] }
   },
   args: {
-    // passed into <Field ...>
     name: 'fieldName',
     label: 'Field Label',
-    hint: null,
-    placeholder: null,
+    hint: '',
+    placeholder: '',
     className: '',
     rows: 4,
     required: false,
-
-    // passed into <Formik ...>
     initialValues: { fieldName: '' },
-    validationSchema: false,
-
-    // Passed into <FormikWrapper...>
     debug: false
   }
 }
 
-const Template = ({ name, label, hint, placeholder, className, rows, required, initialValues, validationSchema, debug }) => {
-  const formik = { initialValues, validationSchema, debug }
-  const field = { name, label, hint, placeholder, className, rows, required }
+function Template ({ name, label, hint, placeholder, className, rows, required, initialValues, debug }) {
   return (
-    <FormikWrapper {...formik}>
-      <Field {...field} component={TextArea} className={className} />
+    <FormikWrapper
+      initialValues={initialValues}
+      debug={debug}
+    >
+      <Field
+        component={TextArea}
+        name={name}
+        label={label}
+        hint={hint}
+        placeholder={placeholder}
+        required={required}
+        className={className}
+        rows={rows}
+      />
     </FormikWrapper>
   )
-}
-Template.propTypes = {
-  name: PropTypes.string,
-  label: PropTypes.string,
-  hint: PropTypes.string,
-  placeholder: PropTypes.string,
-  className: PropTypes.string,
-  rows: PropTypes.number,
-  required: PropTypes.bool,
-  initialValues: PropTypes.object,
-  validationSchema: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
-  debug: PropTypes.bool
 }
 
 export const Basic = Template.bind({})

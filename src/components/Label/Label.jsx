@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Tooltip from '../Tooltip/Tooltip'
 import './Label.css'
 // ----------------------------------------------------------------------
@@ -9,15 +10,15 @@ Label.propTypes = {
   hint: PropTypes.string,
   className: PropTypes.string,
   htmlFor: PropTypes.string,
-  children: PropTypes.node
+  required: PropTypes.bool
 }
 
-export default function Label ({ hint, label, children, className = '', htmlFor = null }) {
+export default function Label ({ hint, label, required = false, className = '', htmlFor = null }) {
   return (
     <div className={`label-wrap ${className}`}>
       <label htmlFor={htmlFor}>
         <span>{label}</span>
-        {children}
+        {required && <span className='required'></span>}
       </label>
       {hint && <Tooltip>{hint}</Tooltip>}
     </div>

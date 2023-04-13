@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Select from 'react-select'
-import Label from '../Label/Label'
 import { getIn } from 'formik'
+import Select from 'react-select'
+
+import Label from '../Label/Label'
 import './SelectInput.css'
 // ----------------------------------------------------------------------
 SelectInput.propTypes = {
@@ -17,7 +18,6 @@ SelectInput.propTypes = {
   onChange: PropTypes.func,
   options: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object),
-  type: PropTypes.string,
   required: PropTypes.bool
 }
 
@@ -38,7 +38,6 @@ export default function SelectInput ({
   label,
   isMulti,
   isSearchable,
-  type,
   onChange,
   options,
   required,
@@ -52,11 +51,10 @@ export default function SelectInput ({
   }
   return (
     <div className={`form-group ocu-select ${className}`}>
-      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <Select
         {...field}
         required={required}
-        type={type}
         defaultValue={defaultValue}
         formatGroupLabel={formatGroupLabel}
         onChange={doOnChange}

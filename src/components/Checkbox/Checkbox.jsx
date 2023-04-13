@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 import { Checkbox } from 'flowbite-react'
+
 import Label from '../Label/Label'
 import './Checkbox.css'
 // ----------------------------------------------------------------------
@@ -27,7 +28,7 @@ export default function CheckboxInput ({
 }) {
   return (
     <div className={`form-group ocu-checkbox ${className}`}>
-      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <Checkbox
         id={field.name}
         {...field}

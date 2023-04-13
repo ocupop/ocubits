@@ -5,4 +5,7 @@
       @apply whitespace-nowrap;
     }
   }
+  .required::after{
+    @apply content-['*'] text-warning ml-2;
+  }
 }

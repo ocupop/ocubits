@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { getIn } from 'formik'
 import MaskedInput from 'react-text-mask'
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
-import { getIn } from 'formik'
+
 import Label from '../Label/Label'
 import './NumberInput.css'
 // ----------------------------------------------------------------------
@@ -57,7 +58,7 @@ export default function NumberInput ({
 
   return (
     <div className={`ocu-numberinput form-group ${className}`}>
-      <Label label={label} hint={hint} htmlFor={field.name}>{required && <span className='required'></span>}</Label>
+      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <MaskedInput
         mask={numberMask}
         className={`form-input ${status}`}

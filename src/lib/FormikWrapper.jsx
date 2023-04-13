@@ -6,16 +6,13 @@ import { Formik, Form } from 'formik'
 FormikWrapper.propTypes = {
   children: PropTypes.node,
   initialValues: PropTypes.instanceOf(Object),
-  validationSchema: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
+  validationSchema: PropTypes.object,
   debug: PropTypes.bool
 }
 FormikWrapper.defaultProps = {
   children: null,
   initialValues: {},
-  validationSchema: false,
+  validationSchema: null,
   debug: false
 }
 

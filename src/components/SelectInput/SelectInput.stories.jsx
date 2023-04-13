@@ -1,10 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Field } from 'formik'
-import { FormikWrapper } from '@lib'
-import PropTypes from 'prop-types'
 
+import { FormikWrapper, withCenteredStory } from '@lib'
 import SelectInput from './SelectInput'
-import { withCenteredStory } from '@lib/withCenteredStory'
 // ----------------------------------------------------------------------
 
 export default {
@@ -12,16 +11,15 @@ export default {
   component: SelectInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { exclude: ['className', 'validationSchema', 'innerRef', 'form', 'field'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'options', 'isMulti', 'isSearchable'] }
   },
   args: {
-    // passed into <Field ...>
     name: 'selectField',
-    className: '',
+    label: 'Make a Selection',
     hint: '',
     placeholder: '',
-    // defaultValue: { value: 'strawberry', label: 'Strawberry' },
-    label: 'Make a Selection',
+    required: false,
+    className: '',
     isMulti: false,
     isSearchable: false,
     options: [
@@ -48,52 +46,35 @@ export default {
           { value: 'vanilla', label: 'Vanilla' }
         ]
       }
-
     ],
-
-    // passed into <Formik ...>
     initialValues: {
       selectField: [{ value: 'strawberry', label: 'Strawberry' }]
     },
-    validationSchema: false,
-
-    // Passed into <FormikWrapper...>
     debug: false
-
   }
 }
 
-const Template = ({ name, label, hint, placeholder, className, initialValues, defaultValue, isMulti, isSearchable, onChange, options, validationSchema, required, type, debug }) => {
-  const formik = { initialValues, validationSchema, debug }
-  const field = { name, className, hint, placeholder, defaultValue, label, isMulti, isSearchable, onChange, options, type, required }
+function Template ({ name, label, hint, placeholder, required, className, isMulti, isSearchable, onChange, options, initialValues, debug }) {
   return (
-    <FormikWrapper {...formik}>
-      <Field {...field} component={SelectInput} />
+    <FormikWrapper
+      initialValues={initialValues}
+      debug={debug}
+    >
+      <Field
+        component={SelectInput}
+        name={name}
+        label={label}
+        hint={hint}
+        placeholder={placeholder}
+        required={required}
+        className={className}
+        isMulti={isMulti}
+        isSearchable={isSearchable}
+        onChange={onChange}
+        options={options}
+      />
     </FormikWrapper>
   )
-}
-Template.propTypes = {
-  name: PropTypes.string,
-  className: PropTypes.string,
-  // field: PropTypes.instanceOf(Object),
-  hint: PropTypes.string,
-  placeholder: PropTypes.string,
-  defaultValue: PropTypes.instanceOf(Object),
-  label: PropTypes.string,
-  isMulti: PropTypes.bool,
-  isSearchable: PropTypes.bool,
-  onChange: PropTypes.func,
-  options: PropTypes.instanceOf(Object),
-  // form: PropTypes.instanceOf(Object),
-  type: PropTypes.string,
-
-  initialValues: PropTypes.object,
-  validationSchema: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
-  required: PropTypes.bool,
-  debug: PropTypes.bool
 }
 
 export const Basic = Template.bind({})

@@ -1,12 +1,14 @@
 import React from 'react'
 import Tooltip from './Tooltip'
-import { withCenteredStory } from '@lib/withCenteredStory'
 
 // ----------------------------------------------------------------------
 
 export default {
   title: 'Molecules/Tooltip',
   component: Tooltip,
+  parameters: {
+    controls: { include: ['placement', 'children', 'className'] }
+  },
   decorators: [
     (Story) => (
       <div style={{ padding: '4em', backgroundColor: '#e2e2e2', textAlign: 'center' }}>
@@ -19,7 +21,9 @@ export default {
   }
 }
 
-const Template = (args) => <Tooltip {...args} />
+function Template (args) {
+  return <Tooltip {...args} />
+}
 
 export const Basic = Template.bind({})
 Basic.args = {

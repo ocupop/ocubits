@@ -1,4 +1,4 @@
-.ocu-tooltip:not([data-unstyled]){
+.ocu-tooltip{
   @apply inline-block relative items-center;
 
   button{
