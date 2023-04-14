@@ -11,6 +11,11 @@ export default {
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {
+    docs: {
+      description: {
+        component: 'Another description, overriding the comments'
+      }
+    },
     controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'asSingle', 'useRange', 'startFrom', 'showShortcuts', 'showFooter', 'dateFormat', 'minDate', 'maxDate'] }
   },
   argTypes: {
