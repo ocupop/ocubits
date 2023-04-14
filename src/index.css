@@ -9,3 +9,6 @@ input[type='submit']{
 .formikdebug{
   @apply border px-2 py-1 rounded-md ml-4 mt-2;
 }
+form{
+  @apply w-full max-w-xl;
+}
