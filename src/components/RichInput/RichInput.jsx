@@ -30,7 +30,6 @@ RichInput.defaultProps = {
 
 export default function RichInput ({
   className,
-  innerRef,
   theme,
   hint,
   label,
@@ -61,30 +60,15 @@ export default function RichInput ({
     <div className={`ocu-richinput form-group ${className}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <ReactQuill
-        // id="applied_to_quill"
-        // defaultValue - handled by initialValues
+        {...field}
         readOnly = {false}
         modules = {modules}
-        // formats={formats}
-
-        // style
-        // tabIndex
-        // bounds
-        // children
-        // onChangeSelection
-        // onBlur/onFocus/onBlur/onKeyPress/onkeyDown/onKeyUp
-        // perserveWhitespace
-
         className={`form-input  ${status}`}
-        {...field}
         theme={theme}
         value={field.value}
         onChange={doOnChange}
         required={required}
         placeholder={placeholder}
-        onBlur={(range, source, quill) => {
-          /* Do Nothing */
-        }}
       />
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>

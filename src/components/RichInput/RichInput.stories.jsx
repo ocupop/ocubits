@@ -39,7 +39,6 @@ function Template ({ name, label, hint, placeholder, className, initialValues, r
         placeholder={placeholder}
         required={required}
         className={className}
-
       />
     </FormikWrapper>
   )
