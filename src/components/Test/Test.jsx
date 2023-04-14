@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 // ----------------------------------------------------------------------
 Test.propTypes = {
-  children: PropTypes.node
+  title: PropTypes.string
 }
 
-export default function Test ({ children }) {
+export default function Test({ title }) {
   return (
     <>
-      <h1>Test</h1>
+      <h1>Title: {title}</h1>
     </>
   )
 }

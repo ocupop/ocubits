@@ -3,44 +3,47 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import TextInput from './TextInput'
+import PhoneInput from './PhoneInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/TextInput',
-  component: TextInput,
+  title: 'Fields/PhoneInput',
+  component: PhoneInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'format'] }
+  },
+  argTypes: {
+    format: { control: 'select', options: ['usParens', 'usNoAreaCode', 'international', null] }
   },
   args: {
-    name: 'fieldName',
-    label: 'Field Label',
+    name: 'phone',
+    label: 'Phone Number',
     hint: '',
-    placeholder: '',
+    placeholder: 'Enter your Phone',
     className: '',
     required: false,
-    initialValues: { fieldName: '' },
-    debug: false,
-    maskOptions: false
+    format: 'usParens',
+    initialValues: { phone: '' },
+    debug: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, hint, placeholder, className, initialValues, required, format, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={TextInput}
+        component={PhoneInput}
         name={name}
         label={label}
         hint={hint}
         placeholder={placeholder}
         required={required}
         className={className}
-        maskOptions={maskOptions}
+        format={format}
       />
     </FormikWrapper>
   )

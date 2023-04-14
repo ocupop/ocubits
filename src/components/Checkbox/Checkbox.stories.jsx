@@ -3,44 +3,40 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import TextInput from './TextInput'
+import CheckboxInput from './Checkbox'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/TextInput',
-  component: TextInput,
+  title: 'Fields/Checkbox',
+  component: CheckboxInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'required', 'debug'] }
   },
   args: {
-    name: 'fieldName',
+    name: 'checkFieldName',
     label: 'Field Label',
     hint: '',
-    placeholder: '',
     className: '',
-    required: false,
-    initialValues: { fieldName: '' },
+    initialValues: { },
     debug: false,
-    maskOptions: false
+    required: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, hint, className, required, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={TextInput}
+        component={CheckboxInput}
+        className={className}
         name={name}
         label={label}
         hint={hint}
-        placeholder={placeholder}
         required={required}
-        className={className}
-        maskOptions={maskOptions}
       />
     </FormikWrapper>
   )

@@ -1,49 +1,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
+import { Checkbox } from 'flowbite-react'
 
 import Label from '../Label/Label'
-import './TextInput.css'
+import './Checkbox.css'
 // ----------------------------------------------------------------------
 
-TextInput.propTypes = {
+CheckboxInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
   hint: PropTypes.string,
+  type: PropTypes.string,
   label: PropTypes.string,
-  placeholder: PropTypes.string,
   required: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
-
-TextInput.defaultProps = {
-  className: '',
-  required: false,
-  placeholder: ''
-}
-
-export default function TextInput ({
-  className,
-  innerRef,
-  hint,
+export default function CheckboxInput ({
+  className = '',
   label,
-  placeholder,
-  required,
+  hint,
   field,
+  required,
+  form,
   form: { errors, touched }
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocu-textinput form-group ${className}`}>
+    <div className={`form-group ocu-checkbox ${className}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
-      <input
-        className={`form-input ${status}`}
+      <Checkbox
+        id={field.name}
         {...field}
-        placeholder={placeholder}
-        type='text'
+        checked={field.value}
         required={required}
-        ref={innerRef}
+        onChange={() => {
+          form.setFieldValue(field.name, !field.value)
+        }}
       />
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>

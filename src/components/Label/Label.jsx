@@ -1,23 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Hint from './Hint'
+
+import Tooltip from '../Tooltip/Tooltip'
+import './Label.css'
 // ----------------------------------------------------------------------
 
 Label.propTypes = {
   label: PropTypes.string,
   hint: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.node
+  htmlFor: PropTypes.string,
+  required: PropTypes.bool
 }
 
-export default function Label({ hint, label, children, className }) {
+export default function Label ({ hint, label, required = false, className = '', htmlFor = null }) {
   return (
-    <div className={`flex relative ${className}`}>
-      <label>
-        <span className="whitespace-nowrap">{label}</span>
-        {children}
+    <div className={`label-wrap ${className}`}>
+      <label htmlFor={htmlFor}>
+        <span>{label}</span>
+        {required && <span className='required'></span>}
       </label>
-      {hint && <Hint message={hint}/>}
+      {hint && <Tooltip>{hint}</Tooltip>}
     </div>
   )
 }

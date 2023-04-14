@@ -3,15 +3,15 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import TextInput from './TextInput'
+import TextArea from './TextArea'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/TextInput',
-  component: TextInput,
+  title: 'Fields/TextArea',
+  component: TextArea,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'rows', 'required', 'initialValues', 'debug'] }
   },
   args: {
     name: 'fieldName',
@@ -19,28 +19,28 @@ export default {
     hint: '',
     placeholder: '',
     className: '',
+    rows: 4,
     required: false,
     initialValues: { fieldName: '' },
-    debug: false,
-    maskOptions: false
+    debug: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, hint, placeholder, className, rows, required, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={TextInput}
+        component={TextArea}
         name={name}
         label={label}
         hint={hint}
         placeholder={placeholder}
         required={required}
         className={className}
-        maskOptions={maskOptions}
+        rows={rows}
       />
     </FormikWrapper>
   )

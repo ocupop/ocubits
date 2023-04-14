@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 
 import Label from '../Label/Label'
-import './TextInput.css'
+import './TextArea.css'
 // ----------------------------------------------------------------------
 
-TextInput.propTypes = {
+TextArea.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
   hint: PropTypes.string,
+  rows: PropTypes.number,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -17,33 +18,30 @@ TextInput.propTypes = {
   form: PropTypes.instanceOf(Object)
 }
 
-TextInput.defaultProps = {
-  className: '',
-  required: false,
-  placeholder: ''
+TextArea.defaultProps = {
+  className: ''
 }
 
-export default function TextInput ({
+export default function TextArea ({
   className,
-  innerRef,
-  hint,
   label,
+  hint,
+  rows,
   placeholder,
-  required,
   field,
+  required,
   form: { errors, touched }
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocu-textinput form-group ${className}`}>
+    <div className={`form-group ocu-textarea ${className}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
-      <input
+      <textarea
         className={`form-input ${status}`}
         {...field}
         placeholder={placeholder}
-        type='text'
         required={required}
-        ref={innerRef}
+        rows={rows}
       />
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>

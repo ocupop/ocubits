@@ -1,32 +1,29 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { bool } from 'prop-types'
 import FormikDebug from './FormikDebug'
 import { Formik, Form } from 'formik'
 // ----------------------------------------------------------------------
 FormikWrapper.propTypes = {
   children: PropTypes.node,
   initialValues: PropTypes.instanceOf(Object),
-  validationSchema: PropTypes.instanceOf(Object)
+  validationSchema: PropTypes.object,
+  debug: PropTypes.bool
 }
 FormikWrapper.defaultProps = {
   children: null,
   initialValues: {},
-  validationSchema: {}
+  validationSchema: null,
+  debug: false
 }
 
-
-export default function FormikWrapper({ children, initialValues, validationSchema, handleSubmit }) {
+export default function FormikWrapper ({ children, debug, initialValues, validationSchema }) {
   return (
-    <Formik
-      enableReinitialize
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
+    <Formik enableReinitialize initialValues={initialValues} validationSchema={validationSchema}>
       {() => (
         <Form>
           {children}
-          <FormikDebug />
+          {debug && <input type="submit" name="submit" value="Submit"/> }
+          {debug && <FormikDebug /> }
         </Form>
       )}
     </Formik>

@@ -3,37 +3,37 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import TextInput from './TextInput'
+import NumberInput from './NumberInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/TextInput',
-  component: TextInput,
+  title: 'Fields/NumberInput',
+  component: NumberInput,
   decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
   },
   args: {
-    name: 'fieldName',
-    label: 'Field Label',
+    name: 'nbr',
+    label: 'Enter a Number',
     hint: '',
     placeholder: '',
     className: '',
     required: false,
-    initialValues: { fieldName: '' },
+    initialValues: { nbr: '' },
     debug: false,
     maskOptions: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, hint, placeholder, className, required, initialValues, debug, maskOptions }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={TextInput}
+        component={NumberInput}
         name={name}
         label={label}
         hint={hint}
@@ -47,3 +47,22 @@ function Template ({ name, label, hint, placeholder, className, initialValues, r
 }
 
 export const Basic = Template.bind({})
+
+export const WithCommas = Template.bind({})
+WithCommas.args = {
+  label: 'Enter any large number',
+  maskOptions: {
+    includeThousandsSeparator: true
+  }
+}
+
+export const Currency = Template.bind({})
+Currency.args = {
+  label: 'Enter an Amount',
+  maskOptions: {
+    prefix: '$',
+    includeThousandsSeparator: true,
+    decimalLimit: 2,
+    integerLimit: 5
+  }
+}

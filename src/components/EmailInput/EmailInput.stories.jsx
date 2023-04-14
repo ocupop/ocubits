@@ -3,44 +3,42 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import TextInput from './TextInput'
+import EmailInput from './EmailInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/TextInput',
-  component: TextInput,
+  title: 'Fields/EmailInput',
+  component: EmailInput,
   decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
   },
   args: {
-    name: 'fieldName',
-    label: 'Field Label',
+    name: 'email',
+    label: 'Email Address',
     hint: '',
     placeholder: '',
-    className: '',
     required: false,
-    initialValues: { fieldName: '' },
-    debug: false,
-    maskOptions: false
+    className: '',
+    initialValues: { email: '' },
+    debug: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, hint, placeholder, required, className, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={TextInput}
+        component={EmailInput}
         name={name}
         label={label}
         hint={hint}
         placeholder={placeholder}
         required={required}
         className={className}
-        maskOptions={maskOptions}
       />
     </FormikWrapper>
   )

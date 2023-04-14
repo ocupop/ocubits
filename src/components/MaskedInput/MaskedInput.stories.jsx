@@ -3,15 +3,21 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import TextInput from './TextInput'
+import MaskedInput from './MaskedInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/TextInput',
-  component: TextInput,
+  title: 'Fields/MaskedInput',
+  component: MaskedInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'type', 'debug'] }
+  },
+  argTypes: {
+    type: {
+      options: ['text', 'number', 'tel', 'email', 'password', 'hidden', 'date', 'time', 'url'],
+      control: { type: 'select' }
+    }
   },
   args: {
     name: 'fieldName',
@@ -20,20 +26,21 @@ export default {
     placeholder: '',
     className: '',
     required: false,
+    maskOptions: false,
+    type: 'text',
     initialValues: { fieldName: '' },
-    debug: false,
-    maskOptions: false
+    debug: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, hint, placeholder, className, initialValues, required, maskOptions, type, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={TextInput}
+        component={MaskedInput}
         name={name}
         label={label}
         hint={hint}
@@ -41,6 +48,7 @@ function Template ({ name, label, hint, placeholder, className, initialValues, r
         required={required}
         className={className}
         maskOptions={maskOptions}
+        type={type}
       />
     </FormikWrapper>
   )
