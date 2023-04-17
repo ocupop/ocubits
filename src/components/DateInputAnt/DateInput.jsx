@@ -12,21 +12,12 @@ DateInput.propTypes = {
   className: PropTypes.string,
   hint: PropTypes.string,
   label: PropTypes.string,
-  placeholder: PropTypes.string,
   required: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object),
   onChange: PropTypes.func,
-
-  // asSingle: PropTypes.bool,
   range: PropTypes.bool,
   picker: PropTypes.string
-  // showShortcuts: PropTypes.bool,
-  // showFooter: PropTypes.bool,
-  // startFrom: PropTypes.instanceOf(Date),
-  // dateFormat: PropTypes.string,
-  // minDate: PropTypes.instanceOf(Date),
-  // maxDate: PropTypes.instanceOf(Date)
 }
 
 DateInput.defaultProps = {
@@ -35,18 +26,13 @@ DateInput.defaultProps = {
   placeholder: '',
   range: false,
   picker: null,
-
-  // dateFormat: 'YYYY/MM/DD',
   onChange: () => null
-  // minDate: null,
-  // maxDate: null
 }
 
 export default function DateInput ({
   className,
   hint,
   label,
-  placeholder,
   required,
   field,
   form,
@@ -54,15 +40,6 @@ export default function DateInput ({
   onChange,
   range,
   picker
-
-  // asSingle,
-  // useRange,
-  // startFrom,
-  // showShortcuts,
-  // showFooter,
-  // dateFormat,
-  // minDate,
-  // maxDate
 }) {
   const handleValueChange = (newValue) => {
     console.log(newValue)

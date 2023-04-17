@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 import DatePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
-
+import 'react-datepicker/dist/react-datepicker.css'
 
 import Label from '../Label/Label'
 import './DateInput.css'
@@ -55,7 +54,7 @@ export default function DateInput ({
     // onChange(newValue)
   }
   const setStartDate = (newValue) => {
-    form.setFieldValue(field.name, [newValue,  Array.isArray(field.value) ? field.value[1] : null])
+    form.setFieldValue(field.name, [newValue, Array.isArray(field.value) ? field.value[1] : null])
   }
   const setEndDate = (newValue) => {
     form.setFieldValue(field.name, [Array.isArray(field.value) ? field.value[0] : null, newValue])
@@ -76,18 +75,10 @@ export default function DateInput ({
         placeholderText={placeholder}
         withPortal={false}
         isClearable={isClearable}
-
         selectsStart={range && twoFields}
         selectsRange={range && !twoFields}
         startDate={range && startDate}
         endDate={range && endDate}
-
-        // onCalendarClose={handleCalendarClose}
-        // onCalendarOpen={handleCalendarOpen}
-        // timeClassName={handleColor}
-        // popperClassName
-        // popperPlacement="top-end"
-        // popperModifiers
       />
 
       {(range && twoFields) &&
@@ -95,8 +86,8 @@ export default function DateInput ({
         className={`form-input ${status}`}
         selected={
           !Array.isArray(field.value)
-          ? null
-          : field.value.length > 1 ? field.value[1] : field.value.length > 0 ? field.value[0] : null
+            ? null
+            : field.value.length > 1 ? field.value[1] : field.value.length > 0 ? field.value[0] : null
         }
         onChange={setEndDate}
         showTimeSelect={false}
