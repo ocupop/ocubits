@@ -38,6 +38,7 @@
     "lintFix": "eslint --fix '**/*.js' --ignore-pattern node_modules/"
   },
   "dependencies": {
+    "antd": "^5.4.2",
     "dayjs": "^1.11.7",
     "flowbite-react": "^0.4.3",
     "formik": "^2.2.9",

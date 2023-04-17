@@ -7,7 +7,7 @@ import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/DateInput_Tailwind',
+  title: 'Fields/DateInput_Ant',
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {
@@ -16,22 +16,25 @@ export default {
         component: 'Another description, overriding the comments'
       }
     },
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'asSingle', 'useRange', 'startFrom', 'showShortcuts', 'showFooter', 'dateFormat', 'minDate', 'maxDate'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'picker', 'range'] }
   },
   argTypes: {
     startFrom: {
       control: { type: 'date' }
-    }
+    },
+    picker: { control: 'select', options: ['day', 'week', 'month', 'quarter', 'year'] }
   },
   args: {
     name: 'date',
     label: 'Select a Date',
-    initialValues: { date: '' },
+    initialValues: { date: null },
+    range: false,
+    picker: null,
     debug: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, debug, asSingle, useRange, startFrom, showShortcuts, showFooter, dateFormat, minDate, maxDate }) {
+function Template ({ name, label, hint, placeholder, required, initialValues, debug, picker, range }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -44,15 +47,8 @@ function Template ({ name, label, hint, placeholder, className, initialValues, r
         hint={hint}
         placeholder={placeholder}
         required={required}
-        className={className}
-        asSingle={asSingle}
-        useRange={useRange}
-        startFrom={startFrom}
-        showShortcuts={showShortcuts}
-        showFooter={showFooter}
-        dateFormat={dateFormat}
-        minDate={minDate}
-        maxDate={maxDate}
+        picker={picker}
+        range={range}
       />
     </FormikWrapper>
   )
