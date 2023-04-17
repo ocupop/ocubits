@@ -1,0 +1,14 @@
+.ocu-dateinput{
+  &.form-group{
+    @apply max-w-xs;
+    .form-input{
+      @apply mb-1 border border-dark bg-light p-1;
+      &.invalid{
+        @apply border-warning;
+      }
+    }
+  }
+  .form-validation-error{
+    @apply block mb-1 bg-warning text-dark p-1;
+  }
+}
