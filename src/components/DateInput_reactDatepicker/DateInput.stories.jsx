@@ -7,15 +7,15 @@ import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/DateInput',
+  title: 'Fields/DateInput_ReactDatepicker',
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'range','twoFields','isClearable','debug'] }
+    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'range', 'twoFields', 'isClearable', 'debug'] }
   },
   argTypes: {
     range: { control: 'boolean' },
-    twoFields: { control: 'boolean', if: { arg: 'range', truthy: true } },
+    twoFields: { control: 'boolean', if: { arg: 'range', truthy: true } }
   },
   args: {
     name: 'date',
@@ -28,7 +28,7 @@ export default {
     range: false,
     twoFields: false,
     isClearable: false,
-    debug: false,
+    debug: false
   }
 }
 
