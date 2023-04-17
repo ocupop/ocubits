@@ -7,7 +7,7 @@ import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/DateInput_Ant',
+  title: 'DateInput/DateInput_Ant',
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {

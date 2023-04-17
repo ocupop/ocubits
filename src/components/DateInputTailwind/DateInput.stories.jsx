@@ -7,7 +7,7 @@ import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/DateInput_Tailwind',
+  title: 'DateInput/DateInput_Tailwind',
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {

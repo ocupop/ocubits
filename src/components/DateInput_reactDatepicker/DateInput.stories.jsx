@@ -7,7 +7,7 @@ import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/DateInput_ReactDatepicker',
+  title: 'DateInput/DateInput_ReactDatepicker',
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {

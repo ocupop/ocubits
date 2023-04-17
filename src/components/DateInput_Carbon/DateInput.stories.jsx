@@ -7,7 +7,7 @@ import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/DateInput_Carbon',
+  title: 'DateInput/DateInput_Carbon',
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {
