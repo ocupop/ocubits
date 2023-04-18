@@ -35,10 +35,10 @@ export default function TextInput ({
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocu-textinput form-group ${className}`}>
+    <div className={`ocu-textinput form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <input
-        className={`form-input ${status}`}
+        className={'form-input'}
         {...field}
         placeholder={placeholder}
         type='text'

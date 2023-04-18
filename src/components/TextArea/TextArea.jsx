@@ -34,10 +34,10 @@ export default function TextArea ({
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`form-group ocu-textarea ${className}`}>
+    <div className={`form-group ocu-textarea ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <textarea
-        className={`form-input ${status}`}
+        className={'form-input'}
         {...field}
         placeholder={placeholder}
         required={required}

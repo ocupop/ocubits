@@ -48,11 +48,11 @@ export default function MaskedInput ({
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocu-maskedinput form-group ${className}`}>
+    <div className={`ocu-maskedinput form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <ReactMaskedInput
         mask={maskOptions}
-        className={`form-input ${status}`}
+        className={'form-input'}
         {...field}
         placeholder={placeholder}
         type={type}

@@ -1,11 +1,12 @@
 .label-wrap{
   @apply flex relative;
   label{
-    > span{
-      @apply whitespace-nowrap;
-    }
+    @apply whitespace-nowrap;
   }
-  .required::after{
+  /* .required::after{
     @apply content-['*'] text-warning ml-2;
+  } */
+  &.required::before{
+    @apply content-['*'] text-warning mr-1;
   }
 }

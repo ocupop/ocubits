@@ -46,11 +46,11 @@ export default function SelectInput ({
   const status = touched[field.name] && errors[field.name] ? 'invalid' : ''
 
   const doOnChange = (option) => {
-    onChange(option)
+    if (onChange) onChange(option)
     form.setFieldValue(field.name, option)
   }
   return (
-    <div className={`form-group ocu-select ${className}`}>
+    <div className={`form-group ocu-select ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <Select
         {...field}
@@ -63,7 +63,6 @@ export default function SelectInput ({
         isMulti={isMulti}
         isSearchable={isSearchable}
         isClearable
-        className={`${status}`}
         classNamePrefix="select"
         theme={(theme) => ({
           ...theme,

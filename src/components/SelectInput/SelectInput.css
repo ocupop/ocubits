@@ -2,15 +2,24 @@
   &.form-group{
     @apply max-w-xs;
     .form-input{
-      @apply mb-1 border border-dark bg-light p-1;
-      &.invalid{
-        @apply border-warning;
+    }
+    .select__control{
+      @apply mb-1 border border-grey bg-white rounded-md;
+      &.select__control--is-focused{
+        @apply shadow-none border-accent border-2;
+      }
+    }
+    &.invalid{
+      .select__control{
+        @apply shadow-none border-warning border-2;
       }
     }
   }
+
   .form-validation-error{
     @apply block mb-1 bg-warning text-dark p-1;
   }
+
   .select-group{
     @apply flex items-center justify-between;
     .label{}
