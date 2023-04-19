@@ -23,7 +23,7 @@ export default function Switch ({
   form,
   form: { errors, touched }
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : 'invalid'
+  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
     <div className={`form-group ocu-switch ${className} ${status}`}>
       <input
