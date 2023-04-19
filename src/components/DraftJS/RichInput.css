@@ -1,0 +1,25 @@
+.ocu-richinput{
+  @apply max-w-2xl;
+  &.form-group{
+    .form-input{
+      @apply mb-1 bg-white;
+      &.invalid{
+        @apply border-warning;
+      }
+    }
+  }
+  .toolbar{
+    @apply mb-0;
+  }
+  .editWindow{
+    @apply bg-white border p-4 border-t-0;
+  }
+
+  .public-DraftEditorPlaceholder-root{
+    @apply italic;
+  }
+
+  .form-validation-error{
+    @apply block mb-1 bg-warning text-dark p-1;
+  }
+}
