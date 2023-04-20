@@ -41,7 +41,7 @@ export default function RichInput ({
   onChange
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
-  const doOnChange = (val) => {
+  const handleOnChange = (val) => {
     if (onChange) onChange(val)
     form.setFieldValue(field.name, val)
   }
@@ -66,7 +66,7 @@ export default function RichInput ({
         className={`form-input  ${status}`}
         theme={theme}
         value={field.value}
-        onChange={doOnChange}
+        onChange={handleOnChange}
         required={required}
         placeholder={placeholder}
       />

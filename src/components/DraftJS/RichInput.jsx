@@ -40,7 +40,7 @@ export default function RichInput ({
   onChange
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
-  const doOnChange = (val) => {
+  const handleOnChange = (val) => {
     console.log(val)
     if (onChange) onChange(val)
     form.setFieldValue(field.name, val)
@@ -55,7 +55,7 @@ export default function RichInput ({
         toolbarClassName="toolbar"
         wrapperClassName="wrapperClassName"
         editorClassName="editWindow"
-        onEditorStateChange={doOnChange}
+        onEditorStateChange={handleOnChange}
       />
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
