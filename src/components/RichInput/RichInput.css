@@ -1,0 +1,16 @@
+.ocu-richinput{
+  &.form-group{
+    .form-input{
+      @apply mb-1 bg-white;
+      &.invalid{
+        @apply border-warning;
+      }
+    }
+  }
+  .ql-editor{
+    @apply h-28;
+  }
+  .form-validation-error{
+    @apply block mb-1 bg-warning text-dark p-1;
+  }
+}
