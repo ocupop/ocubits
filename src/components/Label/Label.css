@@ -1,7 +1,7 @@
 .label-wrap{
   @apply flex relative;
   label{
-    @apply whitespace-nowrap;
+    @apply text-sm font-bold whitespace-nowrap mb-2;
   }
   /* .required::after{
     @apply content-['*'] text-warning ml-2;

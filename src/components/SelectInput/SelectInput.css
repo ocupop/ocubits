@@ -1,10 +1,11 @@
 .ocu-select{
+  @apply text-base;
   &.form-group{
     @apply max-w-xs;
     .form-input{
     }
     .select__control{
-      @apply mb-1 border border-grey bg-white rounded-md;
+      @apply mb-1 border border-gray-400 bg-white rounded-md;
       &.select__control--is-focused{
         @apply shadow-none border-accent border-2;
       }
@@ -17,14 +18,14 @@
   }
 
   .form-validation-error{
-    @apply block mb-1 bg-warning text-dark p-1;
+    @apply block mb-1 bg-warning text-gray-800 p-1;
   }
 
   .select-group{
     @apply flex items-center justify-between;
     .label{}
     .badges{
-      @apply bg-light rounded-2xl text-dark inline-block text-xs font-normal py-1 px-2 text-center;
+      @apply bg-gray-400 rounded-2xl text-gray-800 inline-block text-xs font-normal py-1 px-2 text-center;
     }
   }
 }

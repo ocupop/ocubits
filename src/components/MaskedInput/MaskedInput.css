@@ -1,12 +1,15 @@
 .ocu-maskedinput{
+  @apply text-base;
   &.form-group{
     @apply max-w-xs;
     .form-input{
-      @apply mb-1 border border-grey bg-white rounded-md p-1;
-
+      @apply mb-1 border text-gray-800 border-gray-400 bg-white rounded-md p-1;
       &:focus-visible{
         @apply outline-accent;
       }
+    }
+    .helper{
+      @apply text-sm text-gray-800 mt-2;
     }
     &.invalid{
       .form-input{
@@ -15,6 +18,6 @@
     }
   }
   .form-validation-error{
-    @apply block mb-1 bg-warning text-dark p-1;
+    @apply block mb-1 bg-warning text-gray-800 p-1;
   }
 }

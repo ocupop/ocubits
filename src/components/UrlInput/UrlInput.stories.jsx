@@ -3,52 +3,45 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import MaskedInput from './MaskedInput'
+import UrlInput from './UrlInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/MaskedInput',
-  component: MaskedInput,
+  title: 'Fields/UrlInput',
+  component: UrlInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder',, 'required', 'initialValues', 'type', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder',, 'required', 'initialValues', 'debug', 'format'] }
   },
   argTypes: {
-    type: {
-      options: ['text', 'number', 'tel', 'email', 'password', 'hidden', 'date', 'time', 'url'],
-      control: { type: 'select' }
-    }
+    format: { control: 'select', options: ['usParens', 'usNoAreaCode', 'international', null] }
   },
   args: {
-    name: 'fieldName',
-    label: 'Field Label',
+    name: 'url',
+    label: 'Enter URL',
     hint: '',
     placeholder: '',
     className: '',
     required: false,
-    maskOptions: false,
-    type: 'text',
-    initialValues: { fieldName: '' },
+    initialValues: { phone: '' },
     debug: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, maskOptions, type, debug }) {
+function Template ({ name, label, hint, placeholder, className, initialValues, required, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={MaskedInput}
+        component={UrlInput}
         name={name}
         label={label}
         hint={hint}
         placeholder={placeholder}
         required={required}
         className={className}
-        maskOptions={maskOptions}
-        type={type}
       />
     </FormikWrapper>
   )

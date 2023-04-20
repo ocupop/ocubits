@@ -1,20 +1,32 @@
 .ocu-textinput{
+  @apply text-base;
   &.form-group{
     @apply max-w-xs;
-    .form-input{
-      @apply mb-1 border border-grey bg-white rounded-md p-1;
-
-      &:focus-visible{
-        @apply outline-accent;
-      }
+  }
+  .form-input{
+    @apply mb-1 border text-gray-800 border-gray-400 bg-white rounded-md px-5 py-3;
+    &:focus-visible{
+      @apply outline-accent;
     }
-    &.invalid{
-      .form-input{
-        @apply outline-2 outline-warning;
-      }
+  }
+  .form-input, .helper, .form-validation-error{
+    @apply mb-3;
+  }
+  .helper{
+    @apply text-sm text-gray-800;
+  }
+  &.invalid{
+    .form-input{
+      @apply border-2 border-warning;
     }
   }
   .form-validation-error{
-    @apply block mb-1 bg-warning text-dark p-1;
+    @apply rounded-md block bg-warning bg-opacity-20 text-gray-800 p-5;
+    ul{
+      @apply list-disc;
+      li{
+        @apply ml-6;
+      }
+    }
   }
 }

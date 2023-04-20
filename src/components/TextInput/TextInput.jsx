@@ -10,6 +10,7 @@ TextInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
   hint: PropTypes.string,
+  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -27,13 +28,14 @@ export default function TextInput ({
   className,
   innerRef,
   hint,
+  helperText,
   label,
   placeholder,
   required,
   field,
   form: { errors, touched }
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
+  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : 'invalid'
   return (
     <div className={`ocu-textinput form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
@@ -45,9 +47,18 @@ export default function TextInput ({
         required={required}
         ref={innerRef}
       />
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}
+      <small className="form-validation-error">
+        <b>Error Summary</b>
+        <ul>
+          <li>Error message 1 lorem ipsum dolor sit amet consectetur adipiscingelit sed do eiusmod tempor</li>
+          <li>Error message 2 lorem ipsum dolor sit amet consectetur adipiscingelit sed do eiusmod tempor</li>
+          <li>Error message 3 lorem ipsum dolor sit amet consectetur adipiscingelit sed do eiusmod tempor</li>
+        </ul>
+      </small>
     </div>
   )
 }

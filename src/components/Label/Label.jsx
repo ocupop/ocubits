@@ -8,6 +8,7 @@ import './Label.css'
 Label.propTypes = {
   label: PropTypes.string,
   hint: PropTypes.string,
+  helperText: PropTypes.string,
   className: PropTypes.string,
   htmlFor: PropTypes.string,
   required: PropTypes.bool

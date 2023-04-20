@@ -11,7 +11,7 @@ export default {
   component: EmailInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder',, 'required', 'initialValues', 'debug'] }
   },
   args: {
     name: 'email',
