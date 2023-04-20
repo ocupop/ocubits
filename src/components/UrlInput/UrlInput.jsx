@@ -41,10 +41,20 @@ export default function UrlInput ({
   const handleOnChange = (e) => {
     let newUrl = window.decodeURIComponent(e.target.value)
     newUrl = newUrl.trim().replace(/\s/g, '') /// trim and remove spaces
-    if (!/^(f|ht)tps?:\/\//i.test(newUrl)) {
-      e.target.value = secure ? `https://${newUrl}` : `http://${newUrl}`
-    }
+    e.target.value = checkProtocol(newUrl)
+
     if (field.onChange) field.onChange(e)
+  }
+
+  const checkProtocol = (url) => {
+    if (/^[a-zA-Z]+:\/\//.test(url)) {
+      // URL already contains a protocol, remove any duplicate protocols
+      url = url.replace(/^(\w+:\/{2,3})+/i, '$1')
+    } else {
+      // URL doesn't have a protocol, add "https://" to the beginning
+      url = 'https://' + url
+    }
+    return url
   }
 
   return (
@@ -53,7 +63,6 @@ export default function UrlInput ({
       <input
         className={`form-input ${status}`}
         { ...field }
-        value={field.value || (secure ? 'https://' : 'http://')}
         placeholder={placeholder}
         type='url'
         required={required}
