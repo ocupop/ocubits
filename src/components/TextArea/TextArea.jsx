@@ -45,6 +45,7 @@ export default function TextArea ({
         required={required}
         rows={rows}
       />
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

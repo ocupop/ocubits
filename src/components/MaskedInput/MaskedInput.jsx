@@ -5,7 +5,7 @@ import { getIn } from 'formik'
 import { default as ReactMaskedInput } from 'react-text-mask'
 
 import Label from '../Label/Label'
-import './MaskedInput.css'
+import '../TextInput/TextInput.css'
 // ----------------------------------------------------------------------
 
 MaskedInput.propTypes = {
@@ -50,7 +50,7 @@ export default function MaskedInput ({
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocu-maskedinput form-group ${className} ${status}`}>
+    <div className={`ocu-textinput form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <ReactMaskedInput
         mask={maskOptions}
@@ -61,6 +61,7 @@ export default function MaskedInput ({
         required={required}
         ref={innerRef}
       />
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

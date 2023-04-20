@@ -8,6 +8,9 @@
 body{
   @apply font-body;
 }
+.form-group{
+  @apply max-w-[600px];
+}
 input[type='submit']{
   @apply border px-2 py-1 rounded-md cursor-pointer;
 }

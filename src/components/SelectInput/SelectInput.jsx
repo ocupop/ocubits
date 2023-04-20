@@ -76,7 +76,7 @@ export default function SelectInput ({
           }
         })}
       />
-
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}
