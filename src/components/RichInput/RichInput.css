@@ -11,6 +11,12 @@
     @apply h-28;
   }
   .form-validation-error{
-    @apply block mb-1 bg-warning text-dark p-1;
+    @apply rounded-md block bg-warning bg-opacity-20 text-gray-800 p-5;
+    ul{
+      @apply list-disc;
+      li{
+        @apply ml-6;
+      }
+    }
   }
 }
