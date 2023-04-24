@@ -3,46 +3,42 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import TextInput from './TextInput'
+import Switch from './Switch'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/TextInput',
-  component: TextInput,
+  title: 'Fields/Switch',
+  component: Switch,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'helperText', 'required', 'debug'] }
   },
   args: {
-    name: 'fieldName',
-    label: 'Field Label',
+    name: 'switchFieldName',
+    label: 'Switch Label',
     hint: null,
     helperText: null,
-    placeholder: '',
     className: '',
-    required: false,
-    initialValues: { fieldName: '' },
+    initialValues: { },
     debug: false,
-    maskOptions: false
+    required: false
   }
 }
 
-function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, hint, helperText, className, required, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={TextInput}
+        component={Switch}
+        className={className}
         name={name}
         label={label}
         hint={hint}
         helperText={helperText}
-        placeholder={placeholder}
         required={required}
-        className={className}
-        maskOptions={maskOptions}
       />
     </FormikWrapper>
   )

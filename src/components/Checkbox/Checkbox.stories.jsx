@@ -11,20 +11,21 @@ export default {
   component: CheckboxInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'required', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'helperText', 'required', 'debug'] }
   },
   args: {
     name: 'checkFieldName',
     label: 'Field Label',
-    hint: '',
-    className: '',
+    hint: null,
+    helperText: null,
+    className: null,
     initialValues: { },
     debug: false,
     required: false
   }
 }
 
-function Template ({ name, label, hint, className, required, initialValues, debug }) {
+function Template ({ name, label, hint, helperText, className, required, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -36,6 +37,7 @@ function Template ({ name, label, hint, className, required, initialValues, debu
         name={name}
         label={label}
         hint={hint}
+        helperText={helperText}
         required={required}
       />
     </FormikWrapper>

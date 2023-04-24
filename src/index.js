@@ -1,1 +1,8 @@
+export { default as Checkbox } from './components/Checkbox/Checkbox'
+export { default as EmailInput } from './components/EmailInput/EmailInput'
+export { default as NumberInput } from './components/NumberInput/NumberInput'
+export { default as PhoneInput } from './components/PhoneInput/PhoneInput'
+export { default as SelectInput } from './components/SelectInput/SelectInput'
+export { default as Switch } from './components/Switch/Switch'
+export { default as TextArea } from './components/TextArea/TextArea'
 export { default as TextInput } from './components/TextInput/TextInput'

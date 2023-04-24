@@ -3,49 +3,44 @@ import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 
 import Label from '../Label/Label'
-import './TextInput.css'
+import './Switch.css'
 // ----------------------------------------------------------------------
 
-TextInput.propTypes = {
+Switch.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.func,
   hint: PropTypes.string,
   helperText: PropTypes.string,
   label: PropTypes.string,
-  placeholder: PropTypes.string,
   required: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
-
-TextInput.defaultProps = {
-  className: '',
-  required: false,
-  placeholder: ''
-}
-
-export default function TextInput ({
-  className,
-  innerRef,
+export default function Switch ({
+  className = '',
+  label,
   hint,
   helperText,
-  label,
-  placeholder,
-  required,
   field,
+  required,
+  form,
   form: { errors, touched }
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocufield ocu-textinput form-group ${className} ${status}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+    <div className={`ocufield ocu-switch form-group ${className} ${status}`}>
       <input
-        className={'form-input'}
         {...field}
-        placeholder={placeholder}
-        type='text'
+        className={'form-input'}
+        type="checkbox"
+        role="switch"
+        name={field.name}
+        id={field.name}
+      />
+      <Label
+        label={label}
+        hint={hint}
+        htmlFor={field.name}
         required={required}
-        ref={innerRef}
       />
       {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (

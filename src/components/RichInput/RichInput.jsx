@@ -1,13 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
 import { getIn } from 'formik'
 
 import Label from '../Label/Label'
-import './TextInput.css'
+import './RichInput.css'
 // ----------------------------------------------------------------------
 
-TextInput.propTypes = {
+RichInput.propTypes = {
   className: PropTypes.string,
+  theme: PropTypes.string,
   innerRef: PropTypes.func,
   hint: PropTypes.string,
   helperText: PropTypes.string,
@@ -15,37 +18,59 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
-  form: PropTypes.instanceOf(Object)
+  form: PropTypes.instanceOf(Object),
+  onChange: PropTypes.func
 }
 
-TextInput.defaultProps = {
+RichInput.defaultProps = {
   className: '',
+  theme: 'snow',
   required: false,
   placeholder: ''
 }
 
-export default function TextInput ({
+export default function RichInput ({
   className,
-  innerRef,
+  theme,
   hint,
   helperText,
   label,
   placeholder,
   required,
   field,
-  form: { errors, touched }
+  form,
+  form: { errors, touched },
+  onChange
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
+  const doOnChange = (val) => {
+    if (onChange) onChange(val)
+    form.setFieldValue(field.name, val)
+  }
+
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
+      ['link', 'image'],
+      ['clean']
+    ]
+  }
+
   return (
-    <div className={`ocufield ocu-textinput form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-richinput form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
-      <input
-        className={'form-input'}
+      <ReactQuill
         {...field}
-        placeholder={placeholder}
-        type='text'
+        readOnly = {false}
+        modules = {modules}
+        className={'form-input'}
+        theme={theme}
+        value={field.value}
+        onChange={doOnChange}
         required={required}
-        ref={innerRef}
+        placeholder={placeholder}
       />
       {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (

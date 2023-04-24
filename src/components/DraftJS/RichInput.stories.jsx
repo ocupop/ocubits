@@ -3,38 +3,37 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import TextInput from './TextInput'
+import RichInput from './RichInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/TextInput',
-  component: TextInput,
+  title: 'Experimental/DraftJS',
+  component: RichInput,
   decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'debug'] }
   },
   args: {
     name: 'fieldName',
-    label: 'Field Label',
-    hint: null,
-    helperText: null,
-    placeholder: '',
+    label: 'Enter your message',
+    hint: '',
+    helperText: '',
+    placeholder: 'Enter your text here.',
     className: '',
     required: false,
     initialValues: { fieldName: '' },
-    debug: false,
-    maskOptions: false
+    debug: false
   }
 }
 
-function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={TextInput}
+        component={RichInput}
         name={name}
         label={label}
         hint={hint}
@@ -42,7 +41,6 @@ function Template ({ name, label, hint, helperText, placeholder, className, init
         placeholder={placeholder}
         required={required}
         className={className}
-        maskOptions={maskOptions}
       />
     </FormikWrapper>
   )

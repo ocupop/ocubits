@@ -11,12 +11,13 @@ export default {
   component: TextArea,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'rows', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'rows', 'required', 'initialValues', 'debug'] }
   },
   args: {
     name: 'fieldName',
     label: 'Field Label',
     hint: '',
+    helperText: null,
     placeholder: '',
     className: '',
     rows: 4,
@@ -26,7 +27,7 @@ export default {
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, rows, required, initialValues, debug }) {
+function Template ({ name, label, hint, helperText, placeholder, className, rows, required, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -37,6 +38,7 @@ function Template ({ name, label, hint, placeholder, className, rows, required, 
         name={name}
         label={label}
         hint={hint}
+        helperText={helperText}
         placeholder={placeholder}
         required={required}
         className={className}

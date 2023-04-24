@@ -10,6 +10,7 @@ SelectInput.propTypes = {
   className: PropTypes.string,
   field: PropTypes.instanceOf(Object),
   hint: PropTypes.string,
+  helperText: PropTypes.string,
   placeholder: PropTypes.string,
   defaultValue: PropTypes.instanceOf(Object),
   label: PropTypes.string,
@@ -33,6 +34,7 @@ export default function SelectInput ({
   form,
   field,
   hint,
+  helperText,
   placeholder,
   defaultValue,
   label,
@@ -46,11 +48,11 @@ export default function SelectInput ({
   const status = touched[field.name] && errors[field.name] ? 'invalid' : ''
 
   const doOnChange = (option) => {
-    onChange(option)
+    if (onChange) onChange(option)
     form.setFieldValue(field.name, option)
   }
   return (
-    <div className={`form-group ocu-select ${className}`}>
+    <div className={`ocufield ocu-select form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <Select
         {...field}
@@ -63,7 +65,6 @@ export default function SelectInput ({
         isMulti={isMulti}
         isSearchable={isSearchable}
         isClearable
-        className={`${status}`}
         classNamePrefix="select"
         theme={(theme) => ({
           ...theme,
@@ -75,7 +76,7 @@ export default function SelectInput ({
           }
         })}
       />
-
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

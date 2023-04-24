@@ -10,6 +10,7 @@ TextArea.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
   hint: PropTypes.string,
+  helperText: PropTypes.string,
   rows: PropTypes.number,
   label: PropTypes.string,
   placeholder: PropTypes.string,
@@ -26,6 +27,7 @@ export default function TextArea ({
   className,
   label,
   hint,
+  helperText,
   rows,
   placeholder,
   field,
@@ -34,15 +36,16 @@ export default function TextArea ({
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`form-group ocu-textarea ${className}`}>
+    <div className={`ocufield ocu-textarea form-group  ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <textarea
-        className={`form-input ${status}`}
+        className={'form-input'}
         {...field}
         placeholder={placeholder}
         required={required}
         rows={rows}
       />
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}
