@@ -6,13 +6,13 @@ import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { getIn } from 'formik'
 
 import Label from '../Label/Label'
-import './RichInput.css'
+import './DraftJS.css'
 // ----------------------------------------------------------------------
 
-RichInput.propTypes = {
+DraftJS.propTypes = {
   className: PropTypes.string,
-  theme: PropTypes.string,
   hint: PropTypes.string,
+  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -21,16 +21,17 @@ RichInput.propTypes = {
   onChange: PropTypes.func
 }
 
-RichInput.defaultProps = {
+DraftJS.defaultProps = {
   className: '',
   theme: 'snow',
   required: false,
   placeholder: ''
 }
 
-export default function RichInput ({
+export default function DraftJS ({
   className,
   hint,
+  helperText,
   label,
   required,
   placeholder,
@@ -47,16 +48,17 @@ export default function RichInput ({
   }
 
   return (
-    <div className={`ocu-richinput form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-draftjs form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <Editor
         placeholder={placeholder}
         editorState={field.value || EditorState.createEmpty()}
         toolbarClassName="toolbar"
-        wrapperClassName="wrapperClassName"
+        wrapperClassName="form-input"
         editorClassName="editWindow"
         onEditorStateChange={handleOnChange}
       />
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

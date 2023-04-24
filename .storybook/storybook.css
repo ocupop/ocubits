@@ -1,8 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
+body{
+  @apply font-body;
+}
+.ocufield{
+  @apply text-base;
+}
+.form-group{
+  @apply max-w-[600px];
+}
 input[type='submit']{
   @apply border px-2 py-1 rounded-md cursor-pointer;
 }

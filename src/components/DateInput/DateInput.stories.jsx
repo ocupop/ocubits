@@ -3,38 +3,44 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import UrlInput from './UrlInput'
+import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/UrlInput',
-  component: UrlInput,
+  title: 'Fields/DateInput',
+  component: DateInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'debug', 'secure'] }
+    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'range', 'twoFields', 'isClearable', 'debug'] }
+  },
+  argTypes: {
+    range: { control: 'boolean' },
+    twoFields: { control: 'boolean', if: { arg: 'range', truthy: true } }
   },
   args: {
-    name: 'url',
-    label: 'Enter a URL',
+    name: 'date',
+    label: 'Select a Date',
     hint: null,
     helperText: null,
     placeholder: null,
     className: '',
     required: false,
-    initialValues: { url: 'http://' },
-    debug: false,
-    secure: false
+    initialValues: { },
+    range: false,
+    twoFields: false,
+    isClearable: false,
+    debug: false
   }
 }
 
-function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, secure, debug }) {
+function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, range, twoFields, isClearable, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={UrlInput}
+        component={DateInput}
         name={name}
         label={label}
         hint={hint}
@@ -42,7 +48,9 @@ function Template ({ name, label, hint, helperText, placeholder, className, init
         placeholder={placeholder}
         required={required}
         className={className}
-        secure={secure}
+        range={range}
+        twoFields={twoFields}
+        isClearable={isClearable}
       />
     </FormikWrapper>
   )

@@ -1,10 +1,8 @@
 {
   "name": "@ocupop/ocubits",
-  "version": "0.0.3",
   "type": "module",
   "main": "./dist/ocubits.umd.cjs",
   "module": "./dist/ocubits.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/ocubits.js",
@@ -14,14 +12,12 @@
   "files": [
     "dist"
   ],
+  "private": false,
   "description": "Bits of reusable code for Ocupop projects",
   "author": "Ocupop",
   "license": "MIT",
   "homepage": "https://ocupop.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ocupop/ocubits.git"
-  },
+  "repository": "https://github.com/ocupop/ocubits.git",
   "bugs": {
     "url": "https://github.com/ocupop/ocubits/issues"
   },
@@ -34,6 +30,7 @@
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build": "tsc && vite build",
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/",
     "lintFix": "eslint --fix '**/*.js' --ignore-pattern node_modules/"
   },
@@ -41,7 +38,10 @@
     "draft-js": "^0.11.7",
     "flowbite-react": "^0.4.3",
     "formik": "^2.2.9",
+    "install": "^0.13.0",
+    "npm": "^9.6.4",
     "react": "^18.2.0",
+    "react-datepicker": "^4.11.0",
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-quill": "^2.0.0",
@@ -62,6 +62,7 @@
     "@storybook/react-vite": "^7.0.4",
     "@storybook/testing-library": "^0.1.0",
     "@storybook/theming": "^7.0.4",
+    "@types/node": "^18.16.0",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
@@ -70,8 +71,10 @@
     "postcss": "^8.4.21",
     "prop-types": "^15.8.1",
     "rollup": "^3.20.2",
-    "storybook": "^7.0.4",
+    "storybook": "^7.0.2",
     "tailwindcss": "^3.3.1",
-    "typescript": "^5.0.3"
-  }
+    "typescript": "^5.0.3",
+    "vite-plugin-dts": "^2.3.0"
+  },
+  "version": "0.1.10"
 }

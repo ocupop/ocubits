@@ -10,6 +10,7 @@ UrlInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
   hint: PropTypes.string,
+  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -29,6 +30,7 @@ export default function UrlInput ({
   className,
   innerRef,
   hint,
+  helperText,
   label,
   placeholder,
   required,
@@ -58,7 +60,7 @@ export default function UrlInput ({
   }
 
   return (
-    <div className={`ocu-urlinput form-group ${className}`}>
+    <div className={`ocufield ocu-urlinput form-group ${className}`}>
 
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <input
@@ -70,6 +72,7 @@ export default function UrlInput ({
         ref={innerRef}
         onChange={handleOnChange}
       />
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}
