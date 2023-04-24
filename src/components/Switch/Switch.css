@@ -3,7 +3,7 @@
     @apply flex flex-wrap;
     input[type=checkbox]{
       /* main element = track */
-      @apply mr-2 h-6 w-10 appearance-none rounded-[0.7rem] bg-gray-400 hover:cursor-pointer;
+      @apply p-0 mr-2 h-6 w-10 appearance-none rounded-[0.7rem] bg-gray-400 hover:cursor-pointer;
 
       /* After = handle */
       @apply after:absolute after:z-[2] after:bg-neutral-100;
@@ -19,25 +19,10 @@
     }
     &.invalid{
       input[type=checkbox]{
+        @apply bg-none border-none; /* reset ocufield global error styles */
         @apply bg-warning bg-opacity-50  checked:bg-warning checked:bg-opacity-100;
         @apply checked:focus:border-warning checked:focus:bg-warning ;
         @apply dark:checked:bg-warning dark:checked:after:bg-warning ;
-      }
-    }
-  }
-  .form-input, .helper, .form-validation-error{
-    @apply mb-3;
-  }
-  .helper{
-    @apply text-sm text-gray-800;
-    @apply w-full;
-  }
-  .form-validation-error{
-    @apply w-full rounded-md block bg-warning bg-opacity-20 text-gray-800 p-5;
-    ul{
-      @apply list-disc;
-      li{
-        @apply ml-6;
       }
     }
   }

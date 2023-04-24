@@ -37,7 +37,7 @@ export default function TextInput ({
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocu-textinput form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-textinput form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <input
         className={'form-input'}

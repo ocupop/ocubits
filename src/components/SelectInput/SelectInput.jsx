@@ -52,7 +52,7 @@ export default function SelectInput ({
     form.setFieldValue(field.name, option)
   }
   return (
-    <div className={`form-group ocu-select ${className} ${status}`}>
+    <div className={`ocufield ocu-select form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <Select
         {...field}

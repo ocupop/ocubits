@@ -26,9 +26,9 @@ export default function CheckboxInput ({
   form,
   form: { errors, touched }
 }) {
+  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : 'invalid'
   return (
-    <div className={`form-group ocu-checkbox ${className}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+    <div className={`ocufield ocu-checkbox form-group ${className} ${status}`}>
       <input
       type='checkbox'
         id={field.name}
@@ -39,9 +39,11 @@ export default function CheckboxInput ({
           form.setFieldValue(field.name, !field.value)
         }}
       />
+      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
+      )} <small className="form-validation-error">This is a required field</small>
     </div>
   )
 }

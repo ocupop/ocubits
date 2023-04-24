@@ -11,21 +11,22 @@ export default {
   component: RichInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'debug'] }
   },
   args: {
     name: 'fieldName',
     label: 'Enter your message',
-    hint: '',
+    hint: null,
+    helperText: null,
     placeholder: 'Enter your text here.',
-    className: '',
+    className: null,
     required: false,
     initialValues: { fieldName: '' },
     debug: false
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, debug }) {
+function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -36,6 +37,7 @@ function Template ({ name, label, hint, placeholder, className, initialValues, r
         name={name}
         label={label}
         hint={hint}
+        helperText={helperText}
         placeholder={placeholder}
         required={required}
         className={className}

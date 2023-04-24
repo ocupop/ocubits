@@ -1,31 +1,30 @@
 .ocu-richinput{
-  @apply max-w-2xl;
-  &.form-group{
-    .form-input{
-      @apply mb-1 bg-white;
-      &.invalid{
-        @apply border-warning;
-      }
+
+  .form-input{
+    @apply p-0;
+    .rdw-editor-toolbar{
+      @apply mb-0 rounded-t-md border-t-0 border-l-0 border-r-0;
+    }
+    .rdw-editor-main{
+      @apply bg-white border p-4 border-t-0;
+      @apply rounded-b-md border-none;
+    }
+    /* placeholder etxt*/
+    .public-DraftEditorPlaceholder-root{
+      @apply italic;
     }
   }
-  .toolbar{
-    @apply mb-0;
-  }
-  .editWindow{
-    @apply bg-white border p-4 border-t-0;
-  }
 
-  .public-DraftEditorPlaceholder-root{
-    @apply italic;
-  }
 
-  .form-validation-error{
-    @apply rounded-md block bg-warning bg-opacity-20 text-gray-800 p-5;
-    ul{
-      @apply list-disc;
-      li{
-        @apply ml-6;
-      }
+  &.invalid .form-input{
+    @apply p-0 bg-none;
+    .rdw-editor-main{
+      @apply bg-no-repeat;
+      background-size:1.25rem;
+      background-position:right 1rem top 1rem;
+      background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 639 639' style='enable-background:new 0 0 639 639;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23DB363E;%7D%0A%3C/style%3E%3Cpath class='st0' d='M319.5,0C143,0,0,143,0,319.5S143,639,319.5,639S639,496,639,319.5S496,0,319.5,0z M369.8,137l-15.7,265h-69.9 l-14.1-265H369.8z M319.9,544c-27.6,0-50-22.4-50-50c0-27.6,22.4-50,50-50c27.6,0,50,22.4,50,50C369.9,521.6,347.5,544,319.9,544z' /%3E%3C/svg%3E");
     }
   }
+
+
 }
