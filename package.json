@@ -76,5 +76,5 @@
     "typescript": "^5.0.3",
     "vite-plugin-dts": "^2.3.0"
   },
-  "version": "0.1.11"
+  "version": "0.1.12"
 }
