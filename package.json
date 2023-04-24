@@ -19,7 +19,7 @@
   "homepage": "https://ocupop.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ocupop/ocubits.git"
+    "url": "git+https://github.com/ocupop/ocubits.git"
   },
   "bugs": {
     "url": "https://github.com/ocupop/ocubits/issues"
