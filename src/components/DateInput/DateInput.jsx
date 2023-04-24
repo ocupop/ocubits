@@ -12,6 +12,7 @@ DateInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
   hint: PropTypes.string,
+  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -37,6 +38,7 @@ export default function DateInput ({
   className,
   innerRef,
   hint,
+  helperText,
   label,
   placeholder,
   required,
@@ -49,9 +51,8 @@ export default function DateInput ({
   twoFields
 }) {
   const handleValueChange = (newValue) => {
-    console.log(newValue)
     form.setFieldValue(field.name, newValue)
-    // onChange(newValue)
+    onChange && onChange(newValue)
   }
   const setStartDate = (newValue) => {
     form.setFieldValue(field.name, [newValue, Array.isArray(field.value) ? field.value[1] : null])
@@ -102,7 +103,7 @@ export default function DateInput ({
         endDate={endDate}
       />
       }
-
+      {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

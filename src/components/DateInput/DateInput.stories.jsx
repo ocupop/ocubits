@@ -7,11 +7,11 @@ import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'DateInput/DateInput_ReactDatepicker',
+  title: 'Fields/DateInput',
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'placeholder', 'required', 'initialValues', 'range', 'twoFields', 'isClearable', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'range', 'twoFields', 'isClearable', 'debug'] }
   },
   argTypes: {
     range: { control: 'boolean' },
@@ -20,8 +20,9 @@ export default {
   args: {
     name: 'date',
     label: 'Select a Date',
-    hint: '',
-    placeholder: '',
+    hint: null,
+    helperText: null,
+    placeholder: null,
     className: '',
     required: false,
     initialValues: { },
@@ -32,7 +33,7 @@ export default {
   }
 }
 
-function Template ({ name, label, hint, placeholder, className, initialValues, required, range, twoFields, isClearable, debug }) {
+function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, range, twoFields, isClearable, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -43,6 +44,7 @@ function Template ({ name, label, hint, placeholder, className, initialValues, r
         name={name}
         label={label}
         hint={hint}
+        helperText={helperText}
         placeholder={placeholder}
         required={required}
         className={className}
