@@ -3,12 +3,12 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper, withCenteredStory } from '@lib'
-import RichInput from './RichInput'
+import DraftJS from './DraftJS'
 // ----------------------------------------------------------------------
 
 export default {
   title: 'Experimental/DraftJS',
-  component: RichInput,
+  component: DraftJS,
   decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'debug'] }
@@ -33,7 +33,7 @@ function Template ({ name, label, hint, helperText, placeholder, className, init
       debug={debug}
     >
       <Field
-        component={RichInput}
+        component={DraftJS}
         name={name}
         label={label}
         hint={hint}
