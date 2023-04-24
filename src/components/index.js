@@ -1,8 +1,0 @@
-export { default as Checkbox } from './Checkbox/Checkbox'
-export { default as EmailInput } from './EmailInput/EmailInput'
-export { default as NumberInput } from './NumberInput/NumberInput'
-export { default as PhoneInput } from './PhoneInput/PhoneInput'
-export { default as SelectInput } from './SelectInput/SelectInput'
-export { default as Switch } from './Switch/Switch'
-export { default as TextArea } from './TextArea/TextArea'
-export { default as TextInput } from './TextInput/TextInput'

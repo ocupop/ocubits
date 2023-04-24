@@ -3,7 +3,6 @@
   "type": "module",
   "main": "./dist/ocubits.umd.cjs",
   "module": "./dist/ocubits.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/ocubits.js",
@@ -18,10 +17,7 @@
   "author": "Ocupop",
   "license": "MIT",
   "homepage": "https://ocupop.com/",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ocupop/ocubits.git"
-  },
+  "repository": "https://github.com/ocupop/ocubits.git",
   "bugs": {
     "url": "https://github.com/ocupop/ocubits/issues"
   },
