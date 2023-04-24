@@ -41,7 +41,7 @@ export default function DraftJS ({
   onChange
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
-  const doOnChange = (val) => {
+  const handleOnChange = (val) => {
     console.log(val)
     if (onChange) onChange(val)
     form.setFieldValue(field.name, val)
@@ -56,7 +56,7 @@ export default function DraftJS ({
         toolbarClassName="toolbar"
         wrapperClassName="form-input"
         editorClassName="editWindow"
-        onEditorStateChange={doOnChange}
+        onEditorStateChange={handleOnChange}
       />
       {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (

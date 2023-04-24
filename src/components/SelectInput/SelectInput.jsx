@@ -47,7 +47,7 @@ export default function SelectInput ({
 }) {
   const status = touched[field.name] && errors[field.name] ? 'invalid' : ''
 
-  const doOnChange = (option) => {
+  const handleOnChange = (option) => {
     if (onChange) onChange(option)
     form.setFieldValue(field.name, option)
   }
@@ -59,7 +59,7 @@ export default function SelectInput ({
         required={required}
         defaultValue={defaultValue}
         formatGroupLabel={formatGroupLabel}
-        onChange={doOnChange}
+        onChange={handleOnChange}
         placeholder={placeholder}
         options={options}
         isMulti={isMulti}
