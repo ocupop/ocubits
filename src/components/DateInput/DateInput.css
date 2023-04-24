@@ -1,14 +1,12 @@
 .ocu-dateinput{
-  &.form-group{
-    @apply max-w-xs;
-    .form-input{
-      @apply mb-1 border border-dark bg-light p-1;
-      &.invalid{
-        @apply border-warning;
-      }
-    }
+ .react-datepicker__calendar-icon{
+    width:3rem;
+    height:3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0.2rem;
   }
-  .form-validation-error{
-    @apply block mb-1 bg-warning text-dark p-1;
+  input[type=text]{
+    padding-left:3rem;
   }
 }

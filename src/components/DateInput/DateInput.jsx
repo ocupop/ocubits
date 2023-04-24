@@ -64,7 +64,7 @@ export default function DateInput ({
   const startDate = Array.isArray(field.value) && field.value.length > 0 ? field.value[0] : null
   const endDate = Array.isArray(field.value) && field.value.length > 1 ? field.value[1] : null
   return (
-    <div className={`ocu-dateinput form-group ${className}`}>
+    <div className={`ocufield ocu-dateinput form-group ${className}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <DatePicker
         className={`form-input ${status}`}

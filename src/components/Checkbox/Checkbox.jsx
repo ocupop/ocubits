@@ -26,7 +26,7 @@ export default function CheckboxInput ({
   form,
   form: { errors, touched }
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : 'invalid'
+  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
     <div className={`ocufield ocu-checkbox form-group ${className} ${status}`}>
       <input
@@ -43,7 +43,7 @@ export default function CheckboxInput ({
       {helperText && <div className='helper'>{helperText}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )} <small className="form-validation-error">This is a required field</small>
+      )}
     </div>
   )
 }

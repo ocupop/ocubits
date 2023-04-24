@@ -6,10 +6,10 @@ import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { getIn } from 'formik'
 
 import Label from '../Label/Label'
-import './RichInput.css'
+import './DraftJS.css'
 // ----------------------------------------------------------------------
 
-RichInput.propTypes = {
+DraftJS.propTypes = {
   className: PropTypes.string,
   hint: PropTypes.string,
   helperText: PropTypes.string,
@@ -21,14 +21,14 @@ RichInput.propTypes = {
   onChange: PropTypes.func
 }
 
-RichInput.defaultProps = {
+DraftJS.defaultProps = {
   className: '',
   theme: 'snow',
   required: false,
   placeholder: ''
 }
 
-export default function RichInput ({
+export default function DraftJS ({
   className,
   hint,
   helperText,
@@ -48,7 +48,7 @@ export default function RichInput ({
   }
 
   return (
-    <div className={`ocufield ocu-richinput form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-draftjs form-group ${className} ${status}`}>
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <Editor
         placeholder={placeholder}
