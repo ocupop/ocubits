@@ -1,22 +1,33 @@
 .ocu-select{
+
   &.form-group{
-    @apply max-w-xs;
-    .form-input{
-      @apply mb-1 border border-dark bg-light p-1;
-      &.invalid{
-        @apply border-warning;
+    .select__control{
+      @apply mb-1 border border-gray-400 bg-white rounded-md py-0;
+      &.select__control--is-focused{
+        @apply shadow-none border-accent border-2;
+      }
+      .select__value-container{
+        @apply  px-5 py-3;
       }
     }
   }
-  .form-validation-error{
-    @apply block mb-1 bg-warning text-dark p-1;
-  }
-  .select-group{
+
+
+  /* .select-group{
     @apply flex items-center justify-between;
     .label{}
     .badges{
-      @apply bg-light rounded-2xl text-dark inline-block text-xs font-normal py-1 px-2 text-center;
+      @apply bg-gray-400 rounded-2xl text-gray-800 inline-block text-xs font-normal py-1 px-2 text-center;
     }
+  } */
+
+
+  &.invalid .select__control, &.valid .select__control{
+    background-position:right 2.8rem center ;
+    .select__clear-indicator{ opacity:0;}
+  }
+  &.invalid .select__control{
+    @apply shadow-none border-warning border-2;
   }
 }
 

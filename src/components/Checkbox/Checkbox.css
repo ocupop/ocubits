@@ -1,15 +1,22 @@
 .ocu-checkbox{
-  &.form-group{
-    @apply flex flex-wrap;
-    input[type=checkbox]{
-      @apply mr-2;
-      @apply order-1;
-    }
-    .label-wrap{
-      @apply order-2;
-    }
+  input[type="checkbox"]{
+    @apply mb-2;
   }
-  .form-validation-error{
-    @apply block mb-1 bg-warning text-dark p-1;
+  &.form-group{
+    @apply flex flex-wrap items-center;
+    input[type=checkbox]{
+      @apply relative w-5 aspect-square inline-block appearance-none  mr-2 bg-white rounded-sm border border-gray-400;
+      &::before{
+        content:'';
+        @apply absolute w-full h-full bg-contain bg-no-repeat bg-center;
+        background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 420 420' style='enable-background:new 0 0 420 420;' xml:space='preserve'%3E%3Cpolygon class='st0' style='fill:currentColor;' points='46.3,230.5 73.3,203.5 151.3,281.5 347,85.8 373.7,112.5 152,334.2 '/%3E%3C/svg%3E");
+      }
+    }
+    input[type="checkbox"]:checked {
+      @apply bg-accent border-accent;
+      &::before{
+        @apply brightness-0 invert;
+      }
+    }
   }
 }
