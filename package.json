@@ -13,6 +13,7 @@
   "files": [
     "dist"
   ],
+  "private": false,
   "description": "Bits of reusable code for Ocupop projects",
   "author": "Ocupop",
   "license": "MIT",
