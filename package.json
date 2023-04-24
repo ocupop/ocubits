@@ -40,9 +40,7 @@
     "formik": "^2.2.9",
     "install": "^0.13.0",
     "npm": "^9.6.4",
-    "react": "^18.2.0",
     "react-datepicker": "^4.11.0",
-    "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-quill": "^2.0.0",
     "react-select": "^5.7.2",
@@ -74,11 +72,9 @@
     "storybook": "^7.0.2",
     "tailwindcss": "^3.3.1",
     "typescript": "^5.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "vite-plugin-dts": "^2.3.0"
   },
-  "peerDependencies": {
-    "react": ">=18.2.0",
-    "react-dom": ">=18.2.0"
- },
   "version": "0.1.13"
 }
