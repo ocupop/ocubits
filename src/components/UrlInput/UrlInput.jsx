@@ -52,13 +52,14 @@ export default function UrlInput ({
       url = url.replace(/^(\w+:\/{2,3})+/i, '$1')
     } else {
       // URL doesn't have a protocol, add "https://" to the beginning
-      url = 'https://' + url
+      url = `http${secure ? 's' : ''}://${url}`
     }
     return url
   }
 
   return (
     <div className={`ocu-urlinput form-group ${className}`}>
+
       <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
       <input
         className={`form-input ${status}`}
