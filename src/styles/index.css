@@ -10,7 +10,7 @@
 
 
 .ocufield{
-
+  @apply mb-3;
   /* Input borders, colors and padding */
   .form-input{
     @apply w-full mb-1 border text-gray-800 border-gray-400 bg-white rounded-md px-5 py-3;
