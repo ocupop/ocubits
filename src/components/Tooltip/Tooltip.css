@@ -2,13 +2,13 @@
   @apply inline-block relative items-center;
 
   button{
-    @apply flex justify-center w-0 p-2 mx-2 text-xs font-medium text-white border-none bg-gray-800 bg-opacity-30 rounded-full ;
+    @apply flex justify-center w-0 p-2 mx-2 text-xs font-medium text-white border-none bg-dark bg-opacity-30 rounded-full ;
     @apply focus:bg-opacity-100;
     @apply hover:bg-opacity-100;
   }
 
   .tooltip{
-    @apply text-sm max-w-xs font-normal inline-block absolute z-50 py-2 px-3 text-gray-800 bg-white border border-gray-400 shadow-xl transition-all duration-500 rounded-lg;
+    @apply text-sm max-w-xs font-normal inline-block absolute z-50 py-2 px-3 text-dark bg-white border border-light shadow-xl transition-all duration-500 rounded-lg;
     @apply top-0 left-1/2 pointer-events-none;
     transform:translateY(calc(-100% - 16px)) translateX(-50%);
 
