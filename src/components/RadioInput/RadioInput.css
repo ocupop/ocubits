@@ -1,0 +1,21 @@
+.ocu-radio{
+  input[type="radio"]{
+    @apply mb-2;
+  }
+  &.form-group{
+    @apply flex flex-wrap items-center;
+    input[type=radio]{
+      @apply cursor-pointer relative w-5 aspect-square inline-block appearance-none  mr-2 bg-white rounded-full border border-light;
+      &::before{
+        content:'';
+        @apply absolute rounded-full w-[75%] h-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+      }
+    }
+    input[type="radio"]:checked {
+      @apply border-2 border-accent;
+      &::before{
+        @apply bg-accent border-accent;
+      }
+    }
+  }
+}
