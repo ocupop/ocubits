@@ -59,12 +59,7 @@ export default function SelectInput ({
         htmlFor={field.name}
         required={required}
       />
-            <Select
-        // value={selectedOption}
-        // onChange={this.handleChange}
-        options={options}
-      />
-      {/* <Select
+      <Select
         {...field}
         required={required}
         defaultValue={defaultValue}
@@ -85,7 +80,7 @@ export default function SelectInput ({
             primary: '#3737F3'
           }
         })}
-      /> */}
+      />
       {hint && <div className='helper'>{hint}</div>}
       {getIn(errors, field.name) && (
         <small className='form-validation-error'>
