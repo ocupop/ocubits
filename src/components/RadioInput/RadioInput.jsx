@@ -18,6 +18,10 @@ RadioInput.propTypes = {
   form: PropTypes.instanceOf(Object)
 }
 
+function encodeAttr (text) {
+  return text == undefined ? '' : text.replace(/[^a-z0-9_]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()
+}
+
 export default function RadioInput ({
   className = '',
   label,
@@ -34,13 +38,13 @@ export default function RadioInput ({
     <div className={`ocufield ocu-radio form-group ${className} ${status}`}>
       <input
         type='radio'
-        id={`${field.name}-${value}`}
+        id={`${field.name}-${encodeAttr(value)}`}
         {...field}
         value={value}
         required={required}
       />
       <div>
-        <Label label={label} tooltip={tooltip} htmlFor={`${field.name}-${value}`} required={required}/>
+        <Label label={label} tooltip={tooltip} htmlFor={`${field.name}-${encodeAttr(value)}`} required={required}/>
         {hint && <div className='helper'>{hint}</div>}
       </div>
     </div>

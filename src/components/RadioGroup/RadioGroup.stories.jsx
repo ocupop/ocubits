@@ -26,11 +26,11 @@ export default {
     radios: [
       {
         label: 'Radio Option 1',
-        value: 'option1'
+        value: 'option 1'
       },
       {
         label: 'Radio Option 2',
-        value: 'option2'
+        value: 'Option *2'
       },
       {
         label: 'Another Option',
