@@ -3,7 +3,7 @@
     @apply flex flex-wrap;
     input[type=checkbox]{
       /* main element = track */
-      @apply p-0 mr-2 h-6 w-10 appearance-none rounded-[0.7rem] bg-gray-400 hover:cursor-pointer;
+      @apply p-0 mr-2 h-6 w-10 appearance-none rounded-[0.7rem] bg-light hover:cursor-pointer;
 
       /* After = handle */
       @apply after:absolute after:z-[2] after:bg-neutral-100;
