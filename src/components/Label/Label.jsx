@@ -7,19 +7,19 @@ import './Label.css'
 
 Label.propTypes = {
   label: PropTypes.string,
-  hint: PropTypes.string,
+  tooltip: PropTypes.string,
   className: PropTypes.string,
   htmlFor: PropTypes.string,
   required: PropTypes.bool
 }
 
-export default function Label ({ hint, label, required = false, className = '', htmlFor = null }) {
+export default function Label ({ tooltip, label, required = false, className = '', htmlFor = null }) {
   return (
     <div className={`label-wrap ${className} ${required && 'required'}`}>
       <label htmlFor={htmlFor} >
         {label}
       </label>
-      {hint && <Tooltip>{hint}</Tooltip>}
+      {tooltip && <Tooltip>{tooltip}</Tooltip>}
     </div>
   )
 }

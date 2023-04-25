@@ -9,8 +9,8 @@ import './SelectInput.css'
 SelectInput.propTypes = {
   className: PropTypes.string,
   field: PropTypes.instanceOf(Object),
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   placeholder: PropTypes.string,
   defaultValue: PropTypes.instanceOf(Object),
   label: PropTypes.string,
@@ -26,8 +26,8 @@ export default function SelectInput ({
   className,
   form,
   field,
+  tooltip,
   hint,
-  helperText,
   placeholder,
   defaultValue,
   label,
@@ -55,7 +55,7 @@ export default function SelectInput ({
     <div className={`ocufield ocu-select form-group ${className} ${status}`}>
       <Label
         label={label}
-        hint={hint}
+        tooltip={tooltip}
         htmlFor={field.name}
         required={required}
       />
@@ -86,7 +86,7 @@ export default function SelectInput ({
           }
         })}
       /> */}
-      {helperText && <div className='helper'>{helperText}</div>}
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(errors, field.name) && (
         <small className='form-validation-error'>
           {getIn(errors, field.name)}

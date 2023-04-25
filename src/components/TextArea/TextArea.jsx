@@ -9,8 +9,8 @@ import './TextArea.css'
 TextArea.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   rows: PropTypes.number,
   label: PropTypes.string,
   placeholder: PropTypes.string,
@@ -26,8 +26,8 @@ TextArea.defaultProps = {
 export default function TextArea ({
   className,
   label,
+  tooltip,
   hint,
-  helperText,
   rows,
   placeholder,
   field,
@@ -37,7 +37,7 @@ export default function TextArea ({
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
     <div className={`ocufield ocu-textarea form-group  ${className} ${status}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <textarea
         className={'form-input'}
         {...field}
@@ -45,7 +45,7 @@ export default function TextArea ({
         required={required}
         rows={rows}
       />
-      {helperText && <div className='helper'>{helperText}</div>}
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}
