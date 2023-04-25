@@ -20,7 +20,7 @@
   }
 
   /* Consistent vertical spacing */
-  .form-input, .helper, .form-validation-error, .select__control{
+  .form-input, .input-group, .helper, .form-validation-error, .select__control{
     @apply mb-3;
   }
 
@@ -68,9 +68,9 @@
   .input-group{
     @apply flex;
     .input-group-text{
-      @apply bg-gray-400 border mb-0 flex items-center p-2;
+      @apply bg-light bg-opacity-40 border border-light mb-0 flex items-center p-2;
       &.prefix{
-        @apply rounded-l-md;
+        @apply rounded-l-md border-r-0;
       }
     }
     input{
