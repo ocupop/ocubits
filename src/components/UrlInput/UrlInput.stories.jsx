@@ -11,23 +11,23 @@ export default {
   component: UrlInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'debug', 'secure'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'secure'] }
   },
   args: {
     name: 'url',
     label: 'Enter a URL',
+    tooltip: null,
     hint: null,
-    helperText: null,
     placeholder: null,
     className: '',
     required: false,
-    initialValues: { url: 'http://' },
+    initialValues: { url: '' },
     debug: false,
     secure: false
   }
 }
 
-function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, secure, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, secure, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -37,8 +37,8 @@ function Template ({ name, label, hint, helperText, placeholder, className, init
         component={UrlInput}
         name={name}
         label={label}
+        tooltip={tooltip}
         hint={hint}
-        helperText={helperText}
         placeholder={placeholder}
         required={required}
         className={className}

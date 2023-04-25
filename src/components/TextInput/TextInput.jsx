@@ -9,8 +9,8 @@ import './TextInput.css'
 TextInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -27,8 +27,8 @@ TextInput.defaultProps = {
 export default function TextInput ({
   className,
   innerRef,
+  tooltip,
   hint,
-  helperText,
   label,
   placeholder,
   required,
@@ -38,7 +38,7 @@ export default function TextInput ({
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
     <div className={`ocufield ocu-textinput form-group ${className} ${status}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <input
         className={'form-input'}
         {...field}
@@ -47,7 +47,7 @@ export default function TextInput ({
         required={required}
         ref={innerRef}
       />
-      {helperText && <div className='helper'>{helperText}</div>}
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

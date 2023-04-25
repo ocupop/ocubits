@@ -10,7 +10,7 @@
 
 
 .ocufield{
-
+  @apply mb-3;
   /* Input borders, colors and padding */
   .form-input{
     @apply w-full mb-1 border text-dark border-light bg-white rounded-md px-5 py-3;
@@ -60,6 +60,21 @@
     }
     &.required::before{
       @apply content-['*'] text-warning mr-1;
+    }
+  }
+
+  /* Input Group */
+
+  .input-group{
+    @apply flex;
+    .input-group-text{
+      @apply bg-gray-400 border mb-0 flex items-center p-2;
+      &.prefix{
+        @apply rounded-l-md;
+      }
+    }
+    input{
+      @apply mb-0 rounded-l-none;
     }
   }
 }

@@ -8,8 +8,8 @@ import './Checkbox.css'
 CheckboxInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.string,
   required: PropTypes.bool,
@@ -19,8 +19,8 @@ CheckboxInput.propTypes = {
 export default function CheckboxInput ({
   className = '',
   label,
+  tooltip,
   hint,
-  helperText,
   field,
   required,
   form,
@@ -39,8 +39,8 @@ export default function CheckboxInput ({
           form.setFieldValue(field.name, !field.value)
         }}
       />
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
-      {helperText && <div className='helper'>{helperText}</div>}
+      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

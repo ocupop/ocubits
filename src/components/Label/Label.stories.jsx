@@ -10,10 +10,10 @@ export default {
   component: Label,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['hint', 'label', 'required'] }
+    controls: { include: ['tooltip', 'label', 'required'] }
   },
   args: {
-    hint: null,
+    tooltip: null,
     label: 'Field Label',
     className: '',
     htmlFor: '',
@@ -21,10 +21,10 @@ export default {
   }
 }
 
-function Template ({ hint, label, className, htmlFor, required }) {
+function Template ({ tooltip, label, className, htmlFor, required }) {
   return (
     <Label
-      hint={hint}
+      tooltip={tooltip}
       label={label}
       className={className}
       htmlFor={htmlFor}
