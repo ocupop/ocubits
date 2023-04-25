@@ -11,7 +11,7 @@ export default {
   component: RadioInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'required', 'debug', 'selectedValue', 'allowDeselect'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'required', 'debug', 'value'] }
   },
   args: {
     name: 'radioFieldName',
@@ -22,12 +22,11 @@ export default {
     initialValues: { },
     debug: false,
     required: false,
-    selectedValue: 'Hello World',
-    allowDeselect: true
+    value: 'Hello World'
   }
 }
 
-function Template ({ name, label, tooltip, hint, className, required, initialValues, debug, selectedValue, allowDeselect }) {
+function Template ({ name, label, tooltip, hint, className, required, initialValues, debug, value }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -41,8 +40,7 @@ function Template ({ name, label, tooltip, hint, className, required, initialVal
         tooltip={tooltip}
         hint={hint}
         required={required}
-        selectedValue={selectedValue}
-        allowDeselect={allowDeselect}
+        value={value}
       />
     </FormikWrapper>
   )

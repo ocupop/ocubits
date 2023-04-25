@@ -13,8 +13,7 @@ RadioInput.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
   required: PropTypes.bool,
-  selectedValue: PropTypes.string,
-  allowDeselect: PropTypes.bool,
+  value: PropTypes.string,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
@@ -26,34 +25,24 @@ export default function RadioInput ({
   hint,
   field,
   required,
-  selectedValue,
-  allowDeselect = false,
-  form,
+  value,
   form: { errors, touched }
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
-  const handleOnChange = (e) => {
-    if (allowDeselect && field.value === e.target.value) {
-      e.target.value = null
-    }
-    field.onChange(e)
-  }
+
   return (
     <div className={`ocufield ocu-radio form-group ${className} ${status}`}>
       <input
-      type='radio'
-        id={field.name}
+        type='radio'
+        id={`${field.name}-${value}`}
         {...field}
-        checked={field.value}
-        value={selectedValue}
+        value={value}
         required={required}
-        onChange={handleOnChange}
       />
-      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
-      {hint && <div className='helper'>{hint}</div>}
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
+      <div>
+        <Label label={label} tooltip={tooltip} htmlFor={`${field.name}-${value}`} required={required}/>
+        {hint && <div className='helper'>{hint}</div>}
+      </div>
     </div>
   )
 }
