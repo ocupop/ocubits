@@ -6,11 +6,16 @@ import dts from 'vite-plugin-dts'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [dts(), react()],
+  dedupe: ['react', 'react-dom'],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
       name: 'ocubits',
+      formats: ['umd', 'es'],
       fileName: 'ocubits'
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom']
     }
   },
   resolve: {

@@ -22,13 +22,6 @@ SelectInput.propTypes = {
   required: PropTypes.bool
 }
 
-const formatGroupLabel = (data) => (
-  <div className='select-group'>
-    <span className='label'>{data.label}</span>
-    <span className='badges' >{data.options.length}</span>
-  </div>
-)
-
 export default function SelectInput ({
   className,
   form,
@@ -45,6 +38,13 @@ export default function SelectInput ({
   required,
   form: { errors, touched }
 }) {
+  const formatGroupLabel = (data) => (
+    <div className='select-group'>
+      <span className='label'>{data.label}</span>
+      <span className='badges'>{data.options.length}</span>
+    </div>
+  )
+
   const status = touched[field.name] && errors[field.name] ? 'invalid' : ''
 
   const handleOnChange = (option) => {
@@ -53,8 +53,18 @@ export default function SelectInput ({
   }
   return (
     <div className={`ocufield ocu-select form-group ${className} ${status}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
-      <Select
+      <Label
+        label={label}
+        hint={hint}
+        htmlFor={field.name}
+        required={required}
+      />
+            <Select
+        // value={selectedOption}
+        // onChange={this.handleChange}
+        options={options}
+      />
+      {/* <Select
         {...field}
         required={required}
         defaultValue={defaultValue}
@@ -65,7 +75,7 @@ export default function SelectInput ({
         isMulti={isMulti}
         isSearchable={isSearchable}
         isClearable
-        classNamePrefix="select"
+        classNamePrefix='select'
         theme={(theme) => ({
           ...theme,
           borderRadius: 0,
@@ -75,10 +85,12 @@ export default function SelectInput ({
             primary: '#3737F3'
           }
         })}
-      />
+      /> */}
       {helperText && <div className='helper'>{helperText}</div>}
       {getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
+        <small className='form-validation-error'>
+          {getIn(errors, field.name)}
+        </small>
       )}
     </div>
   )

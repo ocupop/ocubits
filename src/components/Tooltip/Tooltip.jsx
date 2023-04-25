@@ -12,8 +12,7 @@ export default function ToolTip ({
   unstyled,
   ...props
 }) {
-  // const [show, setShow] = useState(false)
-  const show = false
+  const [show, setShow] = useState(false)
 
   return (
     <div
@@ -33,8 +32,8 @@ export default function ToolTip ({
         </div>
       )}
       <button
-        // onMouseOver={() => setShow(true)}
-        // onMouseOut={() => setShow(false)}
+        onMouseOver={() => setShow(true)}
+        onMouseOut={() => setShow(false)}
         data-tooltip-target='tooltip-default'
         style={{ lineHeight: 0 }}
         className=''
