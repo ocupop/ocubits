@@ -52,8 +52,15 @@ yarn add @ocupop/ocubits@latest
 ```
 
 ## How to Publish
+Create a tag.
+1. Goto Actions
+2. Click on "Generate Tag"
+3. Click "Run now"
+4. Select the type of versioning. Rmember we're using [Semantic Versioning](https://semver.org/)
+<img width="1456" alt="image" src="https://user-images.githubusercontent.com/245761/234324000-0e1d8fc0-20df-4c22-8028-5c998bb2f009.png">
 
---
+Once the tag is generated, publish a release with the newly created tag
+<img width="966" alt="image" src="https://user-images.githubusercontent.com/245761/234324499-3ac18730-931b-4487-935f-085cd9165940.png">
 
 Bumping versions we're using [Semantic Versioning](https://semver.org/)
 ```
