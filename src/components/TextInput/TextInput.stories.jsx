@@ -11,13 +11,13 @@ export default {
   component: TextInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
   },
   args: {
     name: 'fieldName',
     label: 'Field Label',
+    tooltip: null,
     hint: null,
-    helperText: null,
     placeholder: '',
     className: '',
     required: false,
@@ -27,7 +27,7 @@ export default {
   }
 }
 
-function Template ({ name, label, hint, helperText, placeholder, className, initialValues, required, maskOptions, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, maskOptions, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -37,8 +37,8 @@ function Template ({ name, label, hint, helperText, placeholder, className, init
         component={TextInput}
         name={name}
         label={label}
+        tooltip={tooltip}
         hint={hint}
-        helperText={helperText}
         placeholder={placeholder}
         required={required}
         className={className}

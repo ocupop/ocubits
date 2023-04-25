@@ -11,13 +11,13 @@ export default {
   component: SelectInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'helperText', 'placeholder', 'required', 'initialValues', 'debug', 'options', 'isMulti', 'isSearchable'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'options', 'isMulti', 'isSearchable'] }
   },
   args: {
     name: 'selectField',
     label: 'Make a Selection',
-    hint: '',
-    helperText: null,
+    tooltip: '',
+    hint: null,
     placeholder: '',
     required: false,
     className: '',
@@ -55,7 +55,7 @@ export default {
   }
 }
 
-function Template ({ name, label, hint, helperText, placeholder, required, className, isMulti, isSearchable, onChange, options, initialValues, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, required, className, isMulti, isSearchable, onChange, options, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -65,8 +65,8 @@ function Template ({ name, label, hint, helperText, placeholder, required, class
         component={SelectInput}
         name={name}
         label={label}
+        tooltip={tooltip}
         hint={hint}
-        helperText={helperText}
         placeholder={placeholder}
         required={required}
         className={className}

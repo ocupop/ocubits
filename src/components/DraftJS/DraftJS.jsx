@@ -11,8 +11,8 @@ import './DraftJS.css'
 
 DraftJS.propTypes = {
   className: PropTypes.string,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -30,8 +30,8 @@ DraftJS.defaultProps = {
 
 export default function DraftJS ({
   className,
+  tooltip,
   hint,
-  helperText,
   label,
   required,
   placeholder,
@@ -49,7 +49,7 @@ export default function DraftJS ({
 
   return (
     <div className={`ocufield ocu-draftjs form-group ${className} ${status}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <Editor
         placeholder={placeholder}
         editorState={field.value || EditorState.createEmpty()}
@@ -58,7 +58,7 @@ export default function DraftJS ({
         editorClassName="editWindow"
         onEditorStateChange={handleOnChange}
       />
-      {helperText && <div className='helper'>{helperText}</div>}
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

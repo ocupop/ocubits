@@ -8,8 +8,8 @@ import './Switch.css'
 
 Switch.propTypes = {
   className: PropTypes.string,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   label: PropTypes.string,
   required: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
@@ -18,8 +18,8 @@ Switch.propTypes = {
 export default function Switch ({
   className = '',
   label,
+  tooltip,
   hint,
-  helperText,
   field,
   required,
   form,
@@ -38,11 +38,11 @@ export default function Switch ({
       />
       <Label
         label={label}
-        hint={hint}
+        tooltip={tooltip}
         htmlFor={field.name}
         required={required}
       />
-      {helperText && <div className='helper'>{helperText}</div>}
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

@@ -11,13 +11,13 @@ export default {
   component: Switch,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'hint', 'helperText', 'required', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'required', 'debug'] }
   },
   args: {
     name: 'switchFieldName',
     label: 'Switch Label',
+    tooltip: null,
     hint: null,
-    helperText: null,
     className: '',
     initialValues: { },
     debug: false,
@@ -25,7 +25,7 @@ export default {
   }
 }
 
-function Template ({ name, label, hint, helperText, className, required, initialValues, debug }) {
+function Template ({ name, label, tooltip, hint, className, required, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -36,8 +36,8 @@ function Template ({ name, label, hint, helperText, className, required, initial
         className={className}
         name={name}
         label={label}
+        tooltip={tooltip}
         hint={hint}
-        helperText={helperText}
         required={required}
       />
     </FormikWrapper>

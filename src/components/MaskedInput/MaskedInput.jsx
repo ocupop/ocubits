@@ -11,8 +11,8 @@ import '../TextInput/TextInput.css'
 MaskedInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
@@ -38,8 +38,8 @@ MaskedInput.defaultProps = {
 export default function MaskedInput ({
   className,
   innerRef,
+  tooltip,
   hint,
-  helperText,
   type,
   label,
   placeholder,
@@ -51,7 +51,7 @@ export default function MaskedInput ({
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
     <div className={`ocufield ocu-textinput form-group ${className} ${status}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <ReactMaskedInput
         mask={maskOptions}
         className={'form-input'}
@@ -61,7 +61,7 @@ export default function MaskedInput ({
         required={required}
         ref={innerRef}
       />
-      {helperText && <div className='helper'>{helperText}</div>}
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

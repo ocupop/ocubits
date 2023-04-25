@@ -11,8 +11,8 @@ import './DateInput.css'
 DateInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -37,8 +37,8 @@ DateInput.defaultProps = {
 export default function DateInput ({
   className,
   innerRef,
+  tooltip,
   hint,
-  helperText,
   label,
   placeholder,
   required,
@@ -65,7 +65,7 @@ export default function DateInput ({
   const endDate = Array.isArray(field.value) && field.value.length > 1 ? field.value[1] : null
   return (
     <div className={`ocufield ocu-dateinput form-group ${className}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <DatePicker
         className={`form-input ${status}`}
         selected={(!range && field.value) ? field.value : startDate || null }
@@ -103,7 +103,7 @@ export default function DateInput ({
         endDate={endDate}
       />
       }
-      {helperText && <div className='helper'>{helperText}</div>}
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

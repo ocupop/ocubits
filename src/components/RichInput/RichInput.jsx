@@ -12,8 +12,8 @@ RichInput.propTypes = {
   className: PropTypes.string,
   theme: PropTypes.string,
   innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -32,8 +32,8 @@ RichInput.defaultProps = {
 export default function RichInput ({
   className,
   theme,
+  tooltip,
   hint,
-  helperText,
   label,
   placeholder,
   required,
@@ -60,7 +60,7 @@ export default function RichInput ({
 
   return (
     <div className={`ocufield ocu-richinput form-group ${className} ${status}`}>
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
+      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <ReactQuill
         {...field}
         readOnly = {false}
@@ -72,7 +72,7 @@ export default function RichInput ({
         required={required}
         placeholder={placeholder}
       />
-      {helperText && <div className='helper'>{helperText}</div>}
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}

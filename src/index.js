@@ -1,3 +1,5 @@
+
+import './styles/index.css'
 export { default as Checkbox } from './components/Checkbox/Checkbox'
 export { default as DateInput } from './components/DateInput/DateInput'
 export { default as EmailInput } from './components/EmailInput/EmailInput'
@@ -9,5 +11,6 @@ export { default as SelectInput } from './components/SelectInput/SelectInput'
 // export { default as Switch } from './components/Switch/Switch'
 export { default as TextArea } from './components/TextArea/TextArea'
 export { default as TextInput } from './components/TextInput/TextInput'
+export { default as UrlInput } from './components/UrlInput/UrlInput'
 export { default as Tooltip } from './components/Tooltip/Tooltip'
 export { default as Label } from './components/Label/Label'

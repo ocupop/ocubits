@@ -9,8 +9,8 @@ import './UrlInput.css'
 UrlInput.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
   hint: PropTypes.string,
-  helperText: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
@@ -29,8 +29,8 @@ UrlInput.defaultProps = {
 export default function UrlInput ({
   className,
   innerRef,
+  tooltip,
   hint,
-  helperText,
   label,
   placeholder,
   required,
@@ -40,20 +40,23 @@ export default function UrlInput ({
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
 
-  const handleOnChange = (e) => {
-    let newUrl = window.decodeURIComponent(e.target.value)
-    newUrl = newUrl.trim().replace(/\s/g, '') /// trim and remove spaces
-    e.target.value = checkProtocol(newUrl)
+  const displayUrl = field.value ? field.value.replace(/(^\w+:|^)\/\//, '') : ''
+
+  const handleOnBlur = (e) => {
+    let url = window.decodeURIComponent(e.target.value)
+    if (url) {
+      url = url.trim().replace(/\s/g, '') /// trim and remove spaces
+      e.target.value = addProtocol(url)
+    }
 
     if (field.onChange) field.onChange(e)
   }
 
-  const checkProtocol = (url) => {
+  const addProtocol = (url) => {
     if (/^[a-zA-Z]+:\/\//.test(url)) {
-      // URL already contains a protocol, remove any duplicate protocols
-      url = url.replace(/^(\w+:\/{2,3})+/i, '$1')
+      console.log('Url already contains protocol')
     } else {
-      // URL doesn't have a protocol, add "https://" to the beginning
+      console.log('NO protocol')
       url = `http${secure ? 's' : ''}://${url}`
     }
     return url
@@ -62,17 +65,21 @@ export default function UrlInput ({
   return (
     <div className={`ocufield ocu-urlinput form-group ${className}`}>
 
-      <Label label={label} hint={hint} htmlFor={field.name} required={required}/>
-      <input
-        className={`form-input ${status}`}
-        { ...field }
-        placeholder={placeholder}
-        type='url'
-        required={required}
-        ref={innerRef}
-        onChange={handleOnChange}
-      />
-      {helperText && <div className='helper'>{helperText}</div>}
+      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
+      <div className="input-group">
+        <span className="input-group-text prefix" id="basic-addon1">http{secure ? 's' : ''}://</span>
+        <input
+          className={`form-input ${status}`}
+          { ...field }
+          value={displayUrl}
+          placeholder={placeholder}
+          type='url'
+          required={required}
+          ref={innerRef}
+          onBlur={handleOnBlur}
+        />
+      </div>
+      {hint && <div className='helper'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}
