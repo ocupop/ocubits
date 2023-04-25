@@ -11,6 +11,7 @@ Fieldset.propTypes = {
   label: PropTypes.string,
   tooltip: PropTypes.string,
   description: PropTypes.string,
+  layout: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
