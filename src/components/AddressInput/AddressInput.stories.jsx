@@ -14,15 +14,15 @@ export default {
     controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
   },
   args: {
-    name: 'fieldName',
-    label: 'Field Label',
+    name: 'userAddress',
+    label: 'Enter Your Address',
     tooltip: null,
     hint: null,
     placeholder: null,
     className: null,
     required: false,
     disabled: false,
-    initialValues: { fieldName: '' },
+    initialValues: { userAddress: '' },
     debug: false,
     maskOptions: false
   }

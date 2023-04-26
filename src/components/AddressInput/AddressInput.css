@@ -1,11 +1,5 @@
 .ocu-addressinput{
 
-  .toggle{
-    @apply bg-primary p-3 rounded-md border-dark inline-block;
-    small{
-      @apply text-white text-sm
-    }
-  }
   .address-fields{
     @apply flex flex-wrap items-start;
   }
@@ -15,6 +9,9 @@
     }
     &.address2{
       @apply w-full md:w-1/2;
+      .label-wrap{
+        @apply hidden md:flex;
+      }
     }
     &.city{
       @apply w-full md:w-5/12 md:pr-2;
