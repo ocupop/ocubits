@@ -1,6 +1,6 @@
 .ocu-checkbox{
   &.form-group{
-    @apply flex flex-wrap items-center;
+    @apply flex flex-wrap items-start;
   }
   input[type=checkbox]{
     @apply appearance-none;
