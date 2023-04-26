@@ -2,32 +2,29 @@
 
   &.form-group{
     .select__control{
-      @apply mb-1 border border-light bg-white rounded-md py-0;
+      @apply mb-1 py-0;
+      @apply rounded-md;
+      @apply bg-white;
+      @apply border border-light;
       &.select__control--is-focused{
-        @apply shadow-none border-accent border-2;
+        @apply shadow-none;
+        @apply border-accent border-2;
       }
       .select__value-container{
-        @apply  px-5 py-3;
+        @apply px-5 py-3;
       }
     }
   }
-
-
-  /* .select-group{
-    @apply flex items-center justify-between;
-    .label{}
-    .badges{
-      @apply bg-light rounded-2xl text-dark inline-block text-xs font-normal py-1 px-2 text-center;
-    }
-  } */
-
 
   &.invalid .select__control, &.valid .select__control{
     background-position:right 2.8rem center ;
-    .select__clear-indicator{ opacity:0;}
+    .select__clear-indicator{
+      @apply opacity-0;
+    }
   }
   &.invalid .select__control{
-    @apply shadow-none border-warning border-2;
+    @apply border-warning border-2;
+    @apply shadow-none;
   }
 }
 
