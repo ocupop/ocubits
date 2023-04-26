@@ -11,22 +11,23 @@ export default {
   component: EmailInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'email',
     label: 'Email Address',
-    tooltip: '',
+    tooltip: null,
     hint: null,
-    placeholder: '',
+    placeholder: null,
     required: false,
-    className: '',
+    disabled: false,
+    className: null,
     initialValues: { email: '' },
     debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, required, className, initialValues, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -39,8 +40,9 @@ function Template ({ name, label, tooltip, hint, placeholder, required, classNam
         tooltip={tooltip}
         hint={hint}
         placeholder={placeholder}
-        required={required}
         className={className}
+        required={required}
+        disabled={disabled}
       />
     </FormikWrapper>
   )

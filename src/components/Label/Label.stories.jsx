@@ -15,8 +15,8 @@ export default {
   args: {
     tooltip: null,
     label: 'Field Label',
-    className: '',
-    htmlFor: '',
+    className: null,
+    htmlFor: null,
     required: true
   }
 }

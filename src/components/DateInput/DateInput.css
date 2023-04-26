@@ -1,12 +1,9 @@
 .ocu-dateinput{
  .react-datepicker__calendar-icon{
-    width:3rem;
-    height:3rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-top: 0.2rem;
+    @apply w-10 h-10 mt-1;
+    @apply fill-light;
   }
   input[type=text]{
-    padding-left:3rem;
+    @apply pl-10;
   }
 }

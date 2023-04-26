@@ -11,15 +11,15 @@ export default {
   component: DraftJS,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug'] }
   },
   args: {
     name: 'fieldName',
     label: 'Enter your message',
-    tooltip: '',
-    hint: '',
+    tooltip: null,
+    hint: null,
     placeholder: 'Enter your text here.',
-    className: '',
+    className: null,
     required: false,
     initialValues: { fieldName: '' },
     debug: false

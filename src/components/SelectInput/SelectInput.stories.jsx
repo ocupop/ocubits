@@ -11,16 +11,15 @@ export default {
   component: SelectInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'options', 'isMulti', 'isSearchable'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'options', 'isMulti', 'isSearchable', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'selectField',
     label: 'Make a Selection',
-    tooltip: '',
+    tooltip: null,
     hint: null,
-    placeholder: '',
-    required: false,
-    className: '',
+    placeholder: null,
+    className: null,
     isMulti: false,
     isSearchable: false,
     options: [
@@ -51,11 +50,13 @@ export default {
     initialValues: {
       selectField: [{ value: 'strawberry', label: 'Strawberry' }]
     },
+    disabled: false,
+    required: false,
     debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, required, className, isMulti, isSearchable, onChange, options, initialValues, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, isMulti, isSearchable, onChange, options, initialValues, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -68,12 +69,13 @@ function Template ({ name, label, tooltip, hint, placeholder, required, classNam
         tooltip={tooltip}
         hint={hint}
         placeholder={placeholder}
-        required={required}
         className={className}
         isMulti={isMulti}
         isSearchable={isSearchable}
         onChange={onChange}
         options={options}
+        disabled={disabled}
+        required={required}
       />
     </FormikWrapper>
   )

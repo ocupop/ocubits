@@ -11,23 +11,24 @@ export default {
   component: TextArea,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'rows', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'rows', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'fieldName',
     label: 'Field Label',
-    tooltip: '',
+    tooltip: null,
     hint: null,
-    placeholder: '',
-    className: '',
+    placeholder: null,
+    className: null,
     rows: 4,
     required: false,
+    disabled: false,
     initialValues: { fieldName: '' },
     debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, rows, required, initialValues, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, rows, required, disabled, initialValues, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -35,14 +36,15 @@ function Template ({ name, label, tooltip, hint, placeholder, className, rows, r
     >
       <Field
         component={TextArea}
+        className={className}
         name={name}
         label={label}
         tooltip={tooltip}
         hint={hint}
         placeholder={placeholder}
-        required={required}
-        className={className}
         rows={rows}
+        required={required}
+        disabled={disabled}
       />
     </FormikWrapper>
   )

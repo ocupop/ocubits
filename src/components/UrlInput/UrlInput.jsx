@@ -14,6 +14,7 @@ UrlInput.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   secure: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
@@ -23,7 +24,7 @@ UrlInput.defaultProps = {
   className: '',
   required: false,
   placeholder: '',
-  secure: false
+  secure: true
 }
 
 export default function UrlInput ({
@@ -34,6 +35,7 @@ export default function UrlInput ({
   label,
   placeholder,
   required,
+  disabled,
   field,
   secure,
   form: { errors, touched }
@@ -63,7 +65,7 @@ export default function UrlInput ({
   }
 
   return (
-    <div className={`ocufield ocu-urlinput form-group ${className}`}>
+    <div className={`ocufield ocu-urlinput form-group ${className} ${disabled && 'disabled'}`}>
 
       <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <div className="input-group">
@@ -75,6 +77,7 @@ export default function UrlInput ({
           placeholder={placeholder}
           type='url'
           required={required}
+          disabled={disabled}
           ref={innerRef}
           onBlur={handleOnBlur}
         />

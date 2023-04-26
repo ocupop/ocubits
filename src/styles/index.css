@@ -10,6 +10,9 @@
 
 
 .ocufield{
+  &.disabled{
+    @apply opacity-30;
+  }
   @apply mb-3;
   /* Input borders, colors and padding */
   .form-input{

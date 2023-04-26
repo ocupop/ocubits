@@ -11,7 +11,7 @@ export default {
   component: PhoneInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'format'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug', 'disabled', 'format'] }
   },
   argTypes: {
     format: { control: 'select', options: ['usParens', 'usNoAreaCode', 'international', null] }
@@ -19,18 +19,19 @@ export default {
   args: {
     name: 'phone',
     label: 'Phone Number',
-    tooltip: '',
+    tooltip: null,
     hint: null,
     placeholder: 'Enter your Phone',
-    className: '',
+    className: null,
     required: false,
+    disabled: false,
     format: 'usParens',
     initialValues: { phone: '' },
     debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, format, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, format, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -43,9 +44,10 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
         tooltip={tooltip}
         hint={hint}
         placeholder={placeholder}
-        required={required}
         className={className}
         format={format}
+        required={required}
+        disabled={disabled}
       />
     </FormikWrapper>
   )

@@ -15,6 +15,7 @@ TextArea.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
@@ -32,17 +33,19 @@ export default function TextArea ({
   placeholder,
   field,
   required,
+  disabled,
   form: { errors, touched }
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocufield ocu-textarea form-group  ${className} ${status}`}>
+    <div className={`ocufield ocu-textarea form-group  ${className} ${status} ${disabled && 'disabled'}`}>
       <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <textarea
         className={'form-input'}
         {...field}
         placeholder={placeholder}
         required={required}
+        disabled={disabled}
         rows={rows}
       />
       {hint && <div className='helper'>{hint}</div>}

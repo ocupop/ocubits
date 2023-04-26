@@ -14,6 +14,7 @@ TextInput.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
@@ -32,12 +33,13 @@ export default function TextInput ({
   label,
   placeholder,
   required,
+  disabled,
   field,
   form: { errors, touched }
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocufield ocu-textinput form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-textinput form-group ${className} ${status} ${disabled && 'disabled'}`}>
       <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <input
         className={'form-input'}
@@ -45,6 +47,7 @@ export default function TextInput ({
         placeholder={placeholder}
         type='text'
         required={required}
+        disabled={disabled}
         ref={innerRef}
       />
       {hint && <div className='helper'>{hint}</div>}

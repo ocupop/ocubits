@@ -13,6 +13,7 @@ CheckboxInput.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
@@ -23,6 +24,7 @@ export default function CheckboxInput ({
   hint,
   field,
   required,
+  disabled,
   form,
   form: { errors, touched }
 }) {

@@ -8,7 +8,6 @@ export default function ToolTip ({
   children,
   className,
   placement,
-  triggerType,
   unstyled,
   ...props
 }) {

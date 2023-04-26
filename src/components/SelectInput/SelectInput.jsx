@@ -19,8 +19,10 @@ SelectInput.propTypes = {
   onChange: PropTypes.func,
   options: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object),
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  disabled: PropTypes.bool
 }
+SelectInput.defaultProps = {}
 
 export default function SelectInput ({
   className,
@@ -36,6 +38,7 @@ export default function SelectInput ({
   onChange,
   options,
   required,
+  disabled,
   form: { errors, touched }
 }) {
   const formatGroupLabel = (data) => (
@@ -52,7 +55,7 @@ export default function SelectInput ({
     form.setFieldValue(field.name, option)
   }
   return (
-    <div className={`ocufield ocu-select form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-select form-group ${className} ${status} ${disabled && 'disabled'}`}>
       <Label
         label={label}
         tooltip={tooltip}
@@ -69,6 +72,7 @@ export default function SelectInput ({
         options={options}
         isMulti={isMulti}
         isSearchable={isSearchable}
+        isDisabled={disabled}
         isClearable
         classNamePrefix='select'
         theme={(theme) => ({
