@@ -23,7 +23,7 @@ UrlInput.defaultProps = {
   className: '',
   required: false,
   placeholder: '',
-  secure: false
+  secure: true
 }
 
 export default function UrlInput ({

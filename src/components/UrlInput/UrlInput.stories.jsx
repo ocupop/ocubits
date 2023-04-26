@@ -23,7 +23,7 @@ export default {
     required: false,
     initialValues: { url: '' },
     debug: false,
-    secure: false
+    secure: true
   }
 }
 
