@@ -19,7 +19,6 @@ export default {
     tooltip: null,
     hint: null,
     placeholder: null,
-    required: false,
     className: null,
     isMulti: false,
     isSearchable: false,
@@ -51,11 +50,12 @@ export default {
     initialValues: {
       selectField: [{ value: 'strawberry', label: 'Strawberry' }]
     },
+    required: false,
     debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, required, className, isMulti, isSearchable, onChange, options, initialValues, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, isMulti, isSearchable, onChange, options, initialValues, required, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}

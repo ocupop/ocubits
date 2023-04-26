@@ -26,15 +26,15 @@ export default {
     hint: null,
     placeholder: null,
     className: null,
-    required: false,
     maskOptions: false,
     type: 'text',
     initialValues: { fieldName: '' },
+    required: false,
     debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, maskOptions, type, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, maskOptions, type, required, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}

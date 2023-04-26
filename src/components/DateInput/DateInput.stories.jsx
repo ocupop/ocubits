@@ -11,7 +11,7 @@ export default {
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'range', 'twoFields', 'isClearable', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'range', 'twoFields', 'isClearable', 'required', 'debug'] }
   },
   argTypes: {
     range: { control: 'boolean' },
@@ -24,16 +24,16 @@ export default {
     hint: null,
     placeholder: null,
     className: null,
-    required: false,
     initialValues: { },
     range: false,
     twoFields: false,
     isClearable: false,
+    required: false,
     debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, range, twoFields, isClearable, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, range, twoFields, isClearable, required, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}

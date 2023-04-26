@@ -20,12 +20,12 @@ export default {
     hint: null,
     className: null,
     initialValues: { checkFieldName: '' },
-    debug: false,
-    required: false
+    required: false,
+    debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, className, required, initialValues, debug }) {
+function Template ({ name, label, tooltip, hint, className, initialValues, required, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
