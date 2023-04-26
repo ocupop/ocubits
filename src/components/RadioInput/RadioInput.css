@@ -3,14 +3,14 @@
   &.form-group{
     @apply flex flex-wrap items-start;
     input[type=radio]{
-      @apply relative inline-block appearance-none;
-      @apply cursor-pointer;
-      @apply w-5 mr-2;
-      @apply aspect-square rounded-full  bg-white;
+      @apply cursor-pointer appearance-none;
+      @apply relative inline-block;
+      @apply w-5 mr-2 aspect-square;
+      @apply bg-white rounded-full;
       @apply border border-light;
       &::before{
-        @apply absolute content-none;
-        @apply rounded-full;
+        content:'';
+        @apply absolute rounded-full;
         @apply w-[75%] h-[75%] top-1/2 left-1/2;
         @apply transform -translate-x-1/2 -translate-y-1/2;
       }

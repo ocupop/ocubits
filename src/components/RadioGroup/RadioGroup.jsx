@@ -36,6 +36,7 @@ export default function RadioGroup ({
       <div role="group" aria-labelledby="my-radio-group">
         {radios.map((radio) =>
           <Field
+            key={radio.value}
             component={RadioInput}
             name={field.name}
             label={radio.label}
