@@ -10,6 +10,9 @@
         @apply shadow-none;
         @apply border-accent border-2;
       }
+      .select__input-container{
+        @apply py-0 my-0;
+      }
       .select__value-container{
         @apply px-5 py-3;
       }
