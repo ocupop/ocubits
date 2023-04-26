@@ -14,6 +14,7 @@ Label.propTypes = {
 }
 
 export default function Label ({ tooltip, label, required = false, className = '', htmlFor = null }) {
+  if (!label) return
   return (
     <div className={`label-wrap ${className} ${required && 'required'}`}>
       <label htmlFor={htmlFor} >
