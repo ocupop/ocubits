@@ -21,6 +21,7 @@ export default {
     className: null,
     initialValues: { checkFieldName: '' },
     required: false,
+    disabled: false,
     debug: false
   }
 }

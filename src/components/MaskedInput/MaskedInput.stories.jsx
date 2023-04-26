@@ -11,7 +11,7 @@ export default {
   component: MaskedInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'type', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'type', 'debug'] }
   },
   argTypes: {
     type: {
@@ -30,11 +30,12 @@ export default {
     type: 'text',
     initialValues: { fieldName: '' },
     required: false,
+    disabled: false,
     debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, maskOptions, type, required, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, maskOptions, type, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -47,10 +48,11 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
         tooltip={tooltip}
         hint={hint}
         placeholder={placeholder}
-        required={required}
         className={className}
         maskOptions={maskOptions}
         type={type}
+        required={required}
+        disabled={disabled}
       />
     </FormikWrapper>
   )

@@ -17,16 +17,14 @@ RichInput.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object),
   onChange: PropTypes.func
 }
 
 RichInput.defaultProps = {
-  className: '',
-  theme: 'snow',
-  required: false,
-  placeholder: ''
+  theme: 'snow'
 }
 
 export default function RichInput ({
@@ -37,6 +35,7 @@ export default function RichInput ({
   label,
   placeholder,
   required,
+  disabled,
   field,
   form,
   form: { errors, touched },
@@ -59,17 +58,17 @@ export default function RichInput ({
   }
 
   return (
-    <div className={`ocufield ocu-richinput form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-richinput form-group ${className} ${status} ${disabled && 'disabled'}`}>
       <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <ReactQuill
         {...field}
-        readOnly = {false}
         modules = {modules}
         className={'form-input'}
         theme={theme}
         value={field.value}
         onChange={handleOnChange}
         required={required}
+        readOnly = {disabled}
         placeholder={placeholder}
       />
       {hint && <div className='helper'>{hint}</div>}

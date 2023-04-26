@@ -12,6 +12,7 @@ Switch.propTypes = {
   hint: PropTypes.string,
   label: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
@@ -22,18 +23,20 @@ export default function Switch ({
   hint,
   field,
   required,
+  disabled,
   form,
   form: { errors, touched }
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
   return (
-    <div className={`ocufield ocu-switch form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-switch form-group ${className} ${status} ${disabled && 'disabled'}`}>
       <input
         {...field}
         className={'form-input'}
         type="checkbox"
         role="switch"
         name={field.name}
+        disabled={disabled}
         id={field.name}
       />
       <Label

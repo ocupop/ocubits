@@ -16,6 +16,7 @@ DraftJS.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object),
   onChange: PropTypes.func
@@ -33,8 +34,9 @@ export default function DraftJS ({
   tooltip,
   hint,
   label,
-  required,
   placeholder,
+  required,
+  disabled,
   field,
   form,
   form: { errors, touched },

@@ -16,6 +16,7 @@ DateInput.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object),
   range: PropTypes.bool,
@@ -26,11 +27,11 @@ DateInput.propTypes = {
 
 DateInput.defaultProps = {
   className: '',
-  required: false,
   placeholder: '',
   range: false,
   twoFields: true,
   isClearable: false,
+  required: false,
   onChange: () => null
 }
 
@@ -41,14 +42,15 @@ export default function DateInput ({
   hint,
   label,
   placeholder,
-  required,
   field,
   form,
   form: { errors, touched },
   onChange,
   isClearable,
   range,
-  twoFields
+  twoFields,
+  required,
+  disabled
 }) {
   const handleValueChange = (newValue) => {
     form.setFieldValue(field.name, newValue)
@@ -64,7 +66,7 @@ export default function DateInput ({
   const startDate = Array.isArray(field.value) && field.value.length > 0 ? field.value[0] : null
   const endDate = Array.isArray(field.value) && field.value.length > 1 ? field.value[1] : null
   return (
-    <div className={`ocufield ocu-dateinput form-group ${className}`}>
+    <div className={`ocufield ocu-dateinput form-group ${className} ${disabled && 'disabled'}`}>
       <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
       <DatePicker
         className={`form-input ${status}`}
@@ -80,6 +82,7 @@ export default function DateInput ({
         selectsRange={range && !twoFields}
         startDate={range && startDate}
         endDate={range && endDate}
+        disabled={disabled}
       />
 
       {(range && twoFields) &&
