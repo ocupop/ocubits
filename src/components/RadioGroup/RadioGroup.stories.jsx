@@ -11,7 +11,7 @@ export default {
   component: RadioGroup,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'required', 'debug', 'selectedValue', 'allowDeselect'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'selectedValue', 'allowDeselect', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'radioFieldName',
@@ -20,8 +20,6 @@ export default {
     hint: null,
     className: null,
     initialValues: { },
-    debug: false,
-    required: false,
     allowDeselect: true,
     radios: [
       {
@@ -40,11 +38,14 @@ export default {
         label: 'Other',
         value: 'other'
       }
-    ]
+    ],
+    required: false,
+    disabled: false,
+    debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, className, required, initialValues, debug, allowDeselect, radios }) {
+function Template ({ name, label, tooltip, hint, className, initialValues, allowDeselect, radios, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -57,9 +58,10 @@ function Template ({ name, label, tooltip, hint, className, required, initialVal
         label={label}
         tooltip={tooltip}
         hint={hint}
-        required={required}
         allowDeselect={allowDeselect}
         radios={radios}
+        required={required}
+        disabled={disabled}
       />
     </FormikWrapper>
   )
@@ -117,6 +119,30 @@ WithTooltips.args = {
       label: 'Other',
       value: 'other',
       tooltip: 'My choice is not listed.'
+    }
+  ]
+}
+
+export const WithSomeDisabled = Template.bind({})
+WithSomeDisabled.args = {
+  radios: [
+    {
+      label: 'Radio Option 1',
+      value: 'option1',
+      disabled: true
+    },
+    {
+      label: 'Radio Option 2',
+      value: 'option2'
+    },
+    {
+      label: 'Another Option',
+      value: 'option3',
+      disabled: true
+    },
+    {
+      label: 'Other',
+      value: 'other'
     }
   ]
 }

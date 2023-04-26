@@ -13,6 +13,7 @@ RadioInput.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   value: PropTypes.string,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
@@ -25,23 +26,25 @@ function encodeAttr (text) {
 export default function RadioInput ({
   className = '',
   label,
+  value,
   tooltip,
   hint,
   field,
   required,
-  value,
+  disabled,
   form: { errors, touched }
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
 
   return (
-    <div className={`ocufield ocu-radio form-group ${className} ${status}`}>
+    <div className={`ocufield ocu-radio form-group ${className} ${status} ${disabled && 'disabled'}`}>
       <input
         type='radio'
         id={`${field.name}-${encodeAttr(value)}`}
         {...field}
         value={value}
         required={required}
+        disabled={disabled}
       />
       <div>
         <Label label={label} tooltip={tooltip} htmlFor={`${field.name}-${encodeAttr(value)}`} required={required}/>
