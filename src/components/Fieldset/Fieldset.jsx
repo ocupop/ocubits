@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
-
 import Label from '../Label/Label'
 import './Fieldset.css'
 // ----------------------------------------------------------------------
@@ -12,6 +10,8 @@ Fieldset.propTypes = {
   tooltip: PropTypes.string,
   description: PropTypes.string,
   layout: PropTypes.string,
+  expandable: PropTypes.bool,
+  defaultOpen: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
@@ -26,11 +26,14 @@ export default function Fieldset ({
   tooltip,
   description,
   layout,
+  expandable = false,
+  defaultOpen = true,
   children
 }) {
+  const [isOpen, setIsOpen] = useState(defaultOpen)
   return (
-    <fieldset className={`ocu-fieldset ${className} ${layout} `}>
-      <div className="fieldset-description">
+    <fieldset className={`ocu-fieldset ${className || ''} ${layout} ${isOpen ? 'open' : 'closed'} ${expandable ? 'expandable' : ''}`}>
+      <div className="fieldset-description" onClick={() => setIsOpen(!isOpen)}>
         <Label label={label} tooltip={tooltip} />
         <div className="desc">{description}</div>
       </div>
