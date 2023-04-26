@@ -8,7 +8,11 @@ Fieldset.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
   tooltip: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.string
+  ]),
   layout: PropTypes.string,
   expandable: PropTypes.bool,
   defaultOpen: PropTypes.bool,
