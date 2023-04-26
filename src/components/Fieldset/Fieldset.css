@@ -2,12 +2,15 @@
   .fieldset-description{
     @apply relative p-3;
     @apply bg-light bg-opacity-30;
+    .label-wrap label{
+      @apply text-2xl;
+    }
+    a{
+      @apply underline text-primary;
+    }
   }
   .fieldset-children{
     @apply p-3;
-  }
-  .label-wrap label{
-    @apply text-2xl;
   }
   .desc{
     @apply text-sm mt-3;
