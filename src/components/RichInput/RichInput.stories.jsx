@@ -11,7 +11,7 @@ export default {
   component: RichInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug'] }
   },
   args: {
     name: 'fieldName',

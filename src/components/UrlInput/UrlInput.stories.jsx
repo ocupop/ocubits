@@ -11,7 +11,7 @@ export default {
   component: UrlInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'secure'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug', 'secure'] }
   },
   args: {
     name: 'url',

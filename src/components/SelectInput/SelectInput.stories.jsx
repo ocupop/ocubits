@@ -11,7 +11,7 @@ export default {
   component: SelectInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'options', 'isMulti', 'isSearchable'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug', 'options', 'isMulti', 'isSearchable'] }
   },
   args: {
     name: 'selectField',

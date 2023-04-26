@@ -11,7 +11,7 @@ export default {
   component: TextArea,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'rows', 'required', 'initialValues', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'rows', 'required', 'debug'] }
   },
   args: {
     name: 'fieldName',

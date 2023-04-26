@@ -11,7 +11,7 @@ export default {
   component: DateInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'range', 'twoFields', 'isClearable', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'range', 'twoFields', 'isClearable', 'debug'] }
   },
   argTypes: {
     range: { control: 'boolean' },

@@ -11,7 +11,7 @@ export default {
   component: PhoneInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'debug', 'format'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug', 'format'] }
   },
   argTypes: {
     format: { control: 'select', options: ['usParens', 'usNoAreaCode', 'international', null] }

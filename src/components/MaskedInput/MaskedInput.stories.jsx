@@ -11,7 +11,7 @@ export default {
   component: MaskedInput,
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'initialValues', 'type', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'type', 'debug'] }
   },
   argTypes: {
     type: {
