@@ -16,11 +16,11 @@ export default {
   args: {
     name: 'email',
     label: 'Email Address',
-    tooltip: '',
+    tooltip: null,
     hint: null,
-    placeholder: '',
+    placeholder: null,
     required: false,
-    className: '',
+    className: null,
     initialValues: { email: '' },
     debug: false
   }

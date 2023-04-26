@@ -16,10 +16,10 @@ export default {
   args: {
     name: 'fieldName',
     label: 'Enter your message',
-    tooltip: '',
-    hint: '',
+    tooltip: null,
+    hint: null,
     placeholder: 'Enter your text here.',
-    className: '',
+    className: null,
     required: false,
     initialValues: { fieldName: '' },
     debug: false

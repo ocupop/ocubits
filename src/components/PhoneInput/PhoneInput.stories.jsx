@@ -19,10 +19,10 @@ export default {
   args: {
     name: 'phone',
     label: 'Phone Number',
-    tooltip: '',
+    tooltip: null,
     hint: null,
     placeholder: 'Enter your Phone',
-    className: '',
+    className: null,
     required: false,
     format: 'usParens',
     initialValues: { phone: '' },

@@ -16,10 +16,10 @@ export default {
   args: {
     name: 'fieldName',
     label: 'Field Label',
-    tooltip: '',
+    tooltip: null,
     hint: null,
-    placeholder: '',
-    className: '',
+    placeholder: null,
+    className: null,
     rows: 4,
     required: false,
     initialValues: { fieldName: '' },

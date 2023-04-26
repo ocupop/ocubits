@@ -19,7 +19,7 @@ export default {
     tooltip: null,
     hint: null,
     placeholder: null,
-    className: '',
+    className: null,
     required: false,
     initialValues: { url: '' },
     debug: false,

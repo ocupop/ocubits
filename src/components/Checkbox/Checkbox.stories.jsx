@@ -19,7 +19,7 @@ export default {
     tooltip: null,
     hint: null,
     className: null,
-    initialValues: { },
+    initialValues: { checkFieldName: '' },
     debug: false,
     required: false
   }

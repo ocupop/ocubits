@@ -18,7 +18,7 @@ export default {
     label: 'Switch Label',
     tooltip: null,
     hint: null,
-    className: '',
+    className: null,
     initialValues: { },
     debug: false,
     required: false

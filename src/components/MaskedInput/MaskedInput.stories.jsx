@@ -22,10 +22,10 @@ export default {
   args: {
     name: 'fieldName',
     label: 'Field Label',
-    tooltip: '',
+    tooltip: null,
     hint: null,
-    placeholder: '',
-    className: '',
+    placeholder: null,
+    className: null,
     required: false,
     maskOptions: false,
     type: 'text',

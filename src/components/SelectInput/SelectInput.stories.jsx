@@ -16,11 +16,11 @@ export default {
   args: {
     name: 'selectField',
     label: 'Make a Selection',
-    tooltip: '',
+    tooltip: null,
     hint: null,
-    placeholder: '',
+    placeholder: null,
     required: false,
-    className: '',
+    className: null,
     isMulti: false,
     isSearchable: false,
     options: [

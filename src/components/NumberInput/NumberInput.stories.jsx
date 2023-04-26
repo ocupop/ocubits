@@ -16,10 +16,10 @@ export default {
   args: {
     name: 'nbr',
     label: 'Enter a Number',
-    tooltip: '',
+    tooltip: null,
     hint: null,
-    placeholder: '',
-    className: '',
+    placeholder: null,
+    className: null,
     required: false,
     initialValues: { nbr: '' },
     debug: false,
