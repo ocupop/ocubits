@@ -2,7 +2,7 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import RichInput from './RichInput'
 // ----------------------------------------------------------------------
 
@@ -10,7 +10,6 @@ export default {
   title: 'Fields/RichInput',
   component: RichInput,
   tags: ['autodocs'],
-  decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'disabled', 'debug'] }
   },
@@ -41,4 +40,9 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

@@ -12,7 +12,7 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div style={{ padding: '4em', backgroundColor: '#e2e2e2', textAlign: 'center' }}>
+      <div style={{ padding: '4em', textAlign: 'center' }}>
         <Story />
       </div>
     )
@@ -26,8 +26,11 @@ function Template (args) {
   return <Tooltip {...args} />
 }
 
-export const Basic = Template.bind({})
-Basic.args = {
-  placement: 'top',
-  children: 'This is the tooltip text'
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug,
+    placement: 'top',
+    children: 'This is the tooltip text'
+  })
 }

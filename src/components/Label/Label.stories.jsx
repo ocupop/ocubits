@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-
-import { withCenteredStory } from '@lib'
 import Label from './Label'
 // ----------------------------------------------------------------------
 
@@ -9,7 +7,6 @@ export default {
   title: 'Molecules/Label',
   component: Label,
   tags: ['autodocs'],
-  decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['tooltip', 'label', 'className', 'required'] }
   },
@@ -30,4 +27,9 @@ function Template ({ tooltip, label, className, htmlFor, required }) {
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

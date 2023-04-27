@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { withCenteredStory } from '@lib'
 import Fieldset from './Fieldset'
 // ----------------------------------------------------------------------
 
@@ -8,7 +7,6 @@ export default {
   title: 'Molecules/Fieldset',
   component: Fieldset,
   tags: ['autodocs'],
-  decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['className', 'label', 'tooltip', 'description', 'layout', 'expandable', 'defaultOpen', 'className'] }
   },
@@ -42,4 +40,9 @@ function Template ({ className, label, tooltip, description, layout, expandable,
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

@@ -2,7 +2,7 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import RadioInput from './RadioInput'
 // ----------------------------------------------------------------------
 
@@ -10,7 +10,6 @@ export default {
   title: 'Fields/Radio',
   component: RadioInput,
   tags: ['autodocs'],
-  decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['name', 'label', 'value', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
@@ -42,4 +41,9 @@ function Template ({ name, label, value, tooltip, hint, className, initialValues
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

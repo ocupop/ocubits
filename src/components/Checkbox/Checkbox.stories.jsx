@@ -2,7 +2,7 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import CheckboxInput from './Checkbox'
 // ----------------------------------------------------------------------
 
@@ -10,7 +10,6 @@ export default {
   title: 'Fields/Checkbox',
   component: CheckboxInput,
   tags: ['autodocs'],
-  decorators: [withCenteredStory],
   parameters: {
     controls: { include: ['name', 'label', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
@@ -40,4 +39,9 @@ function Template ({ name, label, tooltip, hint, className, initialValues, requi
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

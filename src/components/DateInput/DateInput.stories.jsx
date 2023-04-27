@@ -2,7 +2,7 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
@@ -10,9 +10,8 @@ export default {
   title: 'Fields/DateInput',
   component: DateInput,
   tags: ['autodocs'],
-  decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'range', 'twoFields', 'isClearable', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'range', 'twoFields', 'isClearable', 'required', 'disabled'] }
   },
   argTypes: {
     range: {
@@ -58,4 +57,9 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

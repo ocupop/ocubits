@@ -13,7 +13,6 @@ const preview: Preview = {
     },
   },
   argTypes: {
-
     name: {
       table: { category: 'Global',type: { summary: 'string' }, },
       type: { name: 'string', required: true },
@@ -48,7 +47,25 @@ const preview: Preview = {
       description: 'Text that appears in the input when no value is entered.'
     },
   },
-
+  globalTypes: {
+    debug: {
+      name: 'Debug',
+      description: 'Toggle Debug buttons on/off',
+      defaultValue: false,
+      toolbar: {
+        icon: 'cpu',
+        // Array of plain string values or MenuItem shape (see below)
+        items: [
+          { value: true, title: 'Debug On' },
+          { value: false, title: 'Debug Off' }
+        ],
+        // Property that specifies if the name of the item will be displayed
+        showName: true,
+        // Change title based on selected value
+        dynamicTitle: true,
+      },
+    },
+  },
 };
 
 export default preview;
