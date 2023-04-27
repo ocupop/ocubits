@@ -51,9 +51,13 @@ npm link
 
 This will link the local package until you unlink it, or restart your machine.
 
-Within a project you're working on, run
+Within a project you're working on, add this to your package.json file
 ```
-npm link @ocupop/ocubits
+scripts: {
+  ...
+    "link:ocubits": "rm package.lock ; npm link @ocupop/ocubits ; yarn",
+    "unlink:ocubits": "npm unlink @ocupop/ocubits ; yarn add @ocupop/ocubits@latest",
+}
 ```
 
 This will have two effects:
