@@ -1,6 +1,42 @@
 # OcuBits
 Reusable code developed by Ocupop.
 
+# Installation and usage
+
+The easiest way to use react-select is to install it from npm and build it into your app with Webpack.
+
+```
+yarn add @ocupop/ocubits
+```
+
+Then use it in your app:
+
+```js
+import React from 'react'
+import { Form, Field, TextInput, Submit } from '@ocupop/ocubits'
+import '@ocupop/ocubits/dist/style.css'
+// ----------------------------------------------------------------------
+
+export default function App () {
+  return (
+    <>
+      <h1>OcuBits Form</h1>
+      <Form onSubmit={(values) => console.log(values)}>
+        <Field
+          name='fieldName'
+          component={TextInput}
+          placeholder={'Placeholder'}
+          label={'Label'}
+        />
+        <Submit />
+      </Form>
+    </>
+  )
+}
+
+```
+
+
 ## How to Contribute
 
 Write directions for developing in Storybook:
