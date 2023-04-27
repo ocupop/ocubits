@@ -9,22 +9,14 @@ import UrlInput from './UrlInput'
 export default {
   title: 'Fields/UrlInput',
   component: UrlInput,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug', 'secure'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'disabled', 'debug', 'secure'] }
   },
   args: {
     name: 'url',
-    label: 'Enter a URL',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    className: null,
-    required: false,
-    initialValues: { url: '' },
-    secure: true,
-    disabled: false,
-    debug: false
+    label: 'Enter a URL'
   }
 }
 

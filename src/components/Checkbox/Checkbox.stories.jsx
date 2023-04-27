@@ -9,20 +9,14 @@ import CheckboxInput from './Checkbox'
 export default {
   title: 'Fields/Checkbox',
   component: CheckboxInput,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'checkFieldName',
-    label: 'Field Label',
-    tooltip: null,
-    hint: null,
-    className: null,
-    initialValues: { checkFieldName: '' },
-    required: false,
-    disabled: false,
-    debug: false
+    label: 'Field Label'
   }
 }
 

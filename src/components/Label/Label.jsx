@@ -12,6 +12,9 @@ Label.propTypes = {
   htmlFor: PropTypes.string,
   required: PropTypes.bool
 }
+Label.defaultProps = {
+  required: false
+}
 
 export default function Label ({ tooltip, label, required = false, className = '', htmlFor = null }) {
   if (!label) return

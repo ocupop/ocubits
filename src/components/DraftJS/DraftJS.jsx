@@ -23,10 +23,9 @@ DraftJS.propTypes = {
 }
 
 DraftJS.defaultProps = {
-  className: '',
   theme: 'snow',
   required: false,
-  placeholder: ''
+  disabled: false
 }
 
 export default function DraftJS ({

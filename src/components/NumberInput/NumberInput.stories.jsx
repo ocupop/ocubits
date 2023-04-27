@@ -9,22 +9,14 @@ import NumberInput from './NumberInput'
 export default {
   title: 'Fields/NumberInput',
   component: NumberInput,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'className', 'disabled', 'debug'] }
   },
   args: {
     name: 'nbr',
-    label: 'Enter a Number',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    className: null,
-    required: false,
-    disabled: false,
-    initialValues: { nbr: '' },
-    debug: false,
-    maskOptions: false
+    label: 'Enter a Number'
   }
 }
 

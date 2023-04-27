@@ -9,21 +9,14 @@ import RichInput from './RichInput'
 export default {
   title: 'Fields/RichInput',
   component: RichInput,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'fieldName',
-    label: 'Enter your message',
-    tooltip: null,
-    hint: null,
-    placeholder: 'Enter your text here.',
-    className: null,
-    required: false,
-    disabled: false,
-    initialValues: { fieldName: '' },
-    debug: false
+    label: 'Enter your message'
   }
 }
 

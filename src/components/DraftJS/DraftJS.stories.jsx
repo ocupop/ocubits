@@ -9,20 +9,14 @@ import DraftJS from './DraftJS'
 export default {
   title: 'Experimental/DraftJS',
   component: DraftJS,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'debug'] }
   },
   args: {
     name: 'fieldName',
-    label: 'Enter your message',
-    tooltip: null,
-    hint: null,
-    placeholder: 'Enter your text here.',
-    className: null,
-    required: false,
-    initialValues: { fieldName: '' },
-    debug: false
+    label: 'Enter your message'
   }
 }
 

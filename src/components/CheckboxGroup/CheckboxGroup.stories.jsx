@@ -9,18 +9,23 @@ import CheckboxGroup from './CheckboxGroup'
 export default {
   title: 'Fields/CheckboxGroup',
   component: CheckboxGroup,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'selectedValue', 'allowDeselect', 'required', 'disabled', 'debug'] }
+    controls: { include: ['checkboxes', 'name', 'label', 'tooltip', 'hint', 'selectedValue', 'className', 'required', 'disabled', 'debug'] }
+  },
+  argTypes: {
+    checkboxes: {
+      name: 'checkboxes',
+      description: 'An array of objects. Each object represents a checkbox, and can contain parameters for "label", "value", "hint", "tooltip", "classname" and "disabled"',
+      control: {
+        type: null
+      }
+    }
   },
   args: {
-    name: 'radioFieldName',
-    label: 'Radio Group Label',
-    tooltip: null,
-    hint: null,
-    className: null,
-    initialValues: { },
-    allowDeselect: true,
+    name: 'checkboxGroupName',
+    label: 'Checkbox Group Label',
     checkboxes: [
       {
         name: 'option1',
@@ -30,26 +35,23 @@ export default {
       {
         name: 'option2',
         label: 'Radio Option 2',
-        value: 'Option *2'
+        value: 'Option 2'
       },
       {
         name: 'option3',
         label: 'Another Option',
-        value: 'option3'
+        value: 'option 3'
       },
       {
         name: 'chekboxOptionOther',
         label: 'Other',
         value: 'other'
       }
-    ],
-    required: false,
-    disabled: false,
-    debug: false
+    ]
   }
 }
 
-function Template ({ name, label, tooltip, hint, className, initialValues, allowDeselect, checkboxes, required, disabled, debug }) {
+function Template ({ name, label, tooltip, hint, className, initialValues, checkboxes, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -62,7 +64,6 @@ function Template ({ name, label, tooltip, hint, className, initialValues, allow
         label={label}
         tooltip={tooltip}
         hint={hint}
-        allowDeselect={allowDeselect}
         checkboxes={checkboxes}
         required={required}
         disabled={disabled}

@@ -16,6 +16,10 @@ Switch.propTypes = {
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
+Switch.defaultProps = {
+  required: false,
+  disabled: false
+}
 export default function Switch ({
   className = '',
   label,

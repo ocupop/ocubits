@@ -21,9 +21,8 @@ UrlInput.propTypes = {
 }
 
 UrlInput.defaultProps = {
-  className: '',
   required: false,
-  placeholder: '',
+  disabled: false,
   secure: true
 }
 

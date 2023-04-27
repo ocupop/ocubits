@@ -6,6 +6,7 @@ import Tooltip from './Tooltip'
 export default {
   title: 'Molecules/Tooltip',
   component: Tooltip,
+  tags: ['autodocs'],
   parameters: {
     controls: { include: ['placement', 'children', 'className'] }
   },

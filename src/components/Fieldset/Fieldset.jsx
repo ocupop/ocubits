@@ -22,7 +22,11 @@ Fieldset.propTypes = {
   ]).isRequired
 }
 
-Fieldset.defaultProps = {}
+Fieldset.defaultProps = {
+  layout: 'default',
+  expandable: false,
+  defaultOpen: true
+}
 
 export default function Fieldset ({
   className,

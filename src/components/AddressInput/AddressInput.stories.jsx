@@ -9,22 +9,14 @@ import AddressInput from './AddressInput'
 export default {
   title: 'Fields/AddressInput',
   component: AddressInput,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'userAddress',
-    label: 'Enter Your Address',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    className: null,
-    required: false,
-    disabled: false,
-    initialValues: { userAddress: '' },
-    debug: false,
-    maskOptions: false
+    label: 'Enter Your Address'
   }
 }
 

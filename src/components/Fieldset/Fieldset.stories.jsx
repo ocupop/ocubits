@@ -7,9 +7,10 @@ import Fieldset from './Fieldset'
 export default {
   title: 'Molecules/Fieldset',
   component: Fieldset,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['className', 'label', 'tooltip', 'description', 'layout', 'expandable', 'defaultOpen'] }
+    controls: { include: ['className', 'label', 'tooltip', 'description', 'layout', 'expandable', 'defaultOpen', 'className'] }
   },
   argTypes: {
     layout: {
@@ -20,15 +21,8 @@ export default {
   args: {
     className: null,
     label: 'Security Mechanisms',
-    tooltip: null,
-    description: <div>Example of fieldset description. <b>Html is okay.</b><br/><br/><a href="https://www.ocupop.com" target="_blank" rel="noreferrer">More Info</a>.</div>,
-    layout: null,
-    children: <div>
-      <p className="mb-4">This is a dynamic content area that can be passed any type of child. We will likley use this to contain a group of form fields all related within this fieldset.</p>
-      <p>Id volutpat lacus laoreet non curabitur. Id ornare arcu odio ut. Nisi vitae suscipit tellus .</p>
-      </div>,
-    expandable: false,
-    defaultOpen: true
+    description: 'Place description Here',
+    children: <div>JSX Output Here</div>
   }
 }
 

@@ -21,7 +21,9 @@ TextArea.propTypes = {
 }
 
 TextArea.defaultProps = {
-  className: ''
+  required: false,
+  disabled: false,
+  rows: 4
 }
 
 export default function TextArea ({

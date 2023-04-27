@@ -9,22 +9,14 @@ import TextArea from './TextArea'
 export default {
   title: 'Fields/TextArea',
   component: TextArea,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'rows', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'rows', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'fieldName',
-    label: 'Field Label',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    className: null,
-    rows: 4,
-    required: false,
-    disabled: false,
-    initialValues: { fieldName: '' },
-    debug: false
+    label: 'Field Label'
   }
 }
 

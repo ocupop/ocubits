@@ -9,20 +9,14 @@ import Switch from './Switch'
 export default {
   title: 'Fields/Switch',
   component: Switch,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'switchFieldName',
-    label: 'Switch Label',
-    tooltip: null,
-    hint: null,
-    className: null,
-    initialValues: { },
-    required: false,
-    disabled: false,
-    debug: false
+    label: 'Switch Label'
   }
 }
 

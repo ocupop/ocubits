@@ -9,21 +9,15 @@ import RadioInput from './RadioInput'
 export default {
   title: 'Fields/Radio',
   component: RadioInput,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'value', 'tooltip', 'hint', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'value', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'radioFieldName',
     label: 'Radio Label',
-    value: 'Hello World',
-    tooltip: null,
-    hint: null,
-    className: null,
-    initialValues: { },
-    required: false,
-    disabled: false,
-    debug: false
+    value: 'Hello World'
   }
 }
 

@@ -13,9 +13,14 @@ CheckboxGroup.propTypes = {
   label: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
-  checkboxes: PropTypes.instanceOf(Object),
+  checkboxes: PropTypes.array,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
+}
+
+CheckboxGroup.defaultProps = {
+  required: false,
+  disabled: false
 }
 
 export default function CheckboxGroup ({
@@ -34,12 +39,12 @@ export default function CheckboxGroup ({
     <div className={`ocufield ocu-checkboxgroup ${className} ${status}`}>
       <Label label={label} tooltip={tooltip} required={required} className="checkboxGroupLabel"/>
       <div role="group" aria-labelledby="my-checkbox-group">
-        {checkboxes.map((c) =>
+        {checkboxes && checkboxes.map((c) =>
           <Field
             key={c.value}
             component={Checkbox}
             name={c.name}
-            label={`${c.label} = ${c.disabled}`}
+            label={`${c.label}`}
             value={c.value}
             hint={c.hint}
             tooltip={c.tooltip}

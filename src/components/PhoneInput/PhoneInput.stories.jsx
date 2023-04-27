@@ -9,25 +9,25 @@ import PhoneInput from './PhoneInput'
 export default {
   title: 'Fields/PhoneInput',
   component: PhoneInput,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug', 'disabled', 'format'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'debug', 'disabled', 'format'] }
   },
   argTypes: {
-    format: { control: 'select', options: ['usParens', 'usNoAreaCode', 'international', null] }
+    name: {
+      description: 'Name of the variable.'
+    },
+    label: {},
+    format: {
+      control: 'select',
+      options: ['usParens', 'usNoAreaCode', null],
+      description: 'Supported formats include usParens (xxx) xxx-xxx and usNoAreaCode xxx-xxx'
+    }
   },
   args: {
     name: 'phone',
-    label: 'Phone Number',
-    tooltip: null,
-    hint: null,
-    placeholder: 'Enter your Phone',
-    className: null,
-    required: false,
-    disabled: false,
-    format: 'usParens',
-    initialValues: { phone: '' },
-    debug: false
+    label: 'Phone Number'
   }
 }
 

@@ -9,26 +9,19 @@ import TextInput from './TextInput'
 export default {
   title: 'Fields/TextInput',
   component: TextInput,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'className', 'disabled', 'debug'] }
   },
   args: {
     name: 'fieldName',
     label: 'Field Label',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    className: null,
-    required: false,
-    disabled: false,
-    initialValues: { fieldName: '' },
-    debug: false,
-    maskOptions: false
+    debug: false
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, maskOptions, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -44,7 +37,6 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
         required={required}
         disabled={disabled}
         className={className}
-        maskOptions={maskOptions}
       />
     </FormikWrapper>
   )

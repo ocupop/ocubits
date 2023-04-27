@@ -26,12 +26,11 @@ DateInput.propTypes = {
 }
 
 DateInput.defaultProps = {
-  className: '',
-  placeholder: '',
   range: false,
   twoFields: true,
   isClearable: false,
   required: false,
+  disabled: false,
   onChange: () => null
 }
 

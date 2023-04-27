@@ -13,9 +13,13 @@ RadioGroup.propTypes = {
   label: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
-  radios: PropTypes.instanceOf(Object),
+  radios: PropTypes.array,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
+}
+RadioGroup.defaultProps = {
+  disabled: false,
+  required: false
 }
 
 export default function RadioGroup ({

@@ -29,11 +29,9 @@ MaskedInput.propTypes = {
 }
 
 MaskedInput.defaultProps = {
-  className: '',
   type: 'text',
   maskOptions: false,
-  required: false,
-  placeholder: ''
+  required: false
 }
 
 export default function MaskedInput ({

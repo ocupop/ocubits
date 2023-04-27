@@ -8,16 +8,13 @@ import Label from './Label'
 export default {
   title: 'Molecules/Label',
   component: Label,
+  tags: ['autodocs'],
   decorators: [withCenteredStory],
   parameters: {
-    controls: { include: ['tooltip', 'label', 'required'] }
+    controls: { include: ['tooltip', 'label', 'className', 'required'] }
   },
   args: {
-    tooltip: null,
-    label: 'Field Label',
-    className: null,
-    htmlFor: null,
-    required: true
+    label: 'Field Label'
   }
 }
 
