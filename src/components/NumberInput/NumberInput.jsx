@@ -10,7 +10,17 @@ NumberInput.propTypes = {
     PropTypes.array,
     PropTypes.object,
     PropTypes.bool
-  ])
+  ]),
+  className: PropTypes.string,
+  innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
+  hint: PropTypes.string,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  field: PropTypes.instanceOf(Object),
+  form: PropTypes.instanceOf(Object)
 }
 
 NumberInput.defaultProps = {

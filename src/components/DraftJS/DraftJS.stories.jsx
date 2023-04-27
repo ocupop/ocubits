@@ -2,27 +2,20 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import DraftJS from './DraftJS'
 // ----------------------------------------------------------------------
 
 export default {
   title: 'Experimental/DraftJS',
   component: DraftJS,
-  decorators: [withCenteredStory],
+  tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'debug'] }
   },
   args: {
     name: 'fieldName',
-    label: 'Enter your message',
-    tooltip: null,
-    hint: null,
-    placeholder: 'Enter your text here.',
-    className: null,
-    required: false,
-    initialValues: { fieldName: '' },
-    debug: false
+    label: 'Enter your message'
   }
 }
 
@@ -45,5 +38,9 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
     </FormikWrapper>
   )
 }
-
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

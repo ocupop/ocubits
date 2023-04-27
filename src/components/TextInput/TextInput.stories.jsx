@@ -2,33 +2,24 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import TextInput from './TextInput'
 // ----------------------------------------------------------------------
 
 export default {
   title: 'Fields/TextInput',
   component: TextInput,
-  decorators: [withCenteredStory],
+  tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'className', 'disabled', 'debug'] }
   },
   args: {
     name: 'fieldName',
-    label: 'Field Label',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    className: null,
-    required: false,
-    disabled: false,
-    initialValues: { fieldName: '' },
-    debug: false,
-    maskOptions: false
+    label: 'Field Label'
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, maskOptions, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -44,10 +35,14 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
         required={required}
         disabled={disabled}
         className={className}
-        maskOptions={maskOptions}
       />
     </FormikWrapper>
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

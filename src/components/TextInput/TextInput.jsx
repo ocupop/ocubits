@@ -20,9 +20,8 @@ TextInput.propTypes = {
 }
 
 TextInput.defaultProps = {
-  className: '',
   required: false,
-  placeholder: ''
+  disabled: false
 }
 
 export default function TextInput ({

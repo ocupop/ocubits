@@ -17,6 +17,10 @@ CheckboxInput.propTypes = {
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
+CheckboxInput.defaultProps = {
+  required: false,
+  disabled: false
+}
 export default function CheckboxInput ({
   className = '',
   label,

@@ -2,28 +2,20 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import EmailInput from './EmailInput'
 // ----------------------------------------------------------------------
 
 export default {
   title: 'Fields/EmailInput',
   component: EmailInput,
-  decorators: [withCenteredStory],
+  tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'email',
-    label: 'Email Address',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    required: false,
-    disabled: false,
-    className: null,
-    initialValues: { email: '' },
-    debug: false
+    label: 'Email Address'
   }
 }
 
@@ -48,4 +40,9 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

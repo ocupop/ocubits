@@ -6,10 +6,20 @@ import MaskedInput from '../MaskedInput/MaskedInput'
 
 const usParens = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
 const usNoAreaCode = [/\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-const international = ['+', /\d/, /\d/, ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/] // TESTING: NOT an actual mask
 
 PhoneInput.propTypes = {
-  format: PropTypes.string
+  format: PropTypes.string,
+
+  className: PropTypes.string,
+  innerRef: PropTypes.func,
+  tooltip: PropTypes.string,
+  hint: PropTypes.string,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  field: PropTypes.instanceOf(Object),
+  form: PropTypes.instanceOf(Object)
 }
 PhoneInput.defaultProps = {
   format: 'usParens'
@@ -19,9 +29,7 @@ export default function PhoneInput ({ format, ...props }) {
     ? usParens
     : (format === 'usNoAreaCode')
         ? usNoAreaCode
-        : (format === 'international')
-            ? international
-            : false
+        : false
   return (
     <MaskedInput {...props} type='tel' maskOptions={maskOptions} />
   )

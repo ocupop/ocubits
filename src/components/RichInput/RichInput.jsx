@@ -24,6 +24,8 @@ RichInput.propTypes = {
 }
 
 RichInput.defaultProps = {
+  required: false,
+  disabled: false,
   theme: 'snow'
 }
 

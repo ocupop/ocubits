@@ -2,29 +2,20 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import NumberInput from './NumberInput'
 // ----------------------------------------------------------------------
 
 export default {
   title: 'Fields/NumberInput',
   component: NumberInput,
-  decorators: [withCenteredStory],
+  tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'required', 'className', 'disabled', 'debug'] }
   },
   args: {
     name: 'nbr',
-    label: 'Enter a Number',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    className: null,
-    required: false,
-    disabled: false,
-    initialValues: { nbr: '' },
-    debug: false,
-    maskOptions: false
+    label: 'Enter a Number'
   }
 }
 
@@ -50,23 +41,32 @@ function Template ({ name, label, tooltip, hint, placeholder, className, require
   )
 }
 
-export const Basic = Template.bind({})
-
-export const WithCommas = Template.bind({})
-WithCommas.args = {
-  label: 'Enter any large number',
-  maskOptions: {
-    includeThousandsSeparator: true
-  }
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
 }
-
-export const Currency = Template.bind({})
-Currency.args = {
-  label: 'Enter an Amount',
-  maskOptions: {
-    prefix: '$',
-    includeThousandsSeparator: true,
-    decimalLimit: 2,
-    integerLimit: 5
-  }
+export const WithCommas = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug,
+    label: 'Enter any large number',
+    maskOptions: {
+      includeThousandsSeparator: true
+    }
+  })
+}
+export const Currency = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug,
+    label: 'Enter an Amount',
+    maskOptions: {
+      prefix: '$',
+      includeThousandsSeparator: true,
+      decimalLimit: 2,
+      integerLimit: 5
+    }
+  })
 }

@@ -6,18 +6,27 @@ import Tooltip from './Tooltip'
 export default {
   title: 'Molecules/Tooltip',
   component: Tooltip,
+  tags: ['autodocs'],
   parameters: {
     controls: { include: ['placement', 'children', 'className'] }
   },
   decorators: [
     (Story) => (
-      <div style={{ padding: '4em', backgroundColor: '#e2e2e2', textAlign: 'center' }}>
+      <div style={{ padding: '4em', textAlign: 'center' }}>
         <Story />
       </div>
     )
   ],
+
   argTypes: {
-    placement: { control: 'select', options: ['bottom', 'top', 'left', 'right'] }
+    placement: {
+      control: 'select',
+      options: ['bottom', 'top', 'left', 'right'],
+      description: 'Which direction the popup should appear relative to the icon'
+    },
+    children: {
+      description: 'What appears in the tooltip. Can be a string or JSX'
+    }
   }
 }
 
@@ -25,8 +34,11 @@ function Template (args) {
   return <Tooltip {...args} />
 }
 
-export const Basic = Template.bind({})
-Basic.args = {
-  placement: 'top',
-  children: 'This is the tooltip text'
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug,
+    placement: 'top',
+    children: 'This is the tooltip text'
+  })
 }

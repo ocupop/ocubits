@@ -10,13 +10,16 @@ RadioInput.propTypes = {
   innerRef: PropTypes.func,
   tooltip: PropTypes.string,
   hint: PropTypes.string,
-  type: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
+}
+RadioInput.defaultProps = {
+  required: false,
+  disabled: false
 }
 
 function encodeAttr (text) {

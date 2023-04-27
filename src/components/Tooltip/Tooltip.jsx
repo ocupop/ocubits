@@ -3,12 +3,22 @@ import PropTypes from 'prop-types'
 import './Tooltip.css'
 
 // ----------------------------------------------------------------------
+ToolTip.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  placement: PropTypes.string,
+  triggerType: PropTypes.string
+}
+
+ToolTip.defaultProps = {
+  children: PropTypes.node,
+  placement: 'top'
+}
 
 export default function ToolTip ({
   children,
   className,
   placement,
-  unstyled,
   ...props
 }) {
   const [show, setShow] = useState(false)
@@ -17,7 +27,6 @@ export default function ToolTip ({
     <div
       {...props}
       className={`ocu-tooltip ${className}`}
-      data-unstyled={unstyled ? true : null}
     >
       {show && (
         <div
@@ -41,18 +50,4 @@ export default function ToolTip ({
       </button>
     </div>
   )
-}
-ToolTip.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  placement: PropTypes.string,
-  triggerType: PropTypes.string,
-  unstyled: PropTypes.bool
-}
-
-ToolTip.defaultProps = {
-  children: PropTypes.node,
-  className: '',
-  placement: 'top',
-  unstyled: false
 }

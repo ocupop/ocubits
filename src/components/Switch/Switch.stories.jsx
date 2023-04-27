@@ -2,27 +2,20 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import Switch from './Switch'
 // ----------------------------------------------------------------------
 
 export default {
   title: 'Fields/Switch',
   component: Switch,
-  decorators: [withCenteredStory],
+  tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'switchFieldName',
-    label: 'Switch Label',
-    tooltip: null,
-    hint: null,
-    className: null,
-    initialValues: { },
-    required: false,
-    disabled: false,
-    debug: false
+    label: 'Switch Label'
   }
 }
 
@@ -45,5 +38,9 @@ function Template ({ name, label, tooltip, hint, className, required, disabled, 
     </FormikWrapper>
   )
 }
-
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

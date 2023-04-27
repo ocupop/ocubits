@@ -2,35 +2,34 @@
 import React from 'react'
 import { Field } from 'formik'
 
-import { FormikWrapper, withCenteredStory } from '@lib'
+import { FormikWrapper } from '@lib'
 import DateInput from './DateInput'
 // ----------------------------------------------------------------------
 
 export default {
   title: 'Fields/DateInput',
   component: DateInput,
-  decorators: [withCenteredStory],
+  tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'range', 'twoFields', 'isClearable', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'range', 'twoFields', 'isClearable', 'required', 'disabled'] }
   },
   argTypes: {
-    range: { control: 'boolean' },
-    twoFields: { control: 'boolean', if: { arg: 'range', truthy: true } }
+    range: {
+      description: 'Set to "true" to select a start and an end date.',
+      control: 'boolean'
+    },
+    twoFields: {
+      description: 'Set to "true" to display two input fields, one for "start" and one for "end".',
+      control: 'boolean',
+      if: { arg: 'range', truthy: true }
+    },
+    isClearable: {
+      description: 'Set to "true" to display an [x] icon to clear the value of the date'
+    }
   },
   args: {
     name: 'date',
-    label: 'Select a Date',
-    tooltip: null,
-    hint: null,
-    placeholder: null,
-    className: null,
-    initialValues: { },
-    range: false,
-    twoFields: false,
-    isClearable: false,
-    required: false,
-    disabled: false,
-    debug: false
+    label: 'Select a Date'
   }
 }
 
@@ -58,4 +57,9 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
   )
 }
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: (args, { globals: { debug } }) => Template({
+    ...args,
+    debug
+  })
+}

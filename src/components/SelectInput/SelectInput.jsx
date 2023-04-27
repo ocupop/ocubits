@@ -22,7 +22,10 @@ SelectInput.propTypes = {
   required: PropTypes.bool,
   disabled: PropTypes.bool
 }
-SelectInput.defaultProps = {}
+SelectInput.defaultProps = {
+  required: false,
+  disabled: false
+}
 
 export default function SelectInput ({
   className,
