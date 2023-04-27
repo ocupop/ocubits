@@ -17,8 +17,16 @@ export default {
       </div>
     )
   ],
+
   argTypes: {
-    placement: { control: 'select', options: ['bottom', 'top', 'left', 'right'] }
+    placement: {
+      control: 'select',
+      options: ['bottom', 'top', 'left', 'right'],
+      description: 'Which direction the popup should appear relative to the icon'
+    },
+    children: {
+      description: 'What appears in the tooltip. Can be a string or JSX'
+    }
   }
 }
 

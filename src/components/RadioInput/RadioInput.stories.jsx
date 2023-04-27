@@ -13,6 +13,11 @@ export default {
   parameters: {
     controls: { include: ['name', 'label', 'value', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
+  argTypes: {
+    value: {
+      description: 'Value to pass if the radio is checked.'
+    }
+  },
   args: {
     name: 'radioFieldName',
     label: 'Radio Label',

@@ -13,6 +13,18 @@ export default {
   parameters: {
     controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'options', 'isMulti', 'isSearchable', 'className', 'required', 'disabled', 'debug'] }
   },
+  argTypes: {
+    options: {
+      description: 'An array of objects. Required for each object is "label" and "value".',
+      control: { type: null }
+    },
+    isMulti: {
+      description: 'Set to "true" to allow selection of multiple values'
+    },
+    isSearchable: {
+      description: 'Set to "true" to allow filtering of options as the use types'
+    }
+  },
   args: {
     name: 'selectField',
     label: 'Make a Selection',

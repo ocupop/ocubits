@@ -11,7 +11,7 @@ export default {
   component: AddressInput,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'userAddress',
@@ -19,7 +19,7 @@ export default {
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, maskOptions, debug }) {
+function Template ({ name, label, tooltip, hint, className, initialValues, required, disabled, maskOptions, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -31,7 +31,6 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
         label={label}
         tooltip={tooltip}
         hint={hint}
-        placeholder={placeholder}
         required={required}
         disabled={disabled}
         className={className}
