@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { bool } from 'prop-types'
 import { getIn } from 'formik'
 import Label from '../Label/Label'
 import './RadioInput.css'
@@ -23,7 +23,9 @@ RadioInput.defaultProps = {
 }
 
 function encodeAttr (text) {
-  return text == undefined ? '' : text.replace(/[^a-z0-9_]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()
+  if (!text) return ''
+  if (typeof text == 'boolean') return '1'
+  return text === undefined ? '' : text.replace(/[^a-z0-9_]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()
 }
 
 export default function RadioInput ({
@@ -49,7 +51,7 @@ export default function RadioInput ({
         required={required}
         disabled={disabled}
       />
-      <div>
+      <div className='label-and-hint'>
         <Label label={label} tooltip={tooltip} htmlFor={`${field.name}-${encodeAttr(value)}`} required={required}/>
         {hint && <div className='helper'>{hint}</div>}
       </div>

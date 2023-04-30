@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn, Field } from 'formik'
+import { getIn, Field, FormikProvider } from 'formik'
 import Label from '../Label/Label'
 import RadioInput from '../RadioInput/RadioInput'
 import './RadioGroup.css'
@@ -31,6 +31,7 @@ export default function RadioGroup ({
   required,
   disabled,
   radios,
+  form,
   form: { errors, touched }
 }) {
   const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
@@ -38,19 +39,21 @@ export default function RadioGroup ({
     <div className={`ocufield ocu-radiogroup ${className} ${status}`}>
       <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required} className="radioGroupLabel"/>
       <div role="group" aria-labelledby="my-radio-group">
-        {radios.map((radio) =>
-          <Field
-            key={radio.value}
-            component={RadioInput}
-            name={field.name}
-            label={radio.label}
-            value={radio.value}
-            hint={radio.hint}
-            tooltip={radio.tooltip}
-            className={radio.className}
-            disabled={disabled || radio.disabled}
-          />
-        )}
+        <FormikProvider value={form}>
+          {radios.map((radio, i) => (
+            <Field
+              key={`radio-${i}`}
+              component={RadioInput}
+              name={field.name}
+              label={radio.label}
+              value={radio.value}
+              hint={radio.hint}
+              tooltip={radio.tooltip}
+              className={radio.className}
+              disabled={disabled || radio.disabled}
+            />
+          ))}
+        </FormikProvider>
       </div>
 
       {hint && <div className='helper'>{hint}</div>}

@@ -46,7 +46,7 @@ export default function CheckboxInput ({
           form.setFieldValue(field.name, !field.value)
         }}
       />
-      <div>
+      <div className='label-and-hint'>
         <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
         {hint && <div className='helper'>{hint}</div>}
       </div>
