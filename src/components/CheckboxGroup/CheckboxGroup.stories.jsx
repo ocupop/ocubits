@@ -84,13 +84,13 @@ export const WithHints = {
     checkboxes: [
       {
         name: 'option1',
-        label: 'Radio Option 1',
+        label: 'Checkbox Option 1',
         value: 'option1',
         hint: 'This is your first option.'
       },
       {
         name: 'option2',
-        label: 'Radio Option 2',
+        label: 'Checkbox Option 2',
         value: 'option2',
         hint: 'Another option here.'
       },
@@ -98,7 +98,7 @@ export const WithHints = {
         name: 'option3',
         label: 'Another Option',
         value: 'option3',
-        hint: 'This is your first option.'
+        hint: 'This is your third option.'
       },
       {
         name: 'option4',
@@ -117,21 +117,21 @@ export const WithTooltips = {
     checkboxes: [
       {
         name: 'option1',
-        label: 'Radio Option 1',
+        label: 'Checkbox Option 1',
         value: 'option1',
         tooltip: 'This is your first option.'
       },
       {
         name: 'option2',
-        label: 'Radio Option 2',
+        label: 'Checkbox Option 2',
         value: 'option2',
         tooltip: 'Another option here.'
       },
       {
         name: 'option3',
-        label: 'Another Option',
+        label: 'Checkbox Option',
         value: 'option3',
-        tooltip: 'This is your first option.'
+        tooltip: 'This is your third option.'
       },
       {
         name: 'option4',

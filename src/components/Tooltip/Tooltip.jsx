@@ -1,6 +1,7 @@
 import React, { useState, useId } from 'react'
 import PropTypes from 'prop-types'
 import { Tooltip } from 'react-tooltip'
+import { v4 as uuid } from 'uuid'
 import 'react-tooltip/dist/react-tooltip.css'
 import './Tooltip.css'
 
@@ -19,11 +20,11 @@ export default function ToolTip ({
   className,
   ...props
 }) {
-  const id = useId()
+  const id = `tip-${uuid()}`
   return (
     <div
       {...props}
-      className={`ocu-tooltip ${className}`}
+      className={`ocu-tooltip ${className || ''}`}
     >
       <button
         data-tooltip-id="my-tooltip"
@@ -34,8 +35,7 @@ export default function ToolTip ({
       >
         ?
       </button>
-
-      <Tooltip anchorSelect="#$" className={'tooltip-content'}>
+      <Tooltip anchorSelect={`#${id}`} className={'tooltip-content'}>
         <span dangerouslySetInnerHTML={{ __html: children }}/>
       </Tooltip>
 
