@@ -78,9 +78,9 @@
 
   /* LABEL */
   .label-wrap{
-    @apply flex relative;
+    @apply flex relative text-sm font-bold mb-2;
     label{
-      @apply text-sm font-bold whitespace-nowrap mb-2;
+      @apply whitespace-nowrap;
     }
     &.required::before{
       @apply content-['*'] text-warning mr-1;

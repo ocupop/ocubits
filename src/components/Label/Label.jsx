@@ -19,7 +19,7 @@ Label.defaultProps = {
 export default function Label ({ tooltip, label, required = false, className = '', htmlFor = null }) {
   if (!label) return
   return (
-    <div className={`label-wrap ${className} ${required && 'required'}`}>
+    <div className={`${className || ''} label-wrap ${required ? 'required' : ''}`}>
       <label htmlFor={htmlFor} >
         {label}
       </label>

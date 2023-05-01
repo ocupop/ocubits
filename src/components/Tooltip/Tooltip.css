@@ -1,7 +1,7 @@
 .ocu-tooltip{
   @apply inline-block relative items-center;
 
-  button{
+  .icon{
     @apply flex justify-center;
     @apply w-0 p-2 mx-2;
     @apply text-xs font-medium;
@@ -11,55 +11,13 @@
     @apply hover:bg-opacity-100;
   }
 
-  .tooltip{
-    @apply absolute z-50 inline-block;
-    @apply max-w-xs;
-    @apply text-sm font-normal;
-    @apply py-2 px-3;
-    @apply text-dark bg-white;
-    @apply border border-light shadow-xl;
-    @apply transition-all duration-500;
-    @apply rounded-lg;
-    @apply top-0 left-1/2;
-    @apply pointer-events-none;
-    @apply transform -translate-x-1/2 translate-y-[calc(-100%-16px)];
-
-    .tooltip-arrow{
-      @apply absolute bottom-0 left-1/2;
-      @apply h-0 w-0 border-transparent border-t-white;
-      @apply border-[6px] border-t-[12px];
-      @apply transform -translate-x-1/2 translate-y-full;
+  .tooltip-content{
+    @apply text-left max-w-[600px] text-xs;
+    ul, ol{
+      @apply ml-6;
     }
-
-    &.bottom{
-      @apply top-auto bottom-0;
-      @apply transform -translate-x-1/2 translate-y-[calc(100%+16px)];
-      .tooltip-arrow{
-        @apply bottom-auto top-0;
-        @apply border-transparent border-b-white;
-        @apply border-[6px] border-b-[12px];
-        @apply transform -translate-x-1/2 -translate-y-full;
-      }
-    }
-    &.left{
-      @apply top-1/2 bottom-auto left-0;
-      @apply transform -translate-x-[calc(100%+6px)] -translate-y-1/2;
-      .tooltip-arrow{
-        @apply bottom-1/2 left-auto right-0;
-        @apply border-transparent border-l-white;
-        @apply border-[6px] border-l-[12px];
-        @apply transform translate-x-full translate-y-1/2;
-      }
-    }
-    &.right{
-      @apply top-1/2 bottom-auto right-0 left-auto;
-      @apply transform translate-x-[calc(100%+6px)] -translate-y-1/2;
-      .tooltip-arrow{
-        @apply bottom-1/2 left-0;
-        @apply transform translate-y-1/2 -translate-x-full;
-        @apply border-transparent border-r-white;
-        @apply border-[6px] border-r-[12px];
-      }
+    li{
+      @apply mb-1 list-disc;
     }
   }
 }
