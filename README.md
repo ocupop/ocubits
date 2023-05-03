@@ -15,8 +15,7 @@ Then use it in your app:
 import React from 'react'
 import { Form, Field, TextInput, Submit } from '@ocupop/ocubits'
 import '@ocupop/ocubits/dist/style.css'
-// ----------------------------------------------------------------------
-
+// --------
 export default function App () {
   return (
     <>
@@ -42,11 +41,11 @@ export default function App () {
 Write directions for developing in Storybook:
 
 ### Link
-This will allow you to develop along side another.
+This will allow you to develop OcuBits in parallel with another project that consumes OcuBit components.
 
 Within this project run:
 ```
-npm link
+yarn link
 ```
 
 This will link the local package until you unlink it, or restart your machine.
@@ -55,40 +54,24 @@ Within a project you're working on, add this to your package.json file
 ```
 scripts: {
   ...
-    "link:ocubits": "rm package.lock ; npm link @ocupop/ocubits ; yarn",
-    "unlink:ocubits": "npm unlink @ocupop/ocubits ; yarn add @ocupop/ocubits@latest",
+  "link:ocubits": "rm yarn.lock & rm -rf node_modules && yarn link @ocupop/ocubits && yarn",
+  "unlink:ocubits": "yarn unlink @ocupop/ocubits && yarn add @ocupop/ocubits@latest"
 }
 ```
 
-This will have two effects:
-- `npm install` will be run
-- link the package to the project under development.
+To work within this repository in parallel run `npm run dev` and see the resulting changes
 
-Do work within this repository and run `npm run build` to see the resulting changes
-
-Each time you make changes run `yarn run build` to rebuild the package
-
-Note that after linking the project, you may need to restart it.
-
-It might be useful to link directly to components, you can import them like this if you'd like to:
+<!-- It might be useful to link directly to components, you can import them like this if you'd like to:
 
 ```js
 import { SelectInput } from '../../../node_modules/@ocupop/ocubits/src'
-```
-
-Just remember to revert back.
+``` -->
 
 ### Unlink
 
 To unlink you can either restart your computer, or simply run
 ```
-npm unlink @ocupop/ocubits
-```
-
-Note that when doing this, you may need to re-add the package.
-
-```
-yarn add @ocupop/ocubits@latest
+yarn unlink @ocupop/ocubits
 ```
 
 ## How to Publish
