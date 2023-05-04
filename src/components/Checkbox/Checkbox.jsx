@@ -48,7 +48,7 @@ export default function CheckboxInput ({
       />
       <div className='label-and-hint'>
         <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
-        {hint && <div className='helper'>{hint}</div>}
+        {hint && <div className='hint'>{hint}</div>}
       </div>
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>

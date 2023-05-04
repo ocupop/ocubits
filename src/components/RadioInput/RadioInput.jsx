@@ -53,7 +53,7 @@ export default function RadioInput ({
       />
       <div className='label-and-hint'>
         <Label label={label} tooltip={tooltip} htmlFor={`${field.name}-${encodeAttr(value)}`} required={required}/>
-        {hint && <div className='helper'>{hint}</div>}
+        {hint && <div className='hint'>{hint}</div>}
       </div>
     </div>
   )

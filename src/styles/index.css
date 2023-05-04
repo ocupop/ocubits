@@ -44,12 +44,12 @@
   }
 
   /* Consistent vertical spacing */
-  .form-input, .input-group, .helper, .form-validation-error, .select__control{
+  .form-input, .input-group, .hint, .form-validation-error, .select__control{
     @apply mb-3;
   }
 
-  /* Helper text below field */
-  .helper{
+  /* hint text below field */
+  .hint{
     @apply w-full text-sm text-dark;
   }
 

@@ -81,7 +81,7 @@ export default function UrlInput ({
           onBlur={handleOnBlur}
         />
       </div>
-      {hint && <div className='helper'>{hint}</div>}
+      {hint && <div className='hint'>{hint}</div>}
       {getIn(touched, field.name) && getIn(errors, field.name) && (
         <small className="form-validation-error">{getIn(errors, field.name)}</small>
       )}
