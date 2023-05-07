@@ -9,7 +9,7 @@ import multi from 'rollup-plugin-multi-entry'
 // https://www.npmjs.com/package/rollup-plugin-visualizer
 const visualizerOptions = {
   template: 'treemap', // or sunburst
-  open: true,
+  open: false,
   gzipSize: true,
   brotliSize: true,
   filename: 'analice.html'
@@ -18,24 +18,50 @@ const visualizerOptions = {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [dts(), react(), visualizer(visualizerOptions)],
+  // build: {
+  //   lib: {
+  //     entry: resolve(__dirname, 'src/index.js'),
+  //     name: 'ocubits',
+  //     formats: ['es'],
+  //     fileName: 'ocubits'
+  //   },
+  //   rollupOptions: {
+  //     input: {
+  //       main: resolve(__dirname, 'src/index.js'),
+  //       TextInput: resolve(__dirname, 'src/components/TextInput/TextInput.jsx')
+  //       // third: resolve(__dirname, 'src/third.js')
+  //     }
+  //   }
+  // },
+
+  // build: {
+  //   outDir: 'dist',
+  //   rollupOptions: {
+  //     input: {
+  //       ocubits: resolve(__dirname, 'src/index.js'),
+  //       TextInput: resolve(__dirname, 'src/components/TextInput/TextInput.jsx')
+  //     }
+  //   }
+  // }
+
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
       name: 'ocubits',
-      formats: ['es'],
+      formats: ['umd', 'es'],
       fileName: 'ocubits'
     },
     rollupOptions: {
-      plugins: [multi()],
       external: ['react', 'react-dom'],
       output: {
-        // manualChunks: () => 'ignored', // Disable default chunking
-        // assetFileNames: 'components/[name][extname]' // Output files to components/ directory
-        dir: 'dist'
-        // format: 'esm'
+        manualChunks: {
+          TextInput: ['./src/components/TextInput/TextInput.js'],
+          SelectInput: ['./src/components/SelectInput/SelectInput.js']
+        }
       }
     }
   },
+
   resolve: {
     alias: {
       '@components': resolve(__dirname, 'src/components'),
