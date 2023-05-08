@@ -1,12 +1,12 @@
 {
   "name": "@ocupop/ocubits",
   "type": "module",
-  "main": "./dist/ocubits.umd.cjs",
-  "module": "./dist/ocubits.js",
+  "main": "./dist/ocubits.umd.js",
+  "module": "./dist/ocubits.es.js",
   "exports": {
     ".": {
-      "import": "./dist/ocubits.js",
-      "require": "./dist/ocubits.umd.cjs"
+      "import": "./dist/ocubits.es.js",
+      "require": "./dist/ocubits.umd.js"
     }
   },
   "files": [
