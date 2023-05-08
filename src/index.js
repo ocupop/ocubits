@@ -1,5 +1,5 @@
-
 import './styles/index.css'
+
 export { default as AddressInput } from './components/AddressInput/AddressInput'
 export { default as Checkbox } from './components/Checkbox/Checkbox'
 export { default as CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup'
