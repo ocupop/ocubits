@@ -1,4 +1,4 @@
-import React, { useState, useId } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Tooltip } from 'react-tooltip'
 import { v4 as uuid } from 'uuid'

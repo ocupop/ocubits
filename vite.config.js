@@ -18,6 +18,24 @@ const visualizerOptions = {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [dts(), react(), visualizer(visualizerOptions)],
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'src/index.js'),
+      name: 'ocubits',
+      formats: ['umd', 'es'],
+      fileName: 'ocubits'
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+      }
+    }
+  },
+
   // build: {
   //   lib: {
   //     entry: resolve(__dirname, 'src/index.js'),
@@ -44,23 +62,23 @@ export default defineConfig({
   //   }
   // }
 
-  build: {
-    lib: {
-      entry: resolve(__dirname, 'src/index.js'),
-      name: 'ocubits',
-      formats: ['umd', 'es'],
-      fileName: 'ocubits'
-    },
-    rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        manualChunks: {
-          TextInput: ['./src/components/TextInput/TextInput.js'],
-          SelectInput: ['./src/components/SelectInput/SelectInput.js']
-        }
-      }
-    }
-  },
+  // build: {
+  //   lib: {
+  //     entry: resolve(__dirname, 'src/index.js'),
+  //     name: 'ocubits',
+  //     formats: ['umd', 'es'],
+  //     fileName: 'ocubits'
+  //   },
+  //   rollupOptions: {
+  //     external: ['react', 'react-dom'],
+  //     output: {
+  //       manualChunks: {
+  //         TextInput: ['./src/components/TextInput/TextInput.js'],
+  //         SelectInput: ['./src/components/SelectInput/SelectInput.js']
+  //       }
+  //     }
+  //   }
+  // },
 
   resolve: {
     alias: {
