@@ -1,13 +1,13 @@
 {
   "name": "@ocupop/ocubits",
   "type": "module",
-  "main": "./dist/ocubits.umd.js",
+  "source": "src/index.js",
+  "main": "./dist/ocubits.cjs",
   "module": "./dist/ocubits.es.js",
+  "unpkg": "./dist/ocubits.umd.js",
   "exports": {
-    ".": {
-      "import": "./dist/ocubits.es.js",
-      "require": "./dist/ocubits.umd.js"
-    }
+    "require": "./dist/ocubits.cjs",
+    "default": "./dist/ocubits.modern.js"
   },
   "files": [
     "dist"
@@ -32,6 +32,7 @@
     "build-storybook": "storybook build",
     "build": "tsc && vite build",
     "parcel": "parcel build src/index.js --target=node --out-dir dist --out-file ocubits.js",
+    "build:microbundle": "microbundle --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react --globals react/jsx-runtime=jsx",
     "rollup": "rollup -c",
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/",
     "lintFix": "eslint --fix '**/*.js' --ignore-pattern node_modules/"
@@ -76,6 +77,7 @@
     "css-loader": "^6.7.3",
     "eslint-plugin-storybook": "^0.6.11",
     "formik": "^2.2.9",
+    "microbundle": "^0.15.1",
     "parcel-bundler": "^1.12.5",
     "postcss": "^8.4.21",
     "prop-types": "^15.8.1",
