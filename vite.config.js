@@ -3,7 +3,6 @@ import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import { visualizer } from 'rollup-plugin-visualizer'
-import multi from 'rollup-plugin-multi-entry'
 
 // https://stackoverflow.com/questions/75746767/is-there-any-bundle-analyzer-for-vite
 // https://www.npmjs.com/package/rollup-plugin-visualizer

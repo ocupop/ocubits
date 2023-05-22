@@ -2,13 +2,8 @@
   "name": "@ocupop/ocubits",
   "type": "module",
   "source": "src/index.js",
-  "main": "./dist/ocubits.cjs",
-  "module": "./dist/ocubits.es.js",
-  "unpkg": "./dist/ocubits.umd.js",
-  "exports": {
-    "require": "./dist/ocubits.cjs",
-    "default": "./dist/ocubits.modern.js"
-  },
+  "main": "dist/main.js",
+  "module": "dist/module.js",
   "files": [
     "dist"
   ],
@@ -32,6 +27,7 @@
     "build-storybook": "storybook build",
     "build": "tsc && vite build",
     "parcel": "parcel build src/index.js --target=node --out-dir dist --out-file ocubits.js",
+    "build:parcel": "parcel build",
     "build:microbundle": "microbundle --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react --globals react/jsx-runtime=jsx",
     "rollup": "rollup -c",
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/",
@@ -43,7 +39,9 @@
     "@rollup/plugin-node-resolve": "^15.0.2",
     "draft-js": "^0.11.7",
     "flowbite-react": "^0.4.3",
+    "formik": "^2.2.9",
     "google-map-react": "^2.2.0",
+    "prop-types": "^15.8.1",
     "react-datepicker": "^4.11.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-places-autocomplete": "^7.3.0",
@@ -55,6 +53,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-visualizer": "^5.9.0",
     "text-mask-addons": "^3.8.0",
+    "uuid": "^9.0.0",
     "yup": "^1.0.2"
   },
   "devDependencies": {
@@ -76,11 +75,10 @@
     "autoprefixer": "^10.4.14",
     "css-loader": "^6.7.3",
     "eslint-plugin-storybook": "^0.6.11",
-    "formik": "^2.2.9",
     "microbundle": "^0.15.1",
+    "parcel": "^2.8.3",
     "parcel-bundler": "^1.12.5",
     "postcss": "^8.4.21",
-    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.21.5",

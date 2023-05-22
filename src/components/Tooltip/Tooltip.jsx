@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Tooltip } from 'react-tooltip'
 import { v4 as uuid } from 'uuid'
 import 'react-tooltip/dist/react-tooltip.css'
-import './Tooltip.css'
+// import './Tooltip.css'
 
 // ----------------------------------------------------------------------
 ToolTip.propTypes = {
