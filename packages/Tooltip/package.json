@@ -1,7 +1,7 @@
 {
   "name": "ToolTip",
   "version": "0.0.0",
-  "main": "dist/index.jsx",
+  "main": "dist/index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
