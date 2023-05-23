@@ -1,21 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Tooltip } from 'react-tooltip'
+import { Tooltip as ReactToolTip } from 'react-tooltip'
 import { v4 as uuid } from 'uuid'
 // import 'react-tooltip/dist/react-tooltip.css'
 // import './Tooltip.css'
 
 // ----------------------------------------------------------------------
-ToolTip.propTypes = {
+Tooltip.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string
 }
 
-ToolTip.defaultProps = {
+Tooltip.defaultProps = {
   children: PropTypes.node
 }
 
-export default function ToolTip ({
+export default function Tooltip ({
   children,
   className,
   ...props
@@ -35,9 +35,9 @@ export default function ToolTip ({
       >
         ?
       </button>
-      <Tooltip anchorSelect={`#${id}`} className={'tooltip-content'}>
+      <ReactToolTip anchorSelect={`#${id}`} className={'tooltip-content'}>
         <span dangerouslySetInnerHTML={{ __html: children }}/>
-      </Tooltip>
+      </ReactToolTip>
 
     </div>
   )

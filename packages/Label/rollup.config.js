@@ -5,7 +5,7 @@ import babel from '@rollup/plugin-babel'
 import replace from '@rollup/plugin-replace'
 
 export default {
-  input: 'src/index.jsx',
+  input: 'src/index.js',
   output: [
     {
       dir: 'dist',
