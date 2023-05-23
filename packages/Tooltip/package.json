@@ -1,0 +1,26 @@
+{
+  "name": "ToolTip",
+  "version": "0.0.0",
+  "main": "dist/index.jsx",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf ./dist && rollup --config"
+  },
+  "dependencies": {
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-tooltip": "^5.13.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-replace": "^5.0.2",
+    "rollup": "^2.60.2",
+    "rollup-plugin-postcss": "^4.0.2"
+  }
+}

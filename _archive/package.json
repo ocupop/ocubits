@@ -1,0 +1,96 @@
+{
+  "name": "@ocupop/ocubits",
+  "type": "module",
+  "main": "./dist/ocubits.umd.cjs",
+  "module": "./dist/ocubits.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ocubits.js",
+      "require": "./dist/ocubits.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "description": "Bits of reusable code for Ocupop projects",
+  "author": "Ocupop",
+  "license": "MIT",
+  "homepage": "https://ocupop.com/",
+  "repository": "https://github.com/ocupop/ocubits.git",
+  "bugs": {
+    "url": "https://github.com/ocupop/ocubits/issues"
+  },
+  "keywords": [
+    "ocupop",
+    "design-system",
+    "react-components"
+  ],
+  "scripts": {
+    "start": "npm run storybook",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "tsc && vite build",
+    "parcel": "parcel build src/index.js --target=node --out-dir dist --out-file ocubits.js",
+    "rollup": "rollup -c",
+    "lint": "eslint '**/*.js' --ignore-pattern node_modules/",
+    "lintFix": "eslint --fix '**/*.js' --ignore-pattern node_modules/"
+  },
+  "dependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "draft-js": "^0.11.7",
+    "flowbite-react": "^0.4.3",
+    "google-map-react": "^2.2.0",
+    "react-datepicker": "^4.11.0",
+    "react-draft-wysiwyg": "^1.15.0",
+    "react-places-autocomplete": "^7.3.0",
+    "react-quill": "^2.0.0",
+    "react-select": "^5.7.2",
+    "react-text-mask": "^5.5.0",
+    "react-tooltip": "^5.11.1",
+    "rollup-plugin-multi-entry": "^2.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-visualizer": "^5.9.0",
+    "text-mask-addons": "^3.8.0",
+    "yup": "^1.0.2"
+  },
+  "devDependencies": {
+    "@ocupop/eslint-config": "^0.1.10",
+    "@storybook/addon-essentials": "^7.0.4",
+    "@storybook/addon-interactions": "^7.0.4",
+    "@storybook/addon-links": "^7.0.4",
+    "@storybook/addon-mdx-gfm": "^7.0.4",
+    "@storybook/blocks": "^7.0.4",
+    "@storybook/manager-api": "^7.0.4",
+    "@storybook/react": "^7.0.4",
+    "@storybook/react-vite": "^7.0.4",
+    "@storybook/testing-library": "^0.1.0",
+    "@storybook/theming": "^7.0.4",
+    "@types/node": "^18.16.0",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "autoprefixer": "^10.4.14",
+    "css-loader": "^6.7.3",
+    "eslint-plugin-storybook": "^0.6.11",
+    "formik": "^2.2.9",
+    "parcel-bundler": "^1.12.5",
+    "postcss": "^8.4.21",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.21.5",
+    "storybook": "^7.0.2",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^5.0.3",
+    "vite": "^4.3.5",
+    "vite-plugin-dts": "^2.3.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "version": "0.1.26"
+}
