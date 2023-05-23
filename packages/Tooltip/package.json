@@ -1,5 +1,5 @@
 {
-  "name": "ToolTip",
+  "name": "tooltip",
   "version": "0.0.0",
   "main": "dist/index.js",
   "license": "MIT",
