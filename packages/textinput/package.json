@@ -1,13 +1,13 @@
 {
   "name": "@ocupop/textinput",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && rollup --config"
   },
   "dependencies": {
-    "@ocupop/label": "^0.1.35",
+    "@ocupop/label": "^0.1.36",
     "formik": "^2.2.9",
     "react": "18.1.0",
     "react-dom": "18.1.0"

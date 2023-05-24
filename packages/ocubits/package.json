@@ -6,17 +6,17 @@
   "bugs": {
     "url": "https://github.com/ocupop/ocubits/issues"
   },
-  "version": "0.1.35",
+  "version": "0.1.36",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && rollup --config"
   },
   "dependencies": {
-    "@ocupop/tooltip": "*",
-    "@ocupop/label": "*",
-    "@ocupop/selectinput": "*",
-    "@ocupop/textinput": "*"
+    "@ocupop/label": "^0.1.36",
+    "@ocupop/selectinput": "^0.1.36",
+    "@ocupop/textinput": "^0.1.36",
+    "@ocupop/tooltip": "^0.1.36"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
