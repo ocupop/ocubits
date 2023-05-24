@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "formik": "^2.2.9",
-    "label": "*",
+    "@ocupop/label": "*",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },

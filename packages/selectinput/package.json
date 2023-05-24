@@ -1,5 +1,5 @@
 {
-  "name": "selectinput",
+  "name": "@ocupop/selectinput",
   "version": "0.1.32",
   "main": "dist/index.js",
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "formik": "^2.2.9",
-    "label": "^0.1.32",
+    "@ocupop/label": "*",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-select": "^5.7.3"
@@ -29,5 +29,5 @@
     "rollup": "^2.60.2",
     "rollup-plugin-postcss": "^4.0.2"
   },
-  "gitHead": "c51c799efd344f65acbdba556ef73c27e00863ad"
+  "gitHead": "0cb78fd65b1ad7ede0219588e73813b0f1e00c76"
 }
