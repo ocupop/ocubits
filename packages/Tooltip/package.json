@@ -1,8 +1,14 @@
 {
   "name": "tooltip",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "main": "dist/index.js",
   "license": "MIT",
+  "author": "Ocupop",
+  "homepage": "https://ocupop.com/",
+  "repository": "https://github.com/ocupop/ocubits.git",
+  "bugs": {
+    "url": "https://github.com/ocupop/ocubits/issues"
+  },
   "scripts": {
     "build": "rm -rf ./dist && rollup --config"
   },
@@ -22,5 +28,5 @@
     "rollup": "^2.60.2",
     "rollup-plugin-postcss": "^4.0.2"
   },
-  "gitHead": "156da07c874ad6be086b36e6012f8f7fb2351909"
+  "gitHead": "c51c799efd344f65acbdba556ef73c27e00863ad"
 }
