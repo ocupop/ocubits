@@ -1,6 +1,6 @@
 {
   "name": "@ocupop/selectinput",
-  "version": "0.1.32",
+  "version": "0.1.33",
   "main": "dist/index.js",
   "license": "MIT",
   "author": "Ocupop",
@@ -13,8 +13,8 @@
     "build": "rm -rf ./dist && rollup --config"
   },
   "dependencies": {
+    "@ocupop/label": "^0.1.33",
     "formik": "^2.2.9",
-    "@ocupop/label": "*",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-select": "^5.7.3"
