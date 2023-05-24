@@ -1,6 +1,6 @@
 {
   "name": "textinput",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "main": "dist/index.js",
   "license": "MIT",
   "private": true,
@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "formik": "^2.2.9",
+    "label": "*",
     "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "label": "*"
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
