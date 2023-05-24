@@ -1,6 +1,6 @@
 {
   "name": "@ocupop/tooltip",
-  "version": "0.1.33",
+  "version": "0.1.35",
   "main": "dist/index.js",
   "license": "MIT",
   "author": "Ocupop",
@@ -28,5 +28,5 @@
     "rollup": "^2.60.2",
     "rollup-plugin-postcss": "^4.0.2"
   },
-  "gitHead": "7b4df8a739dd44b5bf5b3d968eeae5326da68ed1"
+  "gitHead": "199d608a9f37ab305c82d2c776ade1bb558574d1"
 }
