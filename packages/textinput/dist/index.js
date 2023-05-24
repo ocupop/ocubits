@@ -16863,14 +16863,17 @@ function v4(options, buf, offset) {
 // import './Tooltip.css'
 
 // ----------------------------------------------------------------------
-Tooltip.propTypes = {
+ToolTip.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string
 };
-Tooltip.defaultProps = {
+ToolTip.defaultProps = {
   children: PropTypes.node
 };
-function Tooltip({
+
+// test
+// test2
+function ToolTip({
   children,
   className,
   ...props
@@ -16895,7 +16898,7 @@ function Tooltip({
     }
   })));
 }
-dist.Tooltip = Tooltip;
+dist.Tooltip = ToolTip;
 
 // import './Label.css'
 // ----------------------------------------------------------------------

@@ -5357,14 +5357,17 @@ function v4(options, buf, offset) {
 // import './Tooltip.css'
 
 // ----------------------------------------------------------------------
-Tooltip.propTypes = {
+ToolTip.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string
 };
-Tooltip.defaultProps = {
+ToolTip.defaultProps = {
   children: PropTypes.node
 };
-function Tooltip({
+
+// test
+// test2
+function ToolTip({
   children,
   className,
   ...props
@@ -5390,4 +5393,4 @@ function Tooltip({
   })));
 }
 
-exports.Tooltip = Tooltip;
+exports.Tooltip = ToolTip;
