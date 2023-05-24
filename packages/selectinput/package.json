@@ -1,6 +1,6 @@
 {
   "name": "selectinput",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "main": "dist/index.js",
   "license": "MIT",
   "author": "Ocupop",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "formik": "^2.2.9",
-    "label": "^0.1.31",
+    "label": "^0.1.32",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-select": "^5.7.3"
