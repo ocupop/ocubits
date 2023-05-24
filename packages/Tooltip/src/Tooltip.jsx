@@ -6,16 +6,16 @@ import { v4 as uuid } from 'uuid'
 // import './Tooltip.css'
 
 // ----------------------------------------------------------------------
-Tooltip.propTypes = {
+ToolTip.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string
 }
 
-Tooltip.defaultProps = {
+ToolTip.defaultProps = {
   children: PropTypes.node
 }
 
-export default function Tooltip ({
+export default function ToolTip ({
   children,
   className,
   ...props
