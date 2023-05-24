@@ -1,9 +1,14 @@
 {
-  "name": "root",
+  "name": "@ocupop/ocubits",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
     "lerna": "^6.6.2"
+  },
+  "scripts": {
+    "lerna:build": "npx lerna run build",
+    "lerna:clean": "npx lerna clean -y",
+    "lerna:graph": "npx nx graph"
   },
   "workspaces": [
     "packages/*"
