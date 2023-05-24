@@ -6,7 +6,7 @@
   "bugs": {
     "url": "https://github.com/ocupop/ocubits/issues"
   },
-  "version": "0.1.27",
+  "version": "0.1.30",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -16,7 +16,7 @@
   "dependencies": {
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "tooltip": "*"
+    "tooltip": "^0.1.30"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
@@ -32,5 +32,6 @@
     "jest-environment-jsdom": "^29.5.0",
     "rollup": "^2.60.2",
     "rollup-plugin-postcss": "^4.0.2"
-  }
+  },
+  "gitHead": "156da07c874ad6be086b36e6012f8f7fb2351909"
 }
