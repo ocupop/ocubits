@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Tooltip from '../Tooltip/Tooltip'
-import './Label.css'
+// import './Label.css'
 // ----------------------------------------------------------------------
 
 Label.propTypes = {

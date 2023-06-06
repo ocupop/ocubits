@@ -3,7 +3,6 @@ import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import { visualizer } from 'rollup-plugin-visualizer'
-import multi from 'rollup-plugin-multi-entry'
 
 // https://stackoverflow.com/questions/75746767/is-there-any-bundle-analyzer-for-vite
 // https://www.npmjs.com/package/rollup-plugin-visualizer
@@ -22,12 +21,16 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
       name: 'ocubits',
-      formats: ['umd', 'es'],
-      fileName: 'ocubits'
+      fileName: (format) => `ocubits.${format}.js`
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
+      // input: {
+      //   main: 'src/index.js',
+      //   TextInput: 'src/TextInput.js'
+      // },
       output: {
+        // inlineDynamicImports: false,
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM'
@@ -35,6 +38,36 @@ export default defineConfig({
       }
     }
   },
+
+  // build: {
+  //   rollupOptions: {
+  //     external: ['react', 'react-dom'],
+  //     input: {
+  //       index: 'src/index.js'
+  //     },
+  //     output: {
+  //       inlineDynamicImports: true,
+  //       globals: {
+  //         react: 'React',
+  //         'react-dom': 'ReactDOM'
+  //       }
+  //     }
+  //   }
+  // },
+
+  // build: {
+  //   outDir: 'dist',
+  //   rollupOptions: {
+  //     input: {
+  //       main: resolve(__dirname, 'src/index.js')
+  //     },
+  //     output: {
+  //       entryFileNames: 'assets/[name].[hash].js',
+  //       chunkFileNames: 'assets/[name].[hash].js',
+  //       assetFileNames: 'assets/[name].[hash].[ext]'
+  //     }
+  //   }
+  // },
 
   // build: {
   //   lib: {
