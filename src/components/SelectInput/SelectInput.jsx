@@ -5,6 +5,7 @@ import { getIn } from 'formik'
 
 import { Label, FieldGroup, Hint, ErrorMessage } from '@components'
 import { fieldStatus } from '@lib'
+import './SelectInput.css'
 // ----------------------------------------------------------------------
 SelectInput.propTypes = {
   className: PropTypes.string,

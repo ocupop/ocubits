@@ -39,17 +39,18 @@ export default function Switch ({
       disabled={disabled}
       error={error}
     >
-
-      <input
-        {...field}
-        className={'form-input'}
-        type="checkbox"
-        role="switch"
-        name={field.name}
-        disabled={disabled}
-        id={field.name}
-      />
-      <Label fieldName={name} label={label} />
+      <div className='field-input'>
+        <input
+          {...field}
+          className={'form-input'}
+          type="checkbox"
+          role="switch"
+          name={field.name}
+          disabled={disabled}
+          id={field.name}
+        />
+        <Label fieldName={name} label={label} />
+      </div>
       <Hint hint={hint} />
       <ErrorMessage error={error} />
     </FieldGroup>

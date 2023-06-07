@@ -38,18 +38,15 @@ export default function UrlInput ({
   const { name } = field
   const error = fieldStatus({ form, field })
   const [display, setDisplay] = useState(removeProtocol(field.value))
-
   const handleChange = (value) => {
     const url = formatUrl(value)
     form.setFieldValue(name, url)
   }
-
   const formatUrl = (value) => {
     const url = removeProtocol(value)
     setDisplay(url)
     return secure ? `https://${url}` : `http://${url}`
   }
-
   return (
     <FieldGroup
       className={classNames('url-field', className)}

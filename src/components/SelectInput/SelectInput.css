@@ -1,5 +1,10 @@
-
-
-
-
-
+.select-group{
+  @apply border-error;
+  @apply flex items-center;
+  .label{
+    @apply flex-1;
+  }
+  .badges{
+    @apply bg-light text-white w-6 h-6 rounded-full flex justify-center items-center;
+  }
+}
