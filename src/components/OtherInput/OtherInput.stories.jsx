@@ -3,15 +3,15 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper } from '@lib'
-import CheckboxWithText from './CheckboxWithText'
+import OtherInput from './OtherInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/CheckboxWithText',
-  component: CheckboxWithText,
+  title: 'Fields/OtherInput',
+  component: OtherInput,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'debug', 'disabled', 'format'] }
+    controls: { include: ['name', 'className', 'label', 'hint', 'placeholder', 'required', 'disabled'] }
   },
   argTypes: {
     name: {
@@ -25,28 +25,34 @@ export default {
     }
   },
   args: {
-    name: 'other',
-    label: 'Other',
-    hint: 'Check this box to enter some custom text'
-    // tooltip: "Don't see what you want? Enter it in here."
+    name: 'the-other-value',
+    label: 'Enter Your Own Value'
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, format, debug }) {
+function Template ({
+  name,
+  className,
+  label,
+  hint,
+  placeholder,
+  required,
+  disabled,
+  initialValues,
+  debug
+}) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={CheckboxWithText}
+        component={OtherInput}
         name={name}
+        className={className}
         label={label}
-        tooltip={tooltip}
         hint={hint}
         placeholder={placeholder}
-        className={className}
-        format={format}
         required={required}
         disabled={disabled}
       />

@@ -1,25 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { EditorState, setEditorState } from 'draft-js'
+import classNames from 'classnames'
+import { EditorState } from 'draft-js'
 import { Editor } from 'react-draft-wysiwyg'
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
-import { getIn } from 'formik'
 
-import Label from '../Label/Label'
+import { FieldGroup, Label, Hint, ErrorMessage } from '@components'
+import { fieldStatus } from '@lib'
 import './DraftJS.css'
 // ----------------------------------------------------------------------
 
 DraftJS.propTypes = {
   className: PropTypes.string,
-  tooltip: PropTypes.string,
-  hint: PropTypes.string,
   label: PropTypes.string,
+  hint: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
+  onChange: PropTypes.func,
   field: PropTypes.instanceOf(Object),
-  form: PropTypes.instanceOf(Object),
-  onChange: PropTypes.func
+  form: PropTypes.instanceOf(Object)
 }
 
 DraftJS.defaultProps = {
@@ -30,18 +30,17 @@ DraftJS.defaultProps = {
 
 export default function DraftJS ({
   className,
-  tooltip,
-  hint,
   label,
+  hint,
   placeholder,
   required,
   disabled,
+  onChange,
   field,
-  form,
-  form: { errors, touched },
-  onChange
+  form
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
+  const { name } = field
+  const error = fieldStatus({ form, field })
   const handleOnChange = (val) => {
     console.log(val)
     if (onChange) onChange(val)
@@ -49,8 +48,13 @@ export default function DraftJS ({
   }
 
   return (
-    <div className={`ocufield ocu-draftjs form-group ${className} ${status}`}>
-      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
+    <FieldGroup
+    className={classNames('rich-input-field', className)}
+      required={required}
+      disabled={disabled}
+      error={error}
+    >
+      <Label fieldName={name} label={label} />
       <Editor
         placeholder={placeholder}
         editorState={field.value || EditorState.createEmpty()}
@@ -59,10 +63,9 @@ export default function DraftJS ({
         editorClassName="editWindow"
         onEditorStateChange={handleOnChange}
       />
-      {hint && <div className='hint'>{hint}</div>}
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
-    </div>
+
+      <Hint hint={hint} />
+      <ErrorMessage error={error} />
+    </FieldGroup>
   )
 }

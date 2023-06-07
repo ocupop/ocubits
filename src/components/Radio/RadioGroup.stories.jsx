@@ -3,15 +3,15 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper } from '@lib'
-import RadioInput from './RadioInput'
+import RadioGroup from './RadioGroup'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/Radio',
-  component: RadioInput,
+  title: 'Fields/RadioGroup',
+  component: RadioGroup,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'value', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'value', 'tooltip', 'hint', 'className', 'required', 'disabled', 'options', 'debug'] }
   },
   argTypes: {
     value: {
@@ -21,23 +21,40 @@ export default {
   args: {
     name: 'radioFieldName',
     label: 'Radio Label',
-    value: 'Hello World'
+    value: 'Hello World',
+    options: [
+      {
+        value: 'valueA',
+        label: 'Radio 1',
+        hint: null
+      },
+      {
+        value: 'valueB',
+        label: 'Radio 2',
+        hint: null
+      },
+      {
+        value: 'valueC',
+        label: 'Radio 3',
+        hint: null
+      }
+    ]
   }
 }
 
-function Template ({ name, label, value, tooltip, hint, className, initialValues, required, disabled, debug }) {
+function Template ({ name, label, value, options, hint, className, required, initialValues, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={RadioInput}
+        component={RadioGroup}
         className={className}
         name={name}
         label={label}
         value={value}
-        tooltip={tooltip}
+        options={options}
         hint={hint}
         required={required}
         disabled={disabled}

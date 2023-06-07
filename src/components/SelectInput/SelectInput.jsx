@@ -1,49 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
 import Select from 'react-select'
+import { getIn } from 'formik'
 
-import Label from '../Label/Label'
-import './SelectInput.css'
+import { Label, FieldGroup, Hint, ErrorMessage } from '@components'
+import { fieldStatus } from '@lib'
 // ----------------------------------------------------------------------
 SelectInput.propTypes = {
   className: PropTypes.string,
-  field: PropTypes.instanceOf(Object),
-  tooltip: PropTypes.string,
+  label: PropTypes.string,
   hint: PropTypes.string,
   placeholder: PropTypes.string,
-  defaultValue: PropTypes.instanceOf(Object),
-  label: PropTypes.string,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  options: PropTypes.instanceOf(Object),
   isMulti: PropTypes.bool,
   isSearchable: PropTypes.bool,
   onChange: PropTypes.func,
-  options: PropTypes.instanceOf(Object),
-  form: PropTypes.instanceOf(Object),
-  required: PropTypes.bool,
-  disabled: PropTypes.bool
+  field: PropTypes.instanceOf(Object),
+  form: PropTypes.instanceOf(Object)
 }
 SelectInput.defaultProps = {
   required: false,
-  disabled: false
+  disabled: false,
+  onChange: null
 }
 
 export default function SelectInput ({
   className,
-  form,
-  field,
-  tooltip,
+  label,
   hint,
   placeholder,
-  defaultValue,
-  label,
+  required,
+  disabled,
+  options,
   isMulti,
   isSearchable,
   onChange,
-  options,
-  required,
-  disabled,
-  form: { errors, touched }
+  field,
+  form
 }) {
+  const { name } = field
+  const { setFieldValue, initialValues } = form
+  const error = fieldStatus({ form, field })
+  const [selectedOption, setSelectedOption] = useState(options.find(o => o.value === getIn(initialValues, name)))
+
   const formatGroupLabel = (data) => (
     <div className='select-group'>
       <span className='label'>{data.label}</span>
@@ -51,26 +52,26 @@ export default function SelectInput ({
     </div>
   )
 
-  const status = touched[field.name] && errors[field.name] ? 'invalid' : ''
-
-  const handleOnChange = (option) => {
-    if (onChange) onChange(option)
-    form.setFieldValue(field.name, option)
+  const handleChange = (option) => {
+    setSelectedOption(option)
+    onChange ? onChange(option) : setFieldValue(name, option)
   }
+
   return (
-    <div className={`ocufield ocu-select form-group ${className} ${status} ${disabled && 'disabled'}`}>
-      <Label
-        label={label}
-        tooltip={tooltip}
-        htmlFor={field.name}
-        required={required}
-      />
+    <FieldGroup
+      className={className}
+      required={required}
+      disabled={disabled}
+      error={error}>
+      <Label fieldName={name} label={label} />
+
       <Select
         {...field}
+        id={name}
+        value={selectedOption}
         required={required}
-        defaultValue={defaultValue}
         formatGroupLabel={formatGroupLabel}
-        onChange={handleOnChange}
+        onChange={handleChange}
         placeholder={placeholder}
         options={options}
         isMulti={isMulti}
@@ -78,22 +79,9 @@ export default function SelectInput ({
         isDisabled={disabled}
         isClearable
         classNamePrefix='select'
-        theme={(theme) => ({
-          ...theme,
-          borderRadius: 0,
-          colors: {
-            ...theme.colors,
-            primary25: '#EBECF0',
-            primary: '#3737F3'
-          }
-        })}
       />
-      {hint && <div className='hint'>{hint}</div>}
-      {getIn(errors, field.name) && (
-        <small className='form-validation-error'>
-          {getIn(errors, field.name)}
-        </small>
-      )}
-    </div>
+      <Hint hint={hint} />
+      <ErrorMessage error={error} />
+    </FieldGroup>
   )
 }

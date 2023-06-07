@@ -1,3 +1,6 @@
-.label-wrap{
-  @apply flex items-center;
-}
+/* .field-label{
+  @apply flex relative text-sm font-bold mb-2;
+  &.required::before{
+    @apply content-['*'] text-warning mr-1;
+  }
+} */

@@ -1,11 +1,7 @@
-.ocu-radio{
+.radio-group-field {
 
-  &.form-group{
-    @apply flex flex-wrap items-start;
-    .label-and-hint{
-      @apply w-[calc(100%-30px)];
-    }
-    input[type=radio]{
+  .field-input {
+    input[type=radio] {
       @apply cursor-pointer appearance-none;
       @apply relative inline-block;
       @apply w-5 mr-2 aspect-square;
@@ -23,22 +19,6 @@
       &::before{
         @apply bg-accent border-accent;
       }
-    }
-    label{
-      @apply cursor-pointer;
-    }
-  }
-}
-
-.ocu-radio.invalid,
-.ocu-radiogroup.invalid .ocu-radio{
-  input[type=radio]{
-    @apply border-2 border-warning;
-  }
-  input[type="radio"]:checked {
-    @apply border-2 border-warning;
-    &::before{
-      @apply bg-warning
     }
   }
 }

@@ -1,0 +1,57 @@
+.field-group {
+  /* display: flex;
+  align-items: flex-start; */
+  margin-bottom: 1rem;
+
+  & > label {
+    display: block;
+    /* width: 28rem; */
+    /* @apply text-lg; */
+  }
+
+  .field-input {
+    display: block;
+    width: 100%;
+  }
+
+  .field-input input {}
+
+  .field-input input[type="text"],
+  .field-input input[type="password"],
+  .field-input input[type="url"],
+  .field-input input[type="email"],
+  .field-input input[type="number"],
+  .field-input input[type="date"],
+  .field-input textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: theme('colors.white');
+    border: 1px solid theme('colors.mid');
+    border-radius: 0.25rem;
+  }
+
+  .field-input input[type="checkbox"] {
+    /* @apply appearance-none; */
+    @apply w-5 h-5;
+    @apply mr-3;
+    @apply border border-mid rounded;
+  }
+
+  .field-input .input-hint {}
+
+  .field-input .input-error {
+    display: block;
+    margin-top: 0.25rem;
+    color: theme('colors.error');
+  }
+}
+
+.field-group.error {
+  border-bottom: 1px solid theme('colors.error');
+}
+.field-group.required {}
+.field-group.disabled {}
+
+
+

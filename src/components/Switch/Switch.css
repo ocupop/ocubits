@@ -1,5 +1,5 @@
-.ocu-switch{
-  &.form-group{
+.switch-field{
+
     @apply flex flex-wrap;
     input[type=checkbox]{
       /* main element = track */
@@ -44,5 +44,5 @@
         @apply dark:checked:bg-warning dark:checked:after:bg-warning ;
       }
     }
-  }
+
 }

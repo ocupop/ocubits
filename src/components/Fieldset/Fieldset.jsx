@@ -1,53 +1,41 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Label from '../Label/Label'
+import classNames from 'classnames'
 import './Fieldset.css'
 // ----------------------------------------------------------------------
 
 Fieldset.propTypes = {
+  name: PropTypes.string,
   className: PropTypes.string,
-  label: PropTypes.string,
-  tooltip: PropTypes.string,
-  description: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-    PropTypes.string
-  ]),
-  layout: PropTypes.string,
-  expandable: PropTypes.bool,
-  defaultOpen: PropTypes.bool,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
+  collapsible: PropTypes.bool,
+  open: PropTypes.bool,
+  children: PropTypes.node
 }
 
 Fieldset.defaultProps = {
-  layout: 'default',
-  expandable: false,
-  defaultOpen: true
+  collapsible: false,
+  open: true
 }
 
 export default function Fieldset ({
+  name,
   className,
-  label,
-  tooltip,
-  description,
-  layout,
-  expandable = false,
-  defaultOpen = true,
+  collapsible,
+  open,
   children
 }) {
-  const [isOpen, setIsOpen] = useState(defaultOpen)
+  const [isOpen, setIsOpen] = useState(open)
   return (
-    <fieldset className={`ocu-fieldset ${className || ''} ${layout} ${isOpen ? 'open' : 'closed'} ${expandable ? 'expandable' : ''}`}>
-      <div className="fieldset-description" onClick={() => setIsOpen(!isOpen)}>
-        <Label label={label} tooltip={tooltip} />
-        <div className="desc">{description}</div>
-      </div>
-      <div className="fieldset-children">
-        {children}
-      </div>
+    <fieldset className={classNames('fieldset', className, collapsible && 'collapsible')}>
+      <header>
+        <legend>{name}</legend>
+        {collapsible && (
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? 'close' : 'open'}
+          </button>
+        )}
+      </header>
+      {isOpen && children}
     </fieldset>
   )
 }

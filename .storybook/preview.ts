@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { themes } from '@storybook/theming';
 import '../src/styles/index.css';
 import './storybook.css';
 
@@ -11,6 +12,14 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    darkMode: {
+      darkClass: 'lights-out',
+      lightClass: 'lights-on',
+      // Override the default dark theme
+      dark: { ...themes.dark, appBg: 'black' },
+      // Override the default light theme
+      light: { ...themes.normal, appBg: '#e2e2e2' }
+    }
   },
   argTypes: {
     name: {
@@ -21,10 +30,6 @@ const preview: Preview = {
     label: {
       table: { category: 'Global' },
       description: 'Text above the input field'
-    },
-    tooltip: {
-      table: { category: 'Global' },
-      description: 'Shows a hover icon (?) with additional text.'
     },
     hint: {
       table: { category: 'Global' },

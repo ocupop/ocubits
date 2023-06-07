@@ -4,7 +4,7 @@ import Tooltip from './Tooltip'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Molecules/Tooltip',
+  title: 'Experimental/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   parameters: {

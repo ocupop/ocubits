@@ -1,36 +1,63 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import MaskedInput from 'react-text-mask'
 
-import MaskedInput from '../MaskedInput/MaskedInput'
+import { FieldGroup, Label, Hint, ErrorMessage } from '@components'
+import { fieldStatus } from '@lib'
 // ----------------------------------------------------------------------
 
-const usParens = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-const usNoAreaCode = [/\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-
 PhoneInput.propTypes = {
-  format: PropTypes.string,
-
   className: PropTypes.string,
-  innerRef: PropTypes.func,
-  tooltip: PropTypes.string,
-  hint: PropTypes.string,
   label: PropTypes.string,
+  hint: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
+
 PhoneInput.defaultProps = {
-  format: 'usParens'
+  required: false,
+  disabled: false,
+  placeholder: '(___) ___-____'
 }
-export default function PhoneInput ({ format, ...props }) {
-  const maskOptions = (format === 'usParens')
-    ? usParens
-    : (format === 'usNoAreaCode')
-        ? usNoAreaCode
-        : false
+
+const phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+
+export default function PhoneInput ({
+  className,
+  label,
+  hint,
+  placeholder,
+  required,
+  disabled,
+  field,
+  form
+}) {
+  const { name } = field
+  const error = fieldStatus({ form, field })
+
   return (
-    <MaskedInput {...props} type='tel' maskOptions={maskOptions} />
+    <FieldGroup
+      className={className}
+      required={required}
+      disabled={disabled}
+      error={error}>
+      <Label fieldName={name} label={label} />
+      <div className="field-input">
+        <MaskedInput
+          id={name}
+          {...field}
+          type='text'
+          mask={phoneMask}
+          placeholder={placeholder}
+          disabled={disabled}
+          required={required}
+        />
+        <Hint hint={hint} />
+        <ErrorMessage error={error} />
+      </div>
+    </FieldGroup>
   )
 }

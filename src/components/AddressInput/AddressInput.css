@@ -1,9 +1,7 @@
-.ocu-addressinput{
+.address-fields{
+  @apply flex flex-wrap items-start;
 
-  .address-fields{
-    @apply flex flex-wrap items-start;
-  }
-  .ocufield{
+  .field-group{
     &.address{
       @apply w-full md:w-1/2 md:pr-2;
     }

@@ -1,1 +1,20 @@
-.ocu-urlinput{}
+.url-field {
+  .field-input {
+    @apply flex items-center;
+    background-color: theme('colors.white');
+    border: 1px solid theme('colors.mid');
+    border-radius: 0.25rem;
+
+    .input-modifier {
+      border-color: inherit;
+      @apply px-3 py-2;
+      @apply border-r;
+      @apply bg-mid bg-opacity-40;
+      @apply rounded-l;
+    }
+    input[type="url"] {
+      @apply bg-transparent;
+      @apply border-none;
+    }
+  }
+}

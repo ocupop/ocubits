@@ -8,32 +8,28 @@ export default {
   component: Fieldset,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['className', 'label', 'tooltip', 'description', 'layout', 'expandable', 'defaultOpen', 'className'] }
+    controls: { include: ['className', 'name', 'collapsible', 'open', 'children'] }
   },
-  argTypes: {
-    layout: {
-      options: ['default', 'two-col', 'dark'],
-      control: { type: 'select' }
-    }
-  },
+  // argTypes: {
+  //   layout: {
+  //     options: ['default', 'two-col', 'dark'],
+  //     control: { type: 'select' }
+  //   }
+  // },
   args: {
     className: null,
-    label: 'Security Mechanisms',
-    description: 'Place description Here',
+    name: 'Security Mechanisms',
     children: <div>JSX Output Here</div>
   }
 }
 
-function Template ({ className, label, tooltip, description, layout, expandable, defaultOpen, children }) {
+function Template ({ className, name, collapsible, open, children }) {
   return (
     <Fieldset
       className={className}
-      label={label}
-      tooltip={tooltip}
-      description={description}
-      layout={layout}
-      expandable={expandable}
-      defaultOpen={defaultOpen}
+      name={name}
+      collapsible={collapsible}
+      open={open}
     >
       {children}
     </Fieldset>

@@ -1,8 +1,0 @@
-.ocu-radiogroup{
-  .radioGroupLabel{
-    @apply mb-5;
-    label{
-      @apply font-bold text-lg ;
-    }
-  }
-}
