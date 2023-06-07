@@ -1,5 +1,6 @@
 import './styles/index.css'
 
+
 export { default as AddressInput } from './components/AddressInput/AddressInput'
 export { default as Checkbox } from './components/Checkbox/Checkbox'
 export { default as CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup'
@@ -16,7 +17,8 @@ export { default as RichInput } from './components/RichInput/RichInput'
 export { default as SelectInput } from './components/SelectInput/SelectInput'
 export { default as Switch } from './components/Switch/Switch'
 export { default as TextArea } from './components/TextArea/TextArea'
-export { default as TextInput } from './components/TextInput/TextInput'
+ export { default as TextInput } from './components/TextInput/TextInput'
 export { default as Tooltip } from './components/Tooltip/Tooltip'
 export { default as UrlInput } from './components/UrlInput/UrlInput'
 export { default as CheckboxWithText } from './components/CheckboxWithText/CheckboxWithText'
+

@@ -56,20 +56,3 @@ export default function TextInput ({
     </div>
   )
 }
-
-
-// import React from 'react'
-// import PropTypes from 'prop-types'
-
-// // ----------------------------------------------------------------------
-// TextInput.propTypes = {
-//   children: PropTypes.node
-// }
-
-// export default function TextInput({ children }) {
-//   return (
-//     <>
-//       <h1>TextInput</h1>
-//     </>
-//   )
-// }

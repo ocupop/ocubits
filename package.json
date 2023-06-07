@@ -1,9 +1,14 @@
 {
-  "name": "@ocupop/ocubits",
-  "type": "module",
-  "source": "src/index.js",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
+    "name": "@ocupop/ocubits",
+    "type": "module",
+    "main": "./dist/main.umd.js",
+    "module": "./dist/main.esm.js",
+    "exports": {
+      ".": {
+        "import": "./dist/main.esm.js",
+        "require": "./dist/main.umd.js"
+      }
+    },
   "files": [
     "dist"
   ],
@@ -26,7 +31,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "rm -rf dist/ ; tsc && vite build ; npm run publish:dry",
-    "build:parcel": "rm -rf dist/ ; parcel build src/index.js --target=node --out-dir dist --out-file main.js ; npm run publish:dry",
+    "build:parcel": "rm -rf dist/ ; parcel build src/index.js --out-dir dist --out-file main.js ; npm run publish:dry",
     "build:microbundle": "rm -rf dist/ ; microbundle --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react --globals react/jsx-runtime=jsx ; npm run publish:dry",
     "build:rollup": "rm -rf dist/ ; rollup -c ; npm run publish:dry",
     "publish:dry": "npm publish --dry-run",
