@@ -1,0 +1,8 @@
+.formik-debug{
+  @apply bg-light text-dark
+}
+@media (prefers-color-scheme: dark) {
+  .formik-debug{
+    @apply bg-dark text-white
+  }
+}

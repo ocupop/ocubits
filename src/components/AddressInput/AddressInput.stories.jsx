@@ -7,7 +7,7 @@ import AddressInput from './AddressInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/AddressInput',
+  title: 'Experimental/AddressInput',
   component: AddressInput,
   tags: ['autodocs'],
   parameters: {

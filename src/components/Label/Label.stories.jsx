@@ -8,21 +8,29 @@ export default {
   component: Label,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['tooltip', 'label', 'className', 'required'] }
+    controls: { include: ['label', 'className', 'fieldName'] },
+    docs: {
+      description: {
+        component: 'Simple &lt;label&gt; element'
+      }
+    }
   },
   args: {
     label: 'Field Label'
+  },
+  argTypes: {
+    fieldName: {
+      description: 'The field name of the input that this label describes'
+    }
   }
 }
 
-function Template ({ tooltip, label, className, htmlFor, required }) {
+function Template ({ label, className, fieldName }) {
   return (
     <Label
-      tooltip={tooltip}
       label={label}
       className={className}
-      htmlFor={htmlFor}
-      required={required}
+      fieldName={fieldName}
     />
   )
 }

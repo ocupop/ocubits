@@ -19,15 +19,15 @@ module.exports = {
         primary: '#0044ff',
         // secondary:
         accent: '#FFC62F',
-
+        mid: '#a8a8a8',
         dark: '#3d3d3d',
         // mid:
         light: '#CfCfCf',
 
-        // info:
-        // success:
-        warning: '#DB363E'
-        // danger:
+        info: '#3ABFF8',
+        success: '#479f53',
+        warning: '#f3cc61',
+        error: '#d4302f'
       }
     }
   },

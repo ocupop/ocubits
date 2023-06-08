@@ -1,17 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
 
-import Label from '../Label/Label'
+import { Label, FieldGroup, Hint, ErrorMessage } from '@components'
+import { fieldStatus } from '@lib'
 import './TextInput.css'
 // ----------------------------------------------------------------------
 
 TextInput.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.func,
-  tooltip: PropTypes.string,
-  hint: PropTypes.string,
   label: PropTypes.string,
+  hint: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -26,33 +24,37 @@ TextInput.defaultProps = {
 
 export default function TextInput ({
   className,
-  innerRef,
-  tooltip,
-  hint,
   label,
+  hint,
   placeholder,
   required,
   disabled,
   field,
-  form: { errors, touched }
+  form
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
+  const { name, value } = field
+  const error = fieldStatus({ form, field })
+
   return (
-    <div className={`ocufield ocu-textinput form-group ${className} ${status} ${disabled && 'disabled'}`}>
-      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
-      <input
-        className={'form-input'}
-        {...field}
-        placeholder={placeholder}
-        type='text'
-        required={required}
-        disabled={disabled}
-        ref={innerRef}
-      />
-      {hint && <div className='hint'>{hint}</div>}
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
-    </div>
+    <FieldGroup
+      className={className}
+      required={required}
+      disabled={disabled}
+      error={error}>
+      <Label fieldName={name} label={label} />
+      <div className="field-input">
+        <input
+          id={name}
+          {...field}
+          value={value || ''}
+          type='text'
+          placeholder={placeholder}
+          required={required}
+          disabled={disabled}
+        />
+        <Hint hint={hint} />
+        <ErrorMessage error={error} />
+      </div>
+    </FieldGroup>
   )
 }

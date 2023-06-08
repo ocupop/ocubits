@@ -3,7 +3,7 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper } from '@lib'
-import CheckboxInput from './Checkbox'
+import CheckboxInput from './CheckboxInput'
 // ----------------------------------------------------------------------
 
 export default {
@@ -11,7 +11,7 @@ export default {
   component: CheckboxInput,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'className', 'required', 'disabled', 'debug'] }
+    controls: { include: ['name', 'label', 'hint', 'className', 'required', 'disabled', 'debug'] }
   },
   args: {
     name: 'checkFieldName',
@@ -19,7 +19,7 @@ export default {
   }
 }
 
-function Template ({ name, label, tooltip, hint, className, initialValues, required, disabled, debug }) {
+function Template ({ name, label, hint, className, initialValues, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -30,7 +30,6 @@ function Template ({ name, label, tooltip, hint, className, initialValues, requi
         className={className}
         name={name}
         label={label}
-        tooltip={tooltip}
         hint={hint}
         required={required}
         disabled={disabled}

@@ -1,0 +1,3 @@
+.input-hint{
+  @apply w-full text-sm text-dark;
+}

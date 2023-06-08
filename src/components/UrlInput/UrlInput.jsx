@@ -1,17 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
-
-import Label from '../Label/Label'
+import classNames from 'classnames'
+import { Label, Hint, ErrorMessage, FieldGroup } from '@components'
+import { removeProtocol, fieldStatus } from '@lib'
 import './UrlInput.css'
 // ----------------------------------------------------------------------
 
 UrlInput.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.func,
-  tooltip: PropTypes.string,
-  hint: PropTypes.string,
   label: PropTypes.string,
+  hint: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -28,63 +26,48 @@ UrlInput.defaultProps = {
 
 export default function UrlInput ({
   className,
-  innerRef,
-  tooltip,
-  hint,
   label,
+  hint,
   placeholder,
   required,
   disabled,
-  field,
   secure,
-  form: { errors, touched }
+  field,
+  form
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
-
-  const displayUrl = field.value ? field.value.replace(/(^\w+:|^)\/\//, '') : ''
-
-  const handleOnBlur = (e) => {
-    let url = window.decodeURIComponent(e.target.value)
-    if (url) {
-      url = url.trim().replace(/\s/g, '') /// trim and remove spaces
-      e.target.value = addProtocol(url)
-    }
-
-    if (field.onChange) field.onChange(e)
+  const { name } = field
+  const error = fieldStatus({ form, field })
+  const [display, setDisplay] = useState(removeProtocol(field.value))
+  const handleChange = (value) => {
+    const url = formatUrl(value)
+    form.setFieldValue(name, url)
   }
-
-  const addProtocol = (url) => {
-    if (/^[a-zA-Z]+:\/\//.test(url)) {
-      console.log('Url already contains protocol')
-    } else {
-      console.log('NO protocol')
-      url = `http${secure ? 's' : ''}://${url}`
-    }
-    return url
+  const formatUrl = (value) => {
+    const url = removeProtocol(value)
+    setDisplay(url)
+    return secure ? `https://${url}` : `http://${url}`
   }
-
   return (
-    <div className={`ocufield ocu-urlinput form-group ${className} ${disabled && 'disabled'}`}>
-
-      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
-      <div className="input-group">
-        <span className="input-group-text prefix" id="basic-addon1">http{secure ? 's' : ''}://</span>
+    <FieldGroup
+      className={classNames('url-field', className)}
+      required={required}
+      disabled={disabled}
+      error={error}>
+      <Label fieldName={name} label={label} />
+      <div className="field-input">
+        <span className="input-modifier">{secure ? 'https://' : 'http://'}</span>
         <input
-          className={`form-input ${status}`}
-          { ...field }
-          value={displayUrl}
-          placeholder={placeholder}
+          id={name}
           type='url'
+          placeholder={placeholder}
           required={required}
           disabled={disabled}
-          ref={innerRef}
-          onBlur={handleOnBlur}
+          value={display}
+          onChange={({ target: { value } }) => handleChange(value)}
         />
       </div>
-      {hint && <div className='hint'>{hint}</div>}
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
-    </div>
+      <Hint hint={hint} />
+      <ErrorMessage error={error} />
+    </FieldGroup>
   )
 }

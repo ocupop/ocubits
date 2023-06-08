@@ -11,7 +11,7 @@ export default {
   component: DateInput,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'range', 'twoFields', 'isClearable', 'required', 'disabled'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'range', 'required', 'disabled'] }
   },
   argTypes: {
     range: {
@@ -33,7 +33,7 @@ export default {
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, range, twoFields, isClearable, required, disabled, debug }) {
+function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, range, required, disabled, debug }) {
   return (
     <FormikWrapper
       initialValues={initialValues}
@@ -48,8 +48,6 @@ function Template ({ name, label, tooltip, hint, placeholder, className, initial
         placeholder={placeholder}
         className={className}
         range={range}
-        twoFields={twoFields}
-        isClearable={isClearable}
         required={required}
         disabled={disabled}
       />

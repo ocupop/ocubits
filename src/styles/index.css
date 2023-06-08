@@ -9,39 +9,9 @@
 
 
 
+
+
 .ocufield{
-  &.disabled{
-    @apply opacity-30;
-  }
-  @apply mb-3;
-  /* Input borders, colors and padding */
-  .form-input{
-    @apply w-full mb-1 border text-dark border-light bg-white rounded-md px-5 py-3;
-    &:focus-visible{
-      @apply outline-accent;
-    }
-  }
-
-  /* Checkbox */
-  input[type=checkbox]{
-    @apply appearance-none;
-    @apply relative inline-block mr-2 mb-2;
-    @apply w-5 aspect-square;
-    @apply bg-white border border-light rounded-sm;
-    &::before{
-      content:'';
-      @apply absolute w-full h-full;
-      @apply bg-contain bg-no-repeat bg-center;
-
-    }
-  }
-  input[type="checkbox"]:checked {
-    @apply bg-accent border-accent;
-    &::before{
-      background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 420 420' style='enable-background:new 0 0 420 420;' xml:space='preserve'%3E%3Cpolygon class='st0' style='fill:currentColor;' points='46.3,230.5 73.3,203.5 151.3,281.5 347,85.8 373.7,112.5 152,334.2 '/%3E%3C/svg%3E");
-      @apply brightness-0 invert;
-    }
-  }
 
   /* Consistent vertical spacing */
   .form-input, .input-group, .hint, .form-validation-error, .select__control{
@@ -53,39 +23,7 @@
     @apply w-full text-sm text-dark;
   }
 
-  /* Validation */
-  &.invalid .form-input, &.valid .form-input, &.invalid .select__control, &.valid .select__control{
-    @apply bg-no-repeat;
-    background-position:right 1rem center ;
-    background-size:1.25rem;
-  }
-  &.invalid .form-input, &.invalid .select__control{
-    @apply border-warning border-2;
-    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 639 639' style='enable-background:new 0 0 639 639;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23DB363E;%7D%0A%3C/style%3E%3Cpath class='st0' d='M319.5,0C143,0,0,143,0,319.5S143,639,319.5,639S639,496,639,319.5S496,0,319.5,0z M369.8,137l-15.7,265h-69.9 l-14.1-265H369.8z M319.9,544c-27.6,0-50-22.4-50-50c0-27.6,22.4-50,50-50c27.6,0,50,22.4,50,50C369.9,521.6,347.5,544,319.9,544z' /%3E%3C/svg%3E");
-  }
-  &.valid .form-input, &.valid .select__control{
-    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 639 639' style='enable-background:new 0 0 639 639;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%235EA568;%7D%0A%3C/style%3E%3Cpath class='st0' d='M319.5,0C143,0,0,143,0,319.5S143,639,319.5,639S639,496,639,319.5S496,0,319.5,0z M285.5,457.5l-133.6-138 l47.3-47.3L286,359l169-169l49,49L285.5,457.5z'/%3E%3C/svg%3E");
-  }
-  .form-validation-error{
-    @apply w-full rounded-md block bg-warning bg-opacity-20 text-dark p-5;
-    ul{
-      @apply list-disc;
-      li{
-        @apply ml-6;
-      }
-    }
-  }
 
-  /* LABEL */
-  .label-wrap{
-    @apply flex relative text-sm font-bold mb-2;
-    label{
-      @apply whitespace-nowrap;
-    }
-    &.required::before{
-      @apply content-['*'] text-warning mr-1;
-    }
-  }
 
   /* Input Group */
 

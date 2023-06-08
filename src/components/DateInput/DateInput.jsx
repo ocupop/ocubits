@@ -1,114 +1,103 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
+import classNames from 'classnames'
 import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+import { FaCalendarDay } from 'react-icons/fa'
 
-import Label from '../Label/Label'
+import { FieldGroup, Label, Hint, ErrorMessage } from '@components'
+import { fieldStatus } from '@lib'
 import './DateInput.css'
 // ----------------------------------------------------------------------
 
 DateInput.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.func,
-  tooltip: PropTypes.string,
-  hint: PropTypes.string,
   label: PropTypes.string,
+  hint: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
-  field: PropTypes.instanceOf(Object),
-  form: PropTypes.instanceOf(Object),
   range: PropTypes.bool,
-  twoFields: PropTypes.bool,
-  isClearable: PropTypes.bool,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  field: PropTypes.instanceOf(Object),
+  form: PropTypes.instanceOf(Object)
 }
 
 DateInput.defaultProps = {
-  range: false,
-  twoFields: true,
-  isClearable: false,
   required: false,
   disabled: false,
-  onChange: () => null
+  range: false,
+  onChange: null
 }
 
 export default function DateInput ({
   className,
-  innerRef,
-  tooltip,
-  hint,
   label,
+  hint,
   placeholder,
+  range,
+  onChange,
+  required,
+  disabled,
   field,
   form,
-  form: { errors, touched },
-  onChange,
-  isClearable,
-  range,
-  twoFields,
-  required,
-  disabled
+  ...config
 }) {
-  const handleValueChange = (newValue) => {
-    form.setFieldValue(field.name, newValue)
-    onChange && onChange(newValue)
+  const { name, value } = field
+  console.log('VALUE', value)
+  const { setFieldValue } = form
+  const error = fieldStatus({ form, field })
+  const handleChange = (date) => {
+    if (!onChange) {
+      setFieldValue(name, date)
+      return
+    }
+    onChange(date)
   }
-  const setStartDate = (newValue) => {
-    form.setFieldValue(field.name, [newValue, Array.isArray(field.value) ? field.value[1] : null])
-  }
-  const setEndDate = (newValue) => {
-    form.setFieldValue(field.name, [Array.isArray(field.value) ? field.value[0] : null, newValue])
-  }
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
-  const startDate = Array.isArray(field.value) && field.value.length > 0 ? field.value[0] : null
-  const endDate = Array.isArray(field.value) && field.value.length > 1 ? field.value[1] : null
+
   return (
-    <div className={`ocufield ocu-dateinput form-group ${className} ${disabled && 'disabled'}`}>
-      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
-      <DatePicker
-        className={`form-input ${status}`}
-        selected={(!range && field.value) ? field.value : startDate || null }
-        onChange={(!range || !twoFields) ? handleValueChange : setStartDate}
-        showTimeSelect={false}
-        showIcon={true}
-        dateFormat="MMMM d, yyyy"
-        placeholderText={placeholder}
-        withPortal={false}
-        isClearable={isClearable}
-        selectsStart={range && twoFields}
-        selectsRange={range && !twoFields}
-        startDate={range && startDate}
-        endDate={range && endDate}
-        disabled={disabled}
-      />
+    <FieldGroup
+      className={classNames('date-field', className)}
+      required={required}
+      disabled={disabled}
+      error={error}>
+      <Label fieldName={name} label={label} />
+      <div className="field-input">
+        <span className="input-modifier"><FaCalendarDay className="text-dark/90" /></span>
+        {range && (
+          <>
+            <DatePicker
+              selected={value?.startDate}
+              onChange={(date) => setFieldValue(name, { ...value, startDate: date })}
+              selectsStart
+              startDate={value?.startDate}
+              endDate={value?.endDate}
+              {...config}
+            />
+            <DatePicker
+              selected={value?.endDate}
+              onChange={(date) => setFieldValue(name, { ...value, endDate: date })}
+              selectsEnd
+              startDate={value?.startDate}
+              endDate={value?.endDate}
+              minDate={value?.startDate}
+              {...config}
+            />
+          </>
+        )}
 
-      {(range && twoFields) &&
-      <DatePicker
-        className={`form-input ${status}`}
-        selected={
-          !Array.isArray(field.value)
-            ? null
-            : field.value.length > 1 ? field.value[1] : field.value.length > 0 ? field.value[0] : null
-        }
-        onChange={setEndDate}
-        showTimeSelect={false}
-        showIcon={true}
-        dateFormat="MMMM d, yyyy"
-        isClearable={isClearable}
-        placeholderText={placeholder}
-        withPortal={false}
+        {!range && (
+          <DatePicker
+            id={name}
+            selected={value}
+            onChange={handleChange}
+            placeholderText={placeholder}
+            {...config}
+          />
+        )}
 
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-      />
-      }
-      {hint && <div className='hint'>{hint}</div>}
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
-    </div>
+        <Hint hint={hint} />
+        <ErrorMessage error={error} />
+      </div>
+    </FieldGroup>
   )
 }

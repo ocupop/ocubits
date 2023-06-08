@@ -1,19 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn, Field } from 'formik'
+import classNames from 'classnames'
+import { Field } from 'formik'
 
-import TextInput from '../TextInput/TextInput'
-import NumberInput from '../NumberInput/NumberInput'
-import SelectInput from '../SelectInput/SelectInput'
-import Label from '../Label/Label'
+import { FieldGroup, Label, Hint, ErrorMessage, TextInput, NumberInput, SelectInput } from '@components'
+import { fieldStatus } from '@lib'
 import './AddressInput.css'
 // ----------------------------------------------------------------------
 
 AddressInput.propTypes = {
   className: PropTypes.string,
-  tooltip: PropTypes.string,
-  hint: PropTypes.string,
   label: PropTypes.string,
+  hint: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   field: PropTypes.instanceOf(Object),
@@ -29,19 +27,22 @@ const statesArray = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
 
 export default function AddressInput ({
   className,
-  tooltip,
-  hint,
   label,
+  hint,
   required,
   disabled,
   field,
-  form: { errors, touched }
+  form
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
+  const { name } = field
+  const error = fieldStatus({ form, field })
   return (
-    <div className={`ocufield ocu-addressinput form-group ${className} ${status} ${disabled && 'disabled'}`}>
-
-      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
+    <FieldGroup
+      className={classNames(className)}
+      required={required}
+      disabled={disabled}
+      error={error}>
+      <Label fieldName={name} label={label} />
 
       <div className="address-fields">
         <Field
@@ -97,10 +98,8 @@ export default function AddressInput ({
         /> */}
       </div>
 
-      {hint && <div className='hint'>{hint}</div>}
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
-    </div>
+      <Hint hint={hint} />
+      <ErrorMessage error={error} />
+    </FieldGroup>
   )
 }

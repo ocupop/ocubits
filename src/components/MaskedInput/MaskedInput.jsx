@@ -1,20 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
 // eslint-disable-next-line import/no-named-default
 import { default as ReactMaskedInput } from 'react-text-mask'
+import { getIn } from 'formik'
 
-import Label from '../Label/Label'
+import { FieldGroup, Label, Hint, ErrorMessage } from '@components'
+import { fieldStatus } from '@lib'
 import '../TextInput/TextInput.css'
 // ----------------------------------------------------------------------
 
 MaskedInput.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.func,
-  tooltip: PropTypes.string,
-  hint: PropTypes.string,
-  type: PropTypes.string,
   label: PropTypes.string,
+  hint: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -24,48 +22,53 @@ MaskedInput.propTypes = {
     PropTypes.array,
     PropTypes.func
   ]),
+  type: PropTypes.string,
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
 
 MaskedInput.defaultProps = {
-  type: 'text',
+  required: false,
+  disabled: false,
   maskOptions: false,
-  required: false
+  type: 'text'
 }
 
 export default function MaskedInput ({
   className,
-  innerRef,
-  tooltip,
-  hint,
-  type,
   label,
+  hint,
   placeholder,
   required,
   disabled,
   maskOptions,
+  type,
   field,
-  form: { errors, touched }
+  form
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
+  const { name } = field
+  const error = fieldStatus({ form, field })
+
   return (
-    <div className={`ocufield ocu-textinput form-group ${className} ${status} ${disabled && 'disabled'}`}>
-      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
-      <ReactMaskedInput
-        mask={maskOptions}
-        className={'form-input'}
-        {...field}
-        placeholder={placeholder}
-        type={type}
-        required={required}
-        disabled={disabled}
-        ref={innerRef}
-      />
-      {hint && <div className='hint'>{hint}</div>}
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
-    </div>
+    <FieldGroup
+      className={className}
+      required={required}
+      disabled={disabled}
+      error={error}>
+      <Label fieldName={name} label={label} />
+      <div className="field-input">
+        <ReactMaskedInput
+          id={name}
+          {...field}
+          type={type}
+          mask={maskOptions}
+          placeholder={placeholder}
+          disabled={disabled}
+          required={required}
+        />
+        <Hint hint={hint} />
+        <ErrorMessage error={error} />
+      </div>
+    </FieldGroup>
   )
 }

@@ -1,26 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
-import { getIn } from 'formik'
 
-import Label from '../Label/Label'
+import { FieldGroup, Label, Hint, ErrorMessage } from '@components'
+import { fieldStatus } from '@lib'
+
 import './RichInput.css'
 // ----------------------------------------------------------------------
 
 RichInput.propTypes = {
   className: PropTypes.string,
-  theme: PropTypes.string,
-  innerRef: PropTypes.func,
-  tooltip: PropTypes.string,
-  hint: PropTypes.string,
   label: PropTypes.string,
+  hint: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
+  theme: PropTypes.string,
+  onChange: PropTypes.func,
   field: PropTypes.instanceOf(Object),
-  form: PropTypes.instanceOf(Object),
-  onChange: PropTypes.func
+  form: PropTypes.instanceOf(Object)
 }
 
 RichInput.defaultProps = {
@@ -31,19 +31,19 @@ RichInput.defaultProps = {
 
 export default function RichInput ({
   className,
-  theme,
-  tooltip,
-  hint,
   label,
+  hint,
   placeholder,
   required,
   disabled,
+  theme,
+  onChange,
   field,
-  form,
-  form: { errors, touched },
-  onChange
+  form
 }) {
-  const status = getIn(touched, field.name) && getIn(errors, field.name) ? 'invalid' : ''
+  const { name } = field
+  const error = fieldStatus({ form, field })
+
   const handleOnChange = (val) => {
     if (onChange) onChange(val)
     form.setFieldValue(field.name, val)
@@ -60,8 +60,13 @@ export default function RichInput ({
   }
 
   return (
-    <div className={`ocufield ocu-richinput form-group ${className} ${status} ${disabled && 'disabled'}`}>
-      <Label label={label} tooltip={tooltip} htmlFor={field.name} required={required}/>
+    <FieldGroup
+    className={classNames('rich-input-field', className)}
+      required={required}
+      disabled={disabled}
+      error={error}
+    >
+      <Label fieldName={name} label={label} />
       <ReactQuill
         {...field}
         modules = {modules}
@@ -73,10 +78,8 @@ export default function RichInput ({
         readOnly = {disabled}
         placeholder={placeholder}
       />
-      {hint && <div className='hint'>{hint}</div>}
-      {getIn(touched, field.name) && getIn(errors, field.name) && (
-        <small className="form-validation-error">{getIn(errors, field.name)}</small>
-      )}
-    </div>
+      <Hint hint={hint} />
+      <ErrorMessage error={error} />
+    </FieldGroup>
   )
 }

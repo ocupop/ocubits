@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import MaskedInput from '../MaskedInput/MaskedInput'
+import MaskedInput from 'react-text-mask'
 import emailMask from 'text-mask-addons/dist/emailMask'
+
+import { FieldGroup, Label, Hint, ErrorMessage } from '@components'
+import { fieldStatus } from '@lib'
 // ----------------------------------------------------------------------
 
 EmailInput.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.func,
-  tooltip: PropTypes.string,
   hint: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
@@ -20,11 +20,43 @@ EmailInput.propTypes = {
 
 EmailInput.defaultProps = {
   required: false,
-  disabled: false
+  disabled: false,
+  placeholder: '___@___.___'
 }
 
-export default function EmailInput (props) {
+export default function EmailInput ({
+  className,
+  label,
+  hint,
+  placeholder,
+  required,
+  disabled,
+  field,
+  form
+}) {
+  const { name } = field
+  const error = fieldStatus({ form, field })
+
   return (
-    <MaskedInput {...props} type='text' maskOptions={emailMask} />
+    <FieldGroup
+      className={className}
+      required={required}
+      disabled={disabled}
+      error={error}>
+      <Label fieldName={name} label={label} />
+      <div className="field-input">
+        <MaskedInput
+          id={name}
+          {...field}
+          type='text'
+          mask={emailMask}
+          placeholder={placeholder}
+          disabled={disabled}
+          required={required}
+        />
+        <Hint hint={hint} />
+        <ErrorMessage error={error} />
+      </div>
+    </FieldGroup>
   )
 }

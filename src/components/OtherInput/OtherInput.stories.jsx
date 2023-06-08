@@ -3,18 +3,18 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FormikWrapper } from '@lib'
-import PhoneInput from './PhoneInput'
+import OtherInput from './OtherInput'
 // ----------------------------------------------------------------------
 
 export default {
-  title: 'Fields/PhoneInput',
-  component: PhoneInput,
+  title: 'Fields/OtherInput',
+  component: OtherInput,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'debug', 'disabled', 'format'] },
+    controls: { include: ['name', 'className', 'label', 'hint', 'placeholder', 'required', 'disabled', 'inputType'] },
     docs: {
       description: {
-        component: 'US Numbers only. Area code is required. If the initial value is more than 10 characters, all non-number characters are stripped out, and the last 10 digits are used. This should solve for country codes, spaces and parenthesis.'
+        component: 'When unchecked, the value of the text box will be removed from formik values, but rememebered in case the input is re-checked by the user.'
       }
     }
   },
@@ -22,31 +22,43 @@ export default {
     name: {
       description: 'Name of the variable.'
     },
-    label: {}
+    inputType: {
+      description: 'Type of form input'
+    }
   },
   args: {
-    name: 'phone',
-    label: 'Phone Number'
+    name: 'the-other-value',
+    label: 'Enter Your Own Value'
   }
 }
 
-function Template ({ name, label, tooltip, hint, placeholder, className, initialValues, required, disabled, format, debug }) {
+function Template ({
+  name,
+  className,
+  label,
+  hint,
+  placeholder,
+  required,
+  disabled,
+  inputType,
+  initialValues,
+  debug
+}) {
   return (
     <FormikWrapper
       initialValues={initialValues}
       debug={debug}
     >
       <Field
-        component={PhoneInput}
+        component={OtherInput}
         name={name}
+        className={className}
         label={label}
-        tooltip={tooltip}
         hint={hint}
         placeholder={placeholder}
-        className={className}
-        format={format}
         required={required}
         disabled={disabled}
+        inputType={inputType}
       />
     </FormikWrapper>
   )
