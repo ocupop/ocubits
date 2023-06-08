@@ -11,17 +11,19 @@ export default {
   component: OtherInput,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'className', 'label', 'hint', 'placeholder', 'required', 'disabled'] }
+    controls: { include: ['name', 'className', 'label', 'hint', 'placeholder', 'required', 'disabled', 'inputType'] },
+    docs: {
+      description: {
+        component: 'When unchecked, the value of the text box will be removed from formik values, but rememebered in case the input is re-checked by the user.'
+      }
+    }
   },
   argTypes: {
     name: {
       description: 'Name of the variable.'
     },
-    label: {},
-    format: {
-      control: 'select',
-      options: ['usParens', 'usNoAreaCode', null],
-      description: 'Supported formats include usParens (xxx) xxx-xxx and usNoAreaCode xxx-xxx'
+    inputType: {
+      description: 'Type of form input'
     }
   },
   args: {
@@ -38,6 +40,7 @@ function Template ({
   placeholder,
   required,
   disabled,
+  inputType,
   initialValues,
   debug
 }) {
@@ -55,6 +58,7 @@ function Template ({
         placeholder={placeholder}
         required={required}
         disabled={disabled}
+        inputType={inputType}
       />
     </FormikWrapper>
   )

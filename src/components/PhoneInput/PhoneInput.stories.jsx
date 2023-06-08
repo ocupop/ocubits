@@ -11,18 +11,18 @@ export default {
   component: PhoneInput,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'debug', 'disabled', 'format'] }
+    controls: { include: ['name', 'label', 'tooltip', 'hint', 'placeholder', 'className', 'required', 'debug', 'disabled', 'format'] },
+    docs: {
+      description: {
+        component: 'US Numbers only. Area code is required. If the initial value is more than 10 characters, all non-number characters are stripped out, and the last 10 digits are used. This should solve for country codes, spaces and parenthesis.'
+      }
+    }
   },
   argTypes: {
     name: {
       description: 'Name of the variable.'
     },
-    label: {},
-    format: {
-      control: 'select',
-      options: ['usParens', 'usNoAreaCode', null],
-      description: 'Supported formats include usParens (xxx) xxx-xxx and usNoAreaCode xxx-xxx'
-    }
+    label: {}
   },
   args: {
     name: 'phone',

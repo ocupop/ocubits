@@ -14,12 +14,14 @@ OtherInput.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
+  inputType: PropTypes.oneOf(['checkbox', 'radio']),
   field: PropTypes.instanceOf(Object),
   form: PropTypes.instanceOf(Object)
 }
 OtherInput.defaultProps = {
   required: false,
   disabled: false,
+  inputType: 'checkbox',
   placeholder: 'Other'
 }
 export default function OtherInput ({
@@ -29,6 +31,7 @@ export default function OtherInput ({
   placeholder,
   required,
   disabled,
+  inputType,
   field,
   form
 }) {
@@ -50,9 +53,8 @@ export default function OtherInput ({
       disabled={disabled}
       error={error}>
       <div className="field-input">
-
         <input
-          type='checkbox'
+          type={inputType}
           id={name}
           checked={isChecked}
           onChange={handleChange}

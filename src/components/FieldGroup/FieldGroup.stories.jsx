@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import FieldGroup from './FieldGroup'
+
+import { Label, TextInput } from '@components'
 // ----------------------------------------------------------------------
 
 export default {
@@ -8,7 +10,12 @@ export default {
   component: FieldGroup,
   tags: ['autodocs'],
   parameters: {
-    controls: { include: ['className', 'children', 'required', 'disabled', 'error'] }
+    controls: { include: ['className', 'required', 'disabled', 'error'] },
+    docs: {
+      description: {
+        component: 'This element wraps each group of field input elements. Typically this might inlcude the label, input, hint and validation errors.'
+      }
+    }
   },
   argTypes: {
     error: {
@@ -22,14 +29,9 @@ export default {
       <label className='field-label'>The Field Label</label>
       <div className="field-input">
         <input
-          value='Text Input Value'
           type='text'
           placeholder='Enter Your Text'
-          // required={required}
-          // disabled={disabled}
         />
-        {/* <Hint hint={hint} />
-        <ErrorMessage error={error} /> */}
       </div>
     </div>,
     required: false,

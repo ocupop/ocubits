@@ -1,17 +1,17 @@
 .field-group {
   /* display: flex;
   align-items: flex-start; */
-  margin-bottom: 1rem;
+  @apply mb-4;
+
 
   & > label {
-    display: block;
+    @apply block;
     /* width: 28rem; */
     /* @apply text-lg; */
   }
 
   .field-input {
-    display: block;
-    width: 100%;
+    @apply w-full block;
   }
 
   .field-input input {}
@@ -23,12 +23,7 @@
   .field-input input[type="number"],
   .field-input input[type="date"],
   .field-input textarea {
-    display: inline-block;
-    width: 100%;
-    padding: 0.5rem;
-    background-color: theme('colors.white');
-    border: 1px solid theme('colors.mid');
-    border-radius: 0.25rem;
+    @apply inline-block rounded-md p-2 bg-white w-full border border-mid;
   }
 
   .field-input input[type="checkbox"] {
@@ -37,21 +32,33 @@
     @apply mr-3;
     @apply border border-mid rounded;
   }
+  .field-input input[type=radio] {
+    @apply cursor-pointer;
+    @apply relative inline-block;
+    @apply w-5 mr-2 aspect-square;
+    @apply bg-white rounded-full;
+  }
 
   .field-input .input-hint {}
 
   .field-input .input-error {
-    display: block;
-    margin-top: 0.25rem;
-    color: theme('colors.error');
+    @apply block mt-1 text-error;
   }
 }
 
 .field-group.error {
-  border-bottom: 1px solid theme('colors.error');
+  @apply border-b-error;
 }
-.field-group.required {}
-.field-group.disabled {}
+.field-group.required {
+  label{
+    @apply after:text-error after:ml-1 after:content-['*'];
+  }
+}
+.field-group.disabled {
+  input, textarea, select{
+    @apply opacity-30 pointer-events-none;
+  }
+}
 
 
 

@@ -31,7 +31,7 @@ export default function Fieldset ({
         <legend>{name}</legend>
         {collapsible && (
           <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? 'close' : 'open'}
+            {isOpen ? <span>&#9650;</span> : <span>&#9660;</span>}
           </button>
         )}
       </header>

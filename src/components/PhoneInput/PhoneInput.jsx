@@ -37,7 +37,7 @@ export default function PhoneInput ({
 }) {
   const { name } = field
   const error = fieldStatus({ form, field })
-
+  console.log(field)
   return (
     <FieldGroup
       className={className}
@@ -49,6 +49,7 @@ export default function PhoneInput ({
         <MaskedInput
           id={name}
           {...field}
+          value={field.value?.length > 11 ? field.value.replace(/\D/g, '').slice(-10) : field.value}
           type='text'
           mask={phoneMask}
           placeholder={placeholder}
