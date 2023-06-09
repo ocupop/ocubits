@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PropTypes, { bool } from 'prop-types'
 import FormikDebug from './FormikDebug'
 import { Formik, Form } from 'formik'

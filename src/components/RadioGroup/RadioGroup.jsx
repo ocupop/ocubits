@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PropTypes from 'prop-types'
 import { getIn, Field, FormikProvider } from 'formik'
 import Label from '../Label/Label'

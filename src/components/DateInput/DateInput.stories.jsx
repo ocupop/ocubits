@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+
 import { Field } from 'formik'
 
 import { FormikWrapper } from '@lib'

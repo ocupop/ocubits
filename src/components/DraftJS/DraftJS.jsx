@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PropTypes from 'prop-types'
 import { EditorState, setEditorState } from 'draft-js'
 import { Editor } from 'react-draft-wysiwyg'

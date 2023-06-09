@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PropTypes, { bool } from 'prop-types'
 import { getIn } from 'formik'
 import Label from '../Label/Label'

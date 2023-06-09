@@ -1,4 +1,4 @@
-import React from 'react';
+;
 import { getIn, FieldProps, FormikProps } from 'formik';
 import Select, { Props as SelectProps } from 'react-select';
 

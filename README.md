@@ -12,7 +12,7 @@ yarn add @ocupop/ocubits
 Then use it in your app:
 
 ```js
-import React from 'react'
+
 import { Form, Field, TextInput, Submit } from '@ocupop/ocubits'
 import '@ocupop/ocubits/dist/style.css'
 // ----------------------------------------------------------------------
