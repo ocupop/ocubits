@@ -1,8 +1,0 @@
-.ocu-checkbox{
-  &.form-group{
-    @apply flex flex-wrap items-start ;
-    .label-and-hint{
-      @apply w-[calc(100%-30px)];
-    }
-  }
-}

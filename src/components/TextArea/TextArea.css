@@ -1,7 +1,0 @@
-.ocu-textarea{
-  &.invalid .form-input, &.valid .form-input{
-    background-position:right 1rem top 1rem ;
-  }
-}
-
-

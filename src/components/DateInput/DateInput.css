@@ -1,9 +1,0 @@
-.ocu-dateinput{
- .react-datepicker__calendar-icon{
-    @apply w-10 h-10 mt-1;
-    @apply fill-light;
-  }
-  input[type=text]{
-    @apply pl-10;
-  }
-}
